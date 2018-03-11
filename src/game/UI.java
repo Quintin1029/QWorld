@@ -31,7 +31,7 @@ public class UI {
 		}
 		GraphicsEnvironment graphics = GraphicsEnvironment.getLocalGraphicsEnvironment();
 		graphics.registerFont(font);
-		font = font.deriveFont(12f);
+		font = font.deriveFont(Library.FONT_SIZE);
 		
 		frame = new JFrame("QWorld");
 		frame.setSize(500, 500);

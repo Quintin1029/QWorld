@@ -22,12 +22,13 @@ public class Library {
 	public static char LANDMARK_ENEMY = '\u2738'; //star
 	
 	//window stats
-	public static int WINDOW_SCREEN_CHAR_WIDTH = 50;
-	public static int WINDOW_SCREEN_CHAR_HEIGHT = 50;
+	public static int WINDOW_SCREEN_CHAR_WIDTH = 40;
+	public static int WINDOW_SCREEN_CHAR_HEIGHT = 40;
 	public static int WINDOW_SCREEN_PIXEL_WIDTH = 500;
 	public static int WINDOW_SCREEN_PIXEL_HEIGHT = 500;
 	public static int ZONE_WIDTH = 10;
 	public static int ZONE_HEIGHT = 10;
+	public static float FONT_SIZE = 15f;
 	
 	//game options
 	public static int WORLD_SIZE = 1000;

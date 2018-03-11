@@ -9,8 +9,8 @@ public class Library {
 	public static char LANDMARK_NULL = 'X';//'\u2593';
 	public static char LANDMARK_GROUND = ' ';
 	public static char LANDMARK_SEA = '~';
-	public static char LANDMARK_PATH = '\u2591';
-	public static char LANDMARK_TREE = '\u2740';
+	public static char LANDMARK_PATH = '#';
+	public static char LANDMARK_TREE = 'T';
 	public static char LANDMARK_MOUNTAIN_TOP = '^';
 	public static char LANDMARK_MOUNTAIN_SIDE_LEFT = '/';
 	public static char LANDMARK_MOUNTAIN_SIDE_RIGHT = '\\';
@@ -18,7 +18,7 @@ public class Library {
 	public static char LANDMARK_HOUSE_TOP_LEFT = '/';
 	public static char LANDMARK_HOUSE_TOP_RIGHT = '\\';
 	public static char LANDMARK_HOUSE_TOP_TOP = '_';
-	public static char LANDMARK_PLAYER='\uC6C3'; //person
+	public static char LANDMARK_PLAYER='O'; //person
 	public static char LANDMARK_ENEMY = '\u2738'; //star
 	
 	//window stats

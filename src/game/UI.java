@@ -7,6 +7,7 @@ import util.MovementKeyListener;
 import util.Vector;
 
 import java.awt.*;
+import java.io.IOException;
 
 public class UI {
 
@@ -19,6 +20,18 @@ public class UI {
 	JLabel [] [] labelHolder;
 	
 	public void run(Game game) {
+		
+		//create the font
+		Font font;
+		try {
+			font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResource("/unifont-10.0.07.ttf").openStream());
+		} catch (FontFormatException | IOException e) {
+			Library.print("INVALID FONT FILE");
+			font = Font.getFont("Arial");
+		}
+		GraphicsEnvironment graphics = GraphicsEnvironment.getLocalGraphicsEnvironment();
+		graphics.registerFont(font);
+		font = font.deriveFont(12f);
 		
 		frame = new JFrame("QWorld");
 		frame.setSize(500, 500);
@@ -34,6 +47,7 @@ public class UI {
 		for (int x = 0; x < Library.WINDOW_SCREEN_CHAR_WIDTH; x++)
 			for (int y = 0; y < Library.WINDOW_SCREEN_CHAR_HEIGHT; y++) {
 				labelHolder[y][x] = new JLabel("" + Library.LANDMARK_NULL, 0);
+				labelHolder[y][x].setFont(font);
 				gridPanel.add(labelHolder[y][x]);
 			}
 		
@@ -50,6 +64,8 @@ public class UI {
 		for (int x = 0; x < Library.WINDOW_SCREEN_CHAR_WIDTH; x++)
 			for (int y = 0; y < Library.WINDOW_SCREEN_CHAR_HEIGHT; y++) {
 				try {
+					//labelHolder[x][y].setText("\u007D");
+					//labelHolder[x][y].setIcon(new ImageIcon("src/icons/Ground.bmp"));
 					labelHolder[x][y].setText("" + world[x + pPos.getX() - Library.WINDOW_SCREEN_CHAR_WIDTH / 2][y + pPos.getY() - Library.WINDOW_SCREEN_CHAR_HEIGHT / 2].getChar());
 				} catch (ArrayIndexOutOfBoundsException e) {
 					labelHolder[x][y].setText("" + Library.LANDMARK_NULL);

@@ -32,7 +32,7 @@ public class ZonePlains extends Zone {
 
 	@Override
 	public double getTreeFrequency(int index) {
-		return 0.1;
+		return 0.005;
 	}
 
 	@Override

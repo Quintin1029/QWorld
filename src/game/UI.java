@@ -6,6 +6,7 @@ import landmarks.Landmark;
 import util.MovementKeyListener;
 import util.StatPanel;
 import util.Vector;
+import zones.Zone;
 
 import java.awt.*;
 import java.io.IOException;
@@ -51,7 +52,6 @@ public class UI {
 		
 		//create and load default grid
 		gridPanel = new JPanel();
-		gridPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
 		gridPanel.setSize(new Dimension(Library.WINDOW_SCREEN_PIXEL_WIDTH, Library.WINDOW_SCREEN_PIXEL_HEIGHT));
 		gridPanel.setLayout(new GridLayout(Library.WINDOW_SCREEN_CHAR_WIDTH, Library.WINDOW_SCREEN_CHAR_HEIGHT, 0, 0));
 		labelHolder = new JLabel[Library.WINDOW_SCREEN_CHAR_WIDTH][Library.WINDOW_SCREEN_CHAR_HEIGHT];
@@ -59,6 +59,7 @@ public class UI {
 			for (int y = 0; y < Library.WINDOW_SCREEN_CHAR_HEIGHT; y++) {
 				labelHolder[y][x] = new JLabel("" + Library.LANDMARK_NULL, 0);
 				labelHolder[y][x].setFont(font);
+				labelHolder[y][x].setOpaque(true);
 				gridPanel.add(labelHolder[y][x]);
 			}
 		
@@ -73,15 +74,14 @@ public class UI {
 		frame.addKeyListener(new MovementKeyListener(game));
 	}
 
-	public void redrawScreen(Landmark[][] world, Vector pPos) {
+	public void redrawScreen(Landmark[][] world, Zone [] [] zones, Vector pPos) {
 		Library.print("Redrawing screen...");
 		//redraw the screen to center the player
 		//if the player is near the edge of the world, make the outside LANDMARK_NULL
 		for (int x = 0; x < Library.WINDOW_SCREEN_CHAR_WIDTH; x++)
 			for (int y = 0; y < Library.WINDOW_SCREEN_CHAR_HEIGHT; y++) {
 				try {
-					//labelHolder[x][y].setText("\u007D");
-					//labelHolder[x][y].setIcon(new ImageIcon("src/icons/Ground.bmp"));
+					labelHolder[x][y].setBackground(WorldGenerator.getZoneAtPosition(zones, new Vector(x, y)).getGroundColor());
 					labelHolder[x][y].setText("" + world[x + pPos.getX() - Library.WINDOW_SCREEN_CHAR_WIDTH / 2][y + pPos.getY() - Library.WINDOW_SCREEN_CHAR_HEIGHT / 2].getChar());
 				} catch (ArrayIndexOutOfBoundsException e) {
 					labelHolder[x][y].setText("" + Library.LANDMARK_NULL);

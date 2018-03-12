@@ -34,7 +34,7 @@ public class Game {
 			//move the player
 			player.updatePosition(newPos);
 			refreshPlayerStats();
-			ui.redrawScreen(world, newPos);
+			ui.redrawScreen(world, zones, newPos);
 			//TODO add water & food loss
 		} else
 			Library.print("Move failed. Solid Object. Current position " + player.getPosition());

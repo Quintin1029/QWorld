@@ -1,5 +1,7 @@
 package zones;
 
+import java.awt.Color;
+
 import game.Library;
 import landmarks.*;
 
@@ -43,6 +45,11 @@ public class ZonePlains extends Zone {
 	@Override
 	public String getName() {
 		return "Plains";
+	}
+
+	@Override
+	public Color getGroundColor() {
+		return new Color(122, 239, 83); //light green
 	}
 
 }

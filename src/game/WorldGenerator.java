@@ -3,6 +3,7 @@ package game;
 import java.util.Random;
 
 import landmarks.Landmark;
+import landmarks.LandmarkHome;
 import util.QRandom;
 import util.Vector;
 import zones.Zone;
@@ -29,6 +30,7 @@ public class WorldGenerator {
 		Landmark [] [] world = new Landmark[Library.WORLD_SIZE][Library.WORLD_SIZE];
 		generateGround(world, zones);
 		generateTrees(world, zones);
+		generateUnique(world, zones);
 		return world;
 	}
 	
@@ -49,6 +51,10 @@ public class WorldGenerator {
 					dropTree(world, zone, new Vector(x, y));
 			}
 		}
+	}
+	
+	public static void generateUnique(Landmark [] [] world, Zone [] [] zones) {
+		world[Library.WORLD_SIZE / 2][Library.WORLD_SIZE / 2] = new LandmarkHome();
 	}
 	
 	public static Zone newRandomZone() {

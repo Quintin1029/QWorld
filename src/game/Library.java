@@ -20,6 +20,7 @@ public class Library {
 	public static char LANDMARK_HOUSE_TOP_TOP = '_';
 	public static char LANDMARK_PLAYER='O'; //person
 	public static char LANDMARK_ENEMY = '\u2738'; //star
+	public static char LANDMARK_HOME = 'H';
 	
 	//window stats
 	public static int WINDOW_SCREEN_CHAR_WIDTH = 40;

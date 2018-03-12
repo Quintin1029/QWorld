@@ -1,5 +1,7 @@
 package zones;
 
+import java.awt.Color;
+
 import landmarks.Landmark;
 
 public abstract class Zone {
@@ -12,6 +14,7 @@ public abstract class Zone {
 	public abstract double getTreeFrequency(int index);
 	public abstract double getEnemyFrequency(int index);
 	public abstract String getName();
+	public abstract Color getGroundColor();
 	
 	public Zone() {}
 }

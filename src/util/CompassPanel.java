@@ -8,6 +8,12 @@ import java.awt.Polygon;
 
 import javax.swing.JPanel;
 
+/**
+ * The JPanel to represent the compass used in UI.java
+ * Pass in an angle using the method {@code setAngle}
+ * @author Quintin Harter
+ *
+ */
 public class CompassPanel extends JPanel {
 
 	public static int DIAMETER = 60;
@@ -18,10 +24,19 @@ public class CompassPanel extends JPanel {
 	
 	private double angle;
 	
+	/**
+	 * Default Constructor
+	 * @author Quintin Harter
+	 */
 	public CompassPanel() {
 		angle = 0;
 	}
 	
+	/**
+	 * Sets the angle of the compass
+	 * @param angle the angle to display in degrees
+	 * @author Quintin Harter
+	 */
 	public void setAngle(double angle) {
 		this.angle = angle;
 		this.repaint(0, 0, DIAMETER + 2 * DISPLACEMENT, DIAMETER + 2 * DISPLACEMENT);

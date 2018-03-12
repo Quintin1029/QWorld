@@ -2,6 +2,11 @@ package landmarks;
 
 import game.Library;
 
+/**
+ * The null landmark
+ * @author Quintin Harter
+ *
+ */
 public class LandmarkNull extends Landmark {
 
 	@Override

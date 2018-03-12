@@ -1,6 +1,12 @@
 package landmarks;
 
 import game.Library;
+
+/**
+ * The default ground landmark ( )
+ * @author Quintin Harter
+ *
+ */
 public class LandmarkGround extends Landmark {
 
 	@Override

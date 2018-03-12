@@ -33,6 +33,11 @@ public class StatPanel extends JPanel {
 	private double percentHealth;
 	private double angleHome;
 	
+	/**
+	 * Constructor
+	 * @param player the player to track
+	 * @author Quintin Harter
+	 */
 	public StatPanel(PlayerStatManager player) {
 		
 		topPanel = new JPanel();
@@ -85,7 +90,10 @@ public class StatPanel extends JPanel {
 		updatePanel();
 	}
 
-	
+	/**
+	 * Updates the panel based on the player
+	 * @author Quintin Harter
+	 */
 	public void updatePanel() {
 		percentWater = player.getWater() / player.getMaxWater() * 100;
 		percentFood = player.getFood() / player.getMaxFood() * 100;

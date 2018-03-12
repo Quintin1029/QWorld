@@ -2,6 +2,11 @@ package landmarks;
 
 import game.Library;
 
+/**
+ * The path landmark
+ * @author Quintin Harter
+ *
+ */
 public class LandmarkPath extends Landmark {
 
 	@Override

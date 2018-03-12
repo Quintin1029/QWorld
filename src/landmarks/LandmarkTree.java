@@ -2,6 +2,11 @@ package landmarks;
 
 import game.Library;
 
+/**
+ * The tree landmark
+ * @author Quintin Harter
+ *
+ */
 public class LandmarkTree extends Landmark {
 
 	@Override

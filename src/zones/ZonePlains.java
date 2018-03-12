@@ -5,6 +5,11 @@ import java.awt.Color;
 import game.Library;
 import landmarks.*;
 
+/**
+ * The plains zone
+ * @author Quintin Harter
+ *
+ */
 public class ZonePlains extends Zone {
 
 	@Override

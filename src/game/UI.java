@@ -11,6 +11,10 @@ import zones.Zone;
 import java.awt.*;
 import java.io.IOException;
 
+/**
+ * The class that handles all of the user interface for QWorld
+ * @author Quintin Harter
+ */
 public class UI {
 
 	private JFrame frame;
@@ -22,10 +26,20 @@ public class UI {
 
 	private JLabel [] [] labelHolder;
 	
+	/**
+	 * Default constructor
+	 * @param player the player
+	 * @author Quintin Harter
+	 */
 	public UI(PlayerStatManager player) {
 		this.player = player;
 	}
 	
+	/**
+	 * Runs the user interface for the game
+	 * @param game the game being played
+	 * @author Quintin Harter
+	 */
 	public void run(Game game) {
 		
 		//create & register the font
@@ -74,6 +88,13 @@ public class UI {
 		frame.addKeyListener(new MovementKeyListener(game));
 	}
 
+	/**
+	 * Redraws the user interface.
+	 * @param world the world in the game
+	 * @param zones the zones in the game
+	 * @param pPos the player's current position
+	 * @author Quintin Harter
+	 */
 	public void redrawScreen(Landmark[][] world, Zone [] [] zones, Vector pPos) {
 		Library.print("Redrawing screen...");
 		//redraw the screen to center the player

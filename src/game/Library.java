@@ -26,6 +26,7 @@ public class Library {
 	public static char LANDMARK_PLAYER='O'; //person
 	public static char LANDMARK_ENEMY = '\u2738'; //star
 	public static char LANDMARK_HOME = 'H';
+	public static char LANDMARK_WELL = 'W';
 	
 	//window stats: affect UI display
 	public static int WINDOW_SCREEN_CHAR_WIDTH = 40;

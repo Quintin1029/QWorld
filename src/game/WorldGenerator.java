@@ -75,8 +75,12 @@ public class WorldGenerator {
 		for (int x = 0; x < Library.WORLD_SIZE; x++) {
 			for (int y = 0; y < Library.WORLD_SIZE; y++) {
 				Zone zone = getZoneAtPosition(zones, new Vector(x, y));
-				if (QRandom.rollDie(zone.getTreeFrequency(0)))
-					dropTree(world, zone, new Vector(x, y));
+				int index = 0;
+				while(zone.getTreeLandmark(index) != null) {
+					if (QRandom.rollDie(zone.getTreeFrequency(index)))
+						dropTree(world, zone, new Vector(x, y), index);
+					index++;
+				}
 			}
 		}
 	}
@@ -139,9 +143,9 @@ public class WorldGenerator {
 	 * @return if we successfully dropped the tree
 	 * @author Quintin Harter
 	 */
-	public static boolean dropTree(Landmark [] [] world, Zone zone, Vector pos) {
+	public static boolean dropTree(Landmark [] [] world, Zone zone, Vector pos, int index) {
 		try {
-			world[pos.getX()][pos.getY()] = zone.getTreeLandmark(0);
+			world[pos.getX()][pos.getY()] = zone.getTreeLandmark(index);
 			return true;
 		} catch(ArrayIndexOutOfBoundsException e) {
 			return false;

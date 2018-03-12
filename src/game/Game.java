@@ -21,7 +21,6 @@ public class Game {
 	public UI ui; //the user interface
 	public PlayerStatManager player; //the player
 	
-	
 	public Game() {
 		Library.print("Running game...");
 		zones = WorldGenerator.generateZones();
@@ -41,19 +40,21 @@ public class Game {
 	public boolean attemptMove(Vector direction) {
 		Library.print("Attempting move...");
 		Vector newPos = player.getPosition().add(direction);
+		//interact with the new landmark
 		//only perform the move if we can move there
+		boolean moved = false;
 		if (getLandmarkAtPosition(newPos) != null && !getLandmarkAtPosition(newPos).getIsSolid()) {
 			Library.print("Moving to location " + newPos);
 			//move the player
 			player.updatePosition(newPos);
 			refreshPlayerStats();
-			ui.redrawScreen(world, zones, newPos);
-			return true;
+			moved = true;
 		} else {
 			Library.print("Move failed. Solid Object. Current position " + player.getPosition());
-			return false;
 		}
-		
+		getLandmarkAtPosition(newPos).interact(player, world);
+		ui.redrawScreen(world, zones, (moved)? newPos : player.getPosition());
+		return moved;
 	}
 	
 	/**

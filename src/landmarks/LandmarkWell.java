@@ -3,16 +3,11 @@ package landmarks;
 import game.Library;
 import game.PlayerStatManager;
 
-/**
- * The default ground landmark ( )
- * @author Quintin Harter
- *
- */
-public class LandmarkGround extends Landmark {
+public class LandmarkWell extends Landmark {
 
 	@Override
 	public char getChar() {
-		return Library.LANDMARK_GROUND;
+		return Library.LANDMARK_WELL;
 	}
 
 	@Override
@@ -22,7 +17,12 @@ public class LandmarkGround extends Landmark {
 
 	@Override
 	public String getName() {
-		return "Ground";
+		return "Well";
 	}
 
+	@Override
+	public void interact(PlayerStatManager player, Landmark [] [] world) {
+		player.updateWater(player.getMaxWater());
+	}
+	
 }

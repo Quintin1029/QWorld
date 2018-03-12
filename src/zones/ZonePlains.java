@@ -24,11 +24,18 @@ public class ZonePlains extends Zone {
 
 	@Override
 	public Landmark getTreeLandmark(int index) {
-		return new LandmarkTree();
+		switch(index) {
+		case 0: return new LandmarkTree();
+		case 1: return new LandmarkWell();
+		} 
+		return null;
 	}
 
 	@Override
 	public Landmark getEnemy(int index) {
+		switch(index) {
+		case 0: return null;
+		} 
 		return null;
 	}
 
@@ -39,12 +46,19 @@ public class ZonePlains extends Zone {
 
 	@Override
 	public double getTreeFrequency(int index) {
-		return 0.005;
+		switch(index) {
+		case 0: return 0.005;
+		case 1: return 0.001;
+		}
+		return -1.;
 	}
 
 	@Override
 	public double getEnemyFrequency(int index) {
-		return 0.1;
+		switch(index) {
+		case 0: return 0.1;
+		}
+		return -1.;
 	}
 
 	@Override

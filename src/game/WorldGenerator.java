@@ -4,6 +4,7 @@ import java.util.Random;
 
 import landmarks.Landmark;
 import util.QRandom;
+import util.Vector;
 import zones.Zone;
 import zones.ZonePlains;
 
@@ -34,8 +35,8 @@ public class WorldGenerator {
 	public static void generateGround(Landmark [] [] world, Zone [] [] zones) {
 		for (int x = 0; x < Library.WORLD_SIZE; x++) {
 			for (int y = 0; y < Library.WORLD_SIZE; y++) {
-				Zone zone = getZoneAtPosition(zones, x, y);
-				dropGround(world, zone, x, y);
+				Zone zone = getZoneAtPosition(zones, new Vector(x, y));
+				dropGround(world, zone, new Vector(x, y));
 			}
 		}
 	}
@@ -43,9 +44,9 @@ public class WorldGenerator {
 	public static void generateTrees(Landmark [] [] world, Zone [] [] zones) {
 		for (int x = 0; x < Library.WORLD_SIZE; x++) {
 			for (int y = 0; y < Library.WORLD_SIZE; y++) {
-				Zone zone = getZoneAtPosition(zones, x, y);
+				Zone zone = getZoneAtPosition(zones, new Vector(x, y));
 				if (QRandom.rollDie(zone.getTreeFrequency(0)))
-					dropTree(world, zone, x, y);
+					dropTree(world, zone, new Vector(x, y));
 			}
 		}
 	}
@@ -54,31 +55,31 @@ public class WorldGenerator {
 		return new ZonePlains(); //TODO generate a new random zone
 	}
 	
-	public static Zone getZoneAtPosition(Zone [] [] zones, int x, int y) {
-		return zones[(int)(x / Library.WORLD_SIZE * Library.ZONE_HEIGHT)][(int)(y / Library.WORLD_SIZE * Library.ZONE_WIDTH)];
+	public static Zone getZoneAtPosition(Zone [] [] zones, Vector pos) {
+		return zones[(int)(pos.getX() / Library.WORLD_SIZE * Library.ZONE_HEIGHT)][(int)(pos.getY() / Library.WORLD_SIZE * Library.ZONE_WIDTH)];
 	}
 	
-	public static boolean dropGround(Landmark [] [] world, Zone zone, int x, int y) {
+	public static boolean dropGround(Landmark [] [] world, Zone zone, Vector pos) {
 		try {
-			world[x][y] = zone.getGroundLandmark();
+			world[pos.getX()][pos.getY()] = zone.getGroundLandmark();
 			return true;
 		} catch(ArrayIndexOutOfBoundsException e) {
 			return false;
 		}
 	}
 	
-	public static boolean dropTree(Landmark [] [] world, Zone zone, int x, int y) {
+	public static boolean dropTree(Landmark [] [] world, Zone zone, Vector pos) {
 		try {
-			world[x][y] = zone.getTreeLandmark(0);
+			world[pos.getX()][pos.getY()] = zone.getTreeLandmark(0);
 			return true;
 		} catch(ArrayIndexOutOfBoundsException e) {
 			return false;
 		}
 	}
 	
-	public static boolean dropPath(Landmark [] [] world, Zone zone, int x, int y) {
+	public static boolean dropPath(Landmark [] [] world, Zone zone, Vector pos) {
 		try {
-			world[x][y] = zone.getPathLandmark();
+			world[pos.getX()][pos.getY()] = zone.getPathLandmark();
 			return true;
 		} catch(ArrayIndexOutOfBoundsException e) {
 			return false;

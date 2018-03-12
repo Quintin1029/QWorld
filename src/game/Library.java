@@ -34,11 +34,14 @@ public class Library {
 	public static int WORLD_SIZE = 1000;
 	
 	//temperatures
-	public static double TEMP_NORMAL = 0.0;
-	public static double TEMP_WARM = 0.5;
-	public static double TEMP_COOL = -0.5;
-	public static double TEMP_HOT = 1.0;
-	public static double TEMP_COLD = -1.0;
+	public static double TEMP_NORMAL = 0.01; //lose 1% of water per move
+	public static double TEMP_WARM = 0.02; //lose 2% of water per move
+	public static double TEMP_COOL = 0.005; //lose 0.5% of water per move
+	public static double TEMP_HOT = 0.05; //lose 5% of water per move
+	public static double TEMP_COLD = 0.001; //lose 0.1% of water per move
+	
+	//hungers
+	public static double FOOD_LOSS_COEFFICIENT = 0.01; //lose 1% of water per move
 	
 	//mechanic constants
 	public static int DIRECTION_UP = 0;
@@ -46,6 +49,17 @@ public class Library {
 	public static int DIRECTION_DOWN = 2;
 	public static int DIRECTION_LEFT = 3;
 	
+	public static double foodEquation(double x) {
+		return 2 / Math.PI * Math.atan(x * 0.5) + 1;
+	}
+	
+	public static double clamp(double x, double floor, double ceil) {
+		if (x >= ceil)
+			return ceil;
+		if (x <= floor)
+			return floor;
+		return x;
+	}
 	
 	public static void print(String str) {
 		if (Library.DEBUG_MODE)

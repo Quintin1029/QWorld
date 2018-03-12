@@ -1,5 +1,7 @@
 package util;
 
+import game.Library;
+
 public class Vector {
 
 	public static Vector VECTOR_ZERO = new Vector(0, 0);
@@ -7,6 +9,8 @@ public class Vector {
 	public static Vector VECTOR_RIGHT = new Vector(1, 0);
 	public static Vector VECTOR_DOWN = new Vector(0, 1);
 	public static Vector VECTOR_LEFT = new Vector(-1, 0);
+	
+	public static Vector VECTOR_CENTER = new Vector(Library.WORLD_SIZE / 2, Library.WORLD_SIZE / 2);
 	
 	private int x;
 	private int y;

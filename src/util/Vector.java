@@ -59,6 +59,33 @@ public class Vector {
 		return new Vector(getX() + b.getX(), getY() + b.getY());
 	}
 	
+	public Vector subtract(Vector b) {
+		return new Vector(getX() - b.getX(), getY() - b.getY());
+	}
+	
+	public double getMagnitude() {
+		return Math.sqrt(getX() * getX() + getY() * getY());
+	}
+	
+	public int dotProduct(Vector v) {
+		return getX() * v.getX() + getY() * v.getY();
+	}
+	
+	public double getAngleBetween(Vector v) {
+		return Math.acos(dotProduct(v) / (getMagnitude() * v.getMagnitude()));
+	}
+	
+	public boolean isInsideTriangle(Vector vertex1, Vector vertex2, Vector vertex3) {
+		//to find if a point is in a vector we can get the angles from the point to each of the sides and add them up
+		//if the sum is 2pi then we are in the triangle
+		double sum = 0.0;
+		sum += Math.abs(vertex1.subtract(this).getAngleBetween(vertex2.subtract(this))); //first side
+		sum += Math.abs(vertex2.subtract(this).getAngleBetween(vertex3.subtract(this))); //second side
+		sum += Math.abs(vertex3.subtract(this).getAngleBetween(vertex1.subtract(this))); //third side
+		boolean result = sum > 2 * Math.PI - 0.01 && sum < 2 * Math.PI + 0.01;
+		return result; //we put a small range of error in case of rounding mistakes
+	}
+	
 	@Override
 	public String toString() {
 		return "(" + getX() + " , " + getY() + ")";

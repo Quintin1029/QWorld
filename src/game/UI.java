@@ -102,7 +102,8 @@ public class UI {
 		for (int x = 0; x < Library.WINDOW_SCREEN_CHAR_WIDTH; x++)
 			for (int y = 0; y < Library.WINDOW_SCREEN_CHAR_HEIGHT; y++) {
 				try {
-					labelHolder[x][y].setBackground(WorldGenerator.getZoneAtPosition(zones, new Vector(x, y)).getGroundColor());
+					Color color = world[x + pPos.getX() - Library.WINDOW_SCREEN_CHAR_WIDTH / 2][y + pPos.getY() - Library.WINDOW_SCREEN_CHAR_HEIGHT / 2].getColor();
+					labelHolder[x][y].setBackground((color == null)? WorldGenerator.getZoneAtPosition(zones, new Vector(x, y)).getGroundColor() : color);
 					labelHolder[x][y].setText("" + world[x + pPos.getX() - Library.WINDOW_SCREEN_CHAR_WIDTH / 2][y + pPos.getY() - Library.WINDOW_SCREEN_CHAR_HEIGHT / 2].getChar());
 				} catch (ArrayIndexOutOfBoundsException e) {
 					labelHolder[x][y].setText("" + Library.LANDMARK_NULL);

@@ -21,4 +21,18 @@ public class QRandom {
 		return random.nextDouble() < probabilityOfTrue;
 	}
 	
+	/**
+	 * Returns a random integer between low and high, inclusive
+	 * @param low the lower bound
+	 * @param high the upper bound
+	 * @return a random integer between those bouds, inclusive
+	 */
+	public static int randInt(int low, int high) {
+		return random.nextInt(high + 1 - low) + low;
+	}
+	
+	public static double randDouble(double low, double high) {
+		return random.nextDouble() * (high - low) + low;
+	}
+	
 }

@@ -1,5 +1,7 @@
 package landmarks;
 
+import java.awt.Color;
+
 import game.PlayerStatManager;
 
 /**
@@ -27,6 +29,15 @@ public abstract class Landmark {
 	 * @author Quintin Harter
 	 */
 	public abstract String getName();
+	
+	/**
+	 * Gets the color of the landmark if it should override the default from the zone.
+	 * @return the color to override with, null if none
+	 * @author Quintin Harter
+	 */
+	public Color getColor() {
+		return null;
+	}
 	
 	/**
 	 * The method called when the player tries to move onto this landmark

@@ -3,6 +3,8 @@ package zones;
 import java.awt.Color;
 
 import landmarks.Landmark;
+import util.Vector;
+import worldgen.Structure;
 
 /**
  * The superclass for all zones
@@ -37,6 +39,9 @@ public abstract class Zone {
 	 * @author Quintin Harter
 	 */
 	public abstract Landmark getEnemy(int index);
+	
+	public abstract Structure getStructure(int index);
+
 	/**
 	 * Gets the temperature of the zone
 	 * @return the temperature of the zone
@@ -57,6 +62,9 @@ public abstract class Zone {
 	 * @author Quintin Harter
 	 */
 	public abstract double getEnemyFrequency(int index);
+	
+	public abstract double getStructureFrequency(int index);
+	
 	/**
 	 * Gets the name of the zone
 	 * @return the name of the zone
@@ -69,6 +77,6 @@ public abstract class Zone {
 	 * @author Quintin Harter
 	 */
 	public abstract Color getGroundColor();
-	
+		
 	public Zone() {}
 }

@@ -4,10 +4,10 @@ import java.util.Random;
 
 import landmarks.Landmark;
 import landmarks.LandmarkHome;
+import landmarks.LandmarkSea;
 import util.QRandom;
 import util.Vector;
-import zones.Zone;
-import zones.ZonePlains;
+import zones.*;
 
 /**
  * The class used to generate the world based on the zones. Also contains some static methods to get information from worlds.
@@ -28,7 +28,10 @@ public class WorldGenerator {
 		Zone [] [] zones = new Zone[Library.ZONE_HEIGHT][Library.ZONE_WIDTH];
 		for (int i = 0; i < zones.length; i++)
 			for (int k = 0; k < zones[i].length; k++) {
-				zones[i][k] = newRandomZone();
+				if (i == Library.ZONE_HEIGHT / 2 && k == Library.ZONE_WIDTH / 2)
+					zones[i][k] = new ZonePlains();
+				else
+					zones[i][k] = newRandomZone();
 				Library.print("Zone at (" + i + " , " + k + ") is of type " + zones[i][k].getName());
 			}
 		return zones;
@@ -46,6 +49,7 @@ public class WorldGenerator {
 		Landmark [] [] world = new Landmark[Library.WORLD_SIZE][Library.WORLD_SIZE];
 		generateGround(world, zones);
 		generateTrees(world, zones);
+		generateStructures(world, zones);
 		generateUnique(world, zones);
 		return world;
 	}
@@ -85,6 +89,27 @@ public class WorldGenerator {
 		}
 	}
 	
+	public static void generateStructures(Landmark [] [] world, Zone [] [] zones) {
+		for (int x = 0; x < Library.WORLD_SIZE; x++) {
+			for (int y = 0; y < Library.WORLD_SIZE; y++) {
+				try {
+					Zone zone = getZoneAtPosition(zones, new Vector(x, y));
+					int index = 0;
+					while(zone.getStructure(index) != null) {
+						if (QRandom.rollDie(zone.getStructureFrequency(index))) {
+							dropStructure(world, zone, new Vector(x,y), index, new Vector(zone.getStructure(index).getSize().getX(), zone.getStructure(index).getSize().getY()));
+							//x += zone.getStructure(index).getSize().getX();
+							//y += zone.getStructure(index).getSize().getY();
+						}
+						index++;
+					}
+				} catch (ArrayIndexOutOfBoundsException e) {
+					
+				}
+			}
+		}
+	}
+	
 	/**
 	 * Generates unique landmarks at certain positions. Currently, the following are generated:
 	 * ~ Home Landmark
@@ -104,7 +129,12 @@ public class WorldGenerator {
 	 * @author Quintin Harter
 	 */
 	public static Zone newRandomZone() {
-		return new ZonePlains(); //TODO generate a new random zone
+		int random = QRandom.randInt(0, 0);
+		switch(random) {
+		case 0: return new ZonePlains();
+		//case 1: return new ZoneSea();
+		}
+		return null;
 	}
 	
 	/**
@@ -115,7 +145,8 @@ public class WorldGenerator {
 	 * @author Quintin Harter
 	 */
 	public static Zone getZoneAtPosition(Zone [] [] zones, Vector pos) {
-		return zones[(int)(pos.getX() / Library.WORLD_SIZE * Library.ZONE_HEIGHT)][(int)(pos.getY() / Library.WORLD_SIZE * Library.ZONE_WIDTH)];
+		Zone zone = zones[(int)(pos.getX() / (double)Library.WORLD_SIZE * Library.ZONE_HEIGHT)][(int)(pos.getY() / (double)Library.WORLD_SIZE * Library.ZONE_WIDTH)];
+		return zone;
 	}
 	
 	/**
@@ -148,6 +179,15 @@ public class WorldGenerator {
 			world[pos.getX()][pos.getY()] = zone.getTreeLandmark(index);
 			return true;
 		} catch(ArrayIndexOutOfBoundsException e) {
+			return false;
+		}
+	}
+	
+	public static boolean dropStructure(Landmark [] [] world, Zone zone, Vector pos, int index, Vector size) {
+		try {
+			zone.getStructure(index).generate(world, pos);;
+			return true;
+		} catch (ArrayIndexOutOfBoundsException e) {
 			return false;
 		}
 	}

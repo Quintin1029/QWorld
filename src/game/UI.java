@@ -107,6 +107,7 @@ public class UI {
 					labelHolder[x][y].setText("" + world[x + pPos.getX() - Library.WINDOW_SCREEN_CHAR_WIDTH / 2][y + pPos.getY() - Library.WINDOW_SCREEN_CHAR_HEIGHT / 2].getChar());
 				} catch (ArrayIndexOutOfBoundsException e) {
 					labelHolder[x][y].setText("" + Library.LANDMARK_NULL);
+					labelHolder[x][y].setBackground(Color.BLACK);
 				}
 			}
 		//draw the player

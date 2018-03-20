@@ -21,6 +21,10 @@ public class Game {
 	public UI ui; //the user interface
 	public PlayerStatManager player; //the player
 	
+	/**
+	 * Constructor
+	 * @author Quintin Harter
+	 */
 	public Game() {
 		Library.print("Running game...");
 		zones = WorldGenerator.generateZones();

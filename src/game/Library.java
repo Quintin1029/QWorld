@@ -16,7 +16,7 @@ public class Library {
 	// landmark char constants: used by landmarks to display to the screen
 	public static char LANDMARK_NULL = 'X';// '\u2593';
 	public static char LANDMARK_GROUND = ' ';
-	public static char LANDMARK_SEA = '~';
+	public static char LANDMARK_SEA = ' ';
 	public static char LANDMARK_PATH = '#';
 	public static char LANDMARK_TREE = 'T';
 	public static char LANDMARK_MOUNTAIN_TOP = '^';
@@ -42,6 +42,7 @@ public class Library {
 
 	// game options: affect world generation or settings
 	public static int WORLD_SIZE = 1000;
+	public static int SPAWN_RADIUS = 30; //no structures will be generated in the circle at the center of the world with this radius
 
 	// temperatures: affect water loss in zones
 	public static double TEMP_NORMAL = 0.01; // lose 1% of water per move
@@ -86,6 +87,12 @@ public class Library {
 			System.out.println(">: " + str);
 	}
 
+	/**
+	 * Converts an array to a string for debugging
+	 * @param arr the array to convert
+	 * @return the resulting string
+	 * @author Quintin Harter
+	 */
 	public static String arrayToString(Object[] arr) {
 		String str = "[";
 		for (Object obj : arr)

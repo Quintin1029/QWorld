@@ -1,5 +1,7 @@
 package landmarks;
 
+import java.awt.Color;
+
 import game.Library;
 
 /**
@@ -22,6 +24,11 @@ public class LandmarkNull extends Landmark {
 	@Override
 	public String getName() {
 		return "Null";
+	}
+	
+	@Override
+	public Color getColor() {
+		return Color.BLACK;
 	}
 
 }

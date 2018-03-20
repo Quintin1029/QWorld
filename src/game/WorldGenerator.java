@@ -89,23 +89,31 @@ public class WorldGenerator {
 		}
 	}
 	
+	/**
+	 * Generates the structures randomly throughout the world based on the frequencies
+	 * @param world the world to generate them in
+	 * @param zones the grid of zones for that world
+	 */
 	public static void generateStructures(Landmark [] [] world, Zone [] [] zones) {
 		for (int x = 0; x < Library.WORLD_SIZE; x++) {
 			for (int y = 0; y < Library.WORLD_SIZE; y++) {
 				try {
 					Zone zone = getZoneAtPosition(zones, new Vector(x, y));
 					int index = 0;
-					while(zone.getStructure(index) != null) {
+					while(zone.getStructureFrequency(index) >= 0) {
 						if (QRandom.rollDie(zone.getStructureFrequency(index))) {
-							dropStructure(world, zone, new Vector(x,y), index, new Vector(zone.getStructure(index).getSize().getX(), zone.getStructure(index).getSize().getY()));
+							dropStructure(world, zone, new Vector(x,y), index);
+
 							//x += zone.getStructure(index).getSize().getX();
 							//y += zone.getStructure(index).getSize().getY();
 						}
 						index++;
 					}
+
 				} catch (ArrayIndexOutOfBoundsException e) {
 					
 				}
+				
 			}
 		}
 	}
@@ -183,7 +191,16 @@ public class WorldGenerator {
 		}
 	}
 	
-	public static boolean dropStructure(Landmark [] [] world, Zone zone, Vector pos, int index, Vector size) {
+	/**
+	 * Drops a structure in the world
+	 * @param world the world to drop the structure in
+	 * @param zone the zone to get the structure from
+	 * @param pos the position to generate the structure
+	 * @param index the index of the structure from that zone
+	 * @return if we successfully dropped the structure
+	 * @author Quintin Harter
+	 */
+	public static boolean dropStructure(Landmark [] [] world, Zone zone, Vector pos, int index) {
 		try {
 			zone.getStructure(index).generate(world, pos);;
 			return true;
@@ -207,6 +224,16 @@ public class WorldGenerator {
 		} catch(ArrayIndexOutOfBoundsException e) {
 			return false;
 		}
+	}
+	
+	/**
+	 * Gets if the position is within the spawn radius
+	 * @param pos the position to check
+	 * @return if the position is in the spawn radius
+	 * @author Quintin Harter
+	 */
+	public static boolean isInSpawnArea(Vector pos) {
+		return pos.subtract(Vector.VECTOR_CENTER).getMagnitude() < Library.SPAWN_RADIUS;
 	}
 	
 }

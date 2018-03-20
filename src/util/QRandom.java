@@ -31,6 +31,12 @@ public class QRandom {
 		return random.nextInt(high + 1 - low) + low;
 	}
 	
+	/**
+	 * Returns a random double between the two values
+	 * @param low the low value
+	 * @param high the high value
+	 * @return the resulting value
+	 */
 	public static double randDouble(double low, double high) {
 		return random.nextDouble() * (high - low) + low;
 	}

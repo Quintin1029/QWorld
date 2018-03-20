@@ -40,6 +40,11 @@ public abstract class Zone {
 	 */
 	public abstract Landmark getEnemy(int index);
 	
+	/**
+	 * Gets the structure for this zone and index
+	 * @param index the index of the structure to generate
+	 * @return the structure to generate
+	 */
 	public abstract Structure getStructure(int index);
 
 	/**
@@ -63,6 +68,11 @@ public abstract class Zone {
 	 */
 	public abstract double getEnemyFrequency(int index);
 	
+	/**
+	 * Gets the frequency of the structure with the specified index
+	 * @param index the index of the enemy
+	 * @return the frequency of the structure with the specified index, -1. if index is OOD
+	 */
 	public abstract double getStructureFrequency(int index);
 	
 	/**

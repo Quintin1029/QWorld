@@ -84,7 +84,7 @@ public class ZonePlains extends Zone {
 	@Override
 	public double getStructureFrequency(int index) {
 		switch(index) {
-		case 0: return 0.001;
+		case 0: return 0.0005;
 		}
 		return -1.;
 	}

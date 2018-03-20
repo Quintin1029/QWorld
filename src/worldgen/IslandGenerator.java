@@ -1,5 +1,8 @@
 package worldgen;
 
+import game.Library;
+import game.WorldGenerator;
+import landmarks.LandmarkSea;
 import util.QRandom;
 import util.Vector;
 
@@ -7,27 +10,33 @@ public class IslandGenerator {
 
 	private boolean [] [] map;
 	
+	/**
+	 * Constructor: generates a new random island
+	 * @param size the size of the island to generate
+	 * @param accuracy the accuracy (number of arms) to generate with. Think of the accuracy as the number of points on a star. The more points, the more jagged (but because we use squares it will just be weird). The less points, the more polygonal.
+	 * @param bendRange the range o
+	 */
 	public IslandGenerator(Vector size, int accuracy, double bendRange) {
-		//instantiate the map
-		map = new boolean [size.getX()][size.getY()];
-		//create temporary arm values
-		double [] armMagnitudes = new double[accuracy];
-		//create an array of vectors for each arm
+		//Generate the arms
 		Vector [] arms = new Vector[accuracy];
-		//load arms
-		for (int i = 0; i < accuracy; i++) {
-			armMagnitudes[i] = QRandom.randDouble(Math.min(size.getX() / 2,  size.getY() / 2) - bendRange, Math.min(size.getX() / 2,  size.getY() / 2));
-			arms[i] = new Vector((int)(armMagnitudes[i] * Math.cos((2 * Math.PI) / accuracy * i)), (int)(armMagnitudes[i] * Math.sin((2 * Math.PI) / accuracy * i)));
+		map = new boolean [size.getX()][size.getY()];
+		Vector center = new Vector(size.getX() / 2, size.getY() / 2);
+		
+		double radius = Math.min(size.getX(), size.getY()) / 2;
+		
+		//generate the arms
+		for (int i = 0; i < arms.length; i++) {
+			double magnitude = QRandom.randDouble(bendRange * radius, radius);
+			arms[i] = new Vector((int)(magnitude * Math.cos(i * 2 * Math.PI / accuracy)), (int)(magnitude * Math.sin(i * 2 * Math.PI / accuracy)));
 		}
-		//create the map
+		
+		//assign lake values
 		for (int x = 0; x < size.getX(); x++) {
 			for (int y = 0; y < size.getY(); y++) {
-				//the value in the map returns true if that location is in the island
 				map[x][y] = false;
-				Vector pos = new Vector(x, y);
-				for (int arm = 0; arm < accuracy; arm++) {
-					if (pos.isInsideTriangle(Vector.VECTOR_ZERO, arms[arm], arms[(arm + 1) % accuracy]))
-						map[x][y] = true;
+				for (int i = 0; i < arms.length; i++) {
+					if (map[x][y] == false)
+						map[x][y] = new Vector(x, y).isInsideTriangle(center, center.add(arms[(i + 1) % arms.length]), center.add(arms[i]));
 				}
 			}
 		}
@@ -37,10 +46,6 @@ public class IslandGenerator {
 	
 	public boolean [] [] getIsland() {
 		return map;
-	}
-	
-	public static double lerp(double a, double b, double w) {
-		return (1.0- w) * a + w * b;
 	}
 	
 }

@@ -2,6 +2,7 @@ package util;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 
 import javax.swing.JLabel;
@@ -80,6 +81,7 @@ public class StatPanel extends JPanel {
 		borderPanel.setLayout(new BorderLayout());
 		
 		setLayout(new BorderLayout());
+		setPreferredSize(new Dimension(500, 75));
 		
 		borderPanel.add(topPanel, BorderLayout.NORTH);
 		borderPanel.add(middlePanel, BorderLayout.CENTER);

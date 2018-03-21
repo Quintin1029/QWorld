@@ -29,7 +29,7 @@ public class Game {
 		Library.print("Running game...");
 		zones = WorldGenerator.generateZones();
 		world = WorldGenerator.generateWorld(zones);
-		player = new PlayerStatManager(); 
+		player = new PlayerStatManager(this); 
 		ui = new UI(player);
 		ui.run(this);
 	}
@@ -59,6 +59,11 @@ public class Game {
 		getLandmarkAtPosition(newPos).interact(player, world);
 		ui.redrawScreen(world, zones, (moved)? newPos : player.getPosition());
 		return moved;
+	}
+	
+	public void update() {
+		//redraw the user interface
+		ui.redrawScreen(world, zones, player.getPosition());
 	}
 	
 	/**

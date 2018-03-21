@@ -2,6 +2,7 @@ package game;
 
 import javax.swing.*;
 
+import items.InventoryPanel;
 import landmarks.Landmark;
 import util.MovementKeyListener;
 import util.StatPanel;
@@ -56,17 +57,18 @@ public class UI {
 		
 		//instantiate the main JFrame
 		frame = new JFrame("QWorld");
-		frame.setSize(500, 700);
+		frame.setSize(650, 650);
+		frame.setLocationRelativeTo(null);
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		//instantiate the main JPanel
 		mainPanel = new JPanel();
-		mainPanel.setLayout(new BorderLayout());
+		mainPanel.setLayout(new FlowLayout());
 		
 		//create and load default grid
 		gridPanel = new JPanel();
-		gridPanel.setSize(new Dimension(Library.WINDOW_SCREEN_PIXEL_WIDTH, Library.WINDOW_SCREEN_PIXEL_HEIGHT));
+		gridPanel.setPreferredSize(new Dimension(Library.WINDOW_SCREEN_PIXEL_WIDTH, Library.WINDOW_SCREEN_PIXEL_HEIGHT));
 		gridPanel.setLayout(new GridLayout(Library.WINDOW_SCREEN_CHAR_WIDTH, Library.WINDOW_SCREEN_CHAR_HEIGHT, 0, 0));
 		labelHolder = new JLabel[Library.WINDOW_SCREEN_CHAR_WIDTH][Library.WINDOW_SCREEN_CHAR_HEIGHT];
 		for (int x = 0; x < Library.WINDOW_SCREEN_CHAR_WIDTH; x++)
@@ -77,12 +79,16 @@ public class UI {
 				gridPanel.add(labelHolder[y][x]);
 			}
 		
+		//create and load inventory panel
+		inventoryPanel = new InventoryPanel(player);
+		
 		//create and load stat panel
 		statPanel = new StatPanel(player);
 		
 		//create window & begin game
-		mainPanel.add(gridPanel, BorderLayout.CENTER);
-		mainPanel.add(statPanel, BorderLayout.SOUTH);
+		mainPanel.add(gridPanel);
+		mainPanel.add(inventoryPanel);
+		mainPanel.add(statPanel);
 		frame.add(mainPanel);
 		frame.setVisible(true);
 		frame.addKeyListener(new MovementKeyListener(game));

@@ -1,5 +1,7 @@
 package game;
 
+import java.util.HashMap;
+
 import util.Vector;
 
 /**
@@ -8,29 +10,47 @@ import util.Vector;
  *
  */
 public class PlayerStatManager {
+	
+	private Game game;
 
-	private double water;
-	private double maxWater;
-	private double food;
-	private double maxFood;
-	private double health;
-	private double maxHealth;
-	private Vector position;
-	private Vector home;
+	//items
+	private boolean waterBottleUnlocked = false;
+	private boolean waterBottleFull = true;
+	private boolean lunchBoxUnlocked = false;
+	private boolean lunchBoxFull = true;
+	private boolean medKitUnlocked = false;
+	private boolean medKitFull = true;
+	private boolean potionOfSpeedUnlocked = false;
+	private boolean potionOfSpeedFull = true;
+	private int potionOfSpeedMovesLeft = Library.POTION_OF_SPEED_LENGTH;
+	private boolean teleporterUnlocked = false;
+	
+	//weapons
+	private boolean [] weaponsUnlocked;
+	private int weaponEquipped;
+	
+	private boolean [] armorUnlocked;
+	private int armorEquipped;
+	
+	private double water = 100;
+	private double maxWater = 100;
+	private double food = 100;
+	private double maxFood = 100;
+	private double health = 100;
+	private double maxHealth = 100;
+	private Vector position = Vector.VECTOR_CENTER;
+	private Vector home = Vector.VECTOR_CENTER;
 	
 	/**
-	 * The default constructor. Sets max water, food, and health to 100.
+	 * The default constructor
 	 * @author Quintin Harter
 	 */
-	public PlayerStatManager() {
-		maxWater = 100;
-		maxFood = 100;
-		maxHealth = 100;
-		water = maxWater;
-		food = maxFood;
-		health = maxHealth;
-		home = Vector.VECTOR_CENTER;
-		position = Vector.VECTOR_CENTER;
+	public PlayerStatManager(Game game) {
+		this.game = game;
+	}
+	
+	public Game getGame() {
+		return game;
 	}
 	
 	/**
@@ -112,6 +132,7 @@ public class PlayerStatManager {
 	 */
 	public void updateWater(double water) {
 		this.water = Library.clamp(water, 0., maxWater);
+		game.update();
 	}
 	
 	/**
@@ -122,6 +143,7 @@ public class PlayerStatManager {
 	public void updateMaxWater(double maxWater) {
 		this.maxWater = maxWater;
 		updateWater(water);
+		game.update();
 	}
 	
 	/**
@@ -131,6 +153,7 @@ public class PlayerStatManager {
 	 */
 	public void updateFood(double food) {
 		this.food = Library.clamp(food, 0., maxFood);
+		game.update();
 	}
 	
 	/**
@@ -141,6 +164,7 @@ public class PlayerStatManager {
 	public void updateMaxFood(double maxFood) {
 		this.maxFood = maxFood;
 		updateFood(food);
+		game.update();
 	}
 	
 	/**
@@ -150,6 +174,7 @@ public class PlayerStatManager {
 	 */
 	public void updateHealth(double health) {
 		this.health = Library.clamp(health, 0., maxHealth);
+		game.update();
 	}
 	
 	/**
@@ -160,6 +185,7 @@ public class PlayerStatManager {
 	public void updateMaxHealth(double maxHealth) {
 		this.maxHealth = maxHealth;
 		updateHealth(health);
+		game.update();
 	}
 	
 	/**
@@ -169,6 +195,7 @@ public class PlayerStatManager {
 	 */
 	public void setHome(Vector home) {
 		this.home = home;
+		game.update();
 	}
 	
 	/**
@@ -180,6 +207,130 @@ public class PlayerStatManager {
 		return home;
 	}
 	
+	/**
+	 * @return the lunchBoxUnlocked
+	 */
+	public boolean isLunchBoxUnlocked() {
+		return lunchBoxUnlocked;
+	}
+
+	/**
+	 * @param lunchBoxUnlocked the lunchBoxUnlocked to set
+	 */
+	public void setLunchBoxUnlocked(boolean lunchBoxUnlocked) {
+		this.lunchBoxUnlocked = lunchBoxUnlocked;
+	}
+
+	/**
+	 * @return the lunchBoxFull
+	 */
+	public boolean isLunchBoxFull() {
+		return lunchBoxFull;
+	}
+
+	/**
+	 * @param lunchBoxFull the lunchBoxFull to set
+	 */
+	public void setLunchBoxFull(boolean lunchBoxFull) {
+		this.lunchBoxFull = lunchBoxFull;
+	}
+
+	/**
+	 * @return the medKitUnlocked
+	 */
+	public boolean isMedKitUnlocked() {
+		return medKitUnlocked;
+	}
+
+	/**
+	 * @param medKitUnlocked the medKitUnlocked to set
+	 */
+	public void setMedKitUnlocked(boolean medKitUnlocked) {
+		this.medKitUnlocked = medKitUnlocked;
+	}
+
+	/**
+	 * @return the medKitFull
+	 */
+	public boolean isMedKitFull() {
+		return medKitFull;
+	}
+
+	/**
+	 * @param medKitFull the medKitFull to set
+	 */
+	public void setMedKitFull(boolean medKitFull) {
+		this.medKitFull = medKitFull;
+	}
+
+	/**
+	 * @return the potionOfSpeedUnlocked
+	 */
+	public boolean isPotionOfSpeedUnlocked() {
+		return potionOfSpeedUnlocked;
+	}
+
+	/**
+	 * @param potionOfSpeedUnlocked the potionOfSpeedUnlocked to set
+	 */
+	public void setPotionOfSpeedUnlocked(boolean potionOfSpeedUnlocked) {
+		this.potionOfSpeedUnlocked = potionOfSpeedUnlocked;
+	}
+
+	/**
+	 * @return the potionOfSpeedFull
+	 */
+	public boolean isPotionOfSpeedFull() {
+		return potionOfSpeedFull;
+	}
+
+	/**
+	 * @param potionOfSpeedFull the potionOfSpeedFull to set
+	 */
+	public void setPotionOfSpeedFull(boolean potionOfSpeedFull) {
+		this.potionOfSpeedFull = potionOfSpeedFull;
+	}
+
+	/**
+	 * @return the potionOfSpeedMovesLeft
+	 */
+	public int getPotionOfSpeedMovesLeft() {
+		return potionOfSpeedMovesLeft;
+	}
+
+	/**
+	 * @param potionOfSpeedMovesLeft the potionOfSpeedMovesLeft to set
+	 */
+	public void setPotionOfSpeedMovesLeft(int potionOfSpeedMovesLeft) {
+		this.potionOfSpeedMovesLeft = potionOfSpeedMovesLeft;
+	}
+	
+	public void useWaterBottle() {
+		updateWater(water + Library.WATER_BOTTLE_PERCENT);
+		Library.print("Used Water Bottle");
+	}
+	
+	public void useLunchBox() {
+		updateFood(food + Library.LUNCH_BOX_PERCENT);
+		Library.print("Used Lunch Box");
+	}
+	
+	public void useMedKit() {
+		updateHealth(health + Library.MED_KIT_PERCENT);
+		Library.print("Used Med Kit");
+	}
+	
+	public void usePotionOfSpeed() {
+		Library.print("Used Potion of Speed");
+	}
+	
+	public void useTeleporter() {
+		position = Vector.VECTOR_CENTER;
+		game.update();
+		Library.print("Used Teleporter");
+		
+	}
+
 	@Override
 	public String toString() {
 		return "Player Stats: WATER: " + water + " FOOD: " + food + " HEALTH: " + health; 

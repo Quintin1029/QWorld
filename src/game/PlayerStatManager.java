@@ -2,6 +2,7 @@ package game;
 
 import java.util.HashMap;
 
+import items.*;
 import util.Vector;
 
 /**
@@ -13,24 +14,9 @@ public class PlayerStatManager {
 	
 	private Game game;
 
-	//items
-	private boolean waterBottleUnlocked = false;
-	private boolean waterBottleFull = true;
-	private boolean lunchBoxUnlocked = false;
-	private boolean lunchBoxFull = true;
-	private boolean medKitUnlocked = false;
-	private boolean medKitFull = true;
-	private boolean potionOfSpeedUnlocked = false;
-	private boolean potionOfSpeedFull = true;
-	private int potionOfSpeedMovesLeft = Library.POTION_OF_SPEED_LENGTH;
-	private boolean teleporterUnlocked = false;
-	
-	//weapons
-	private boolean [] weaponsUnlocked;
-	private int weaponEquipped;
-	
-	private boolean [] armorUnlocked;
-	private int armorEquipped;
+	private ItemConsumable [] consumables;
+	private ItemTool [] tools;
+	private ItemBuilding [] buildings;
 	
 	private double water = 100;
 	private double maxWater = 100;
@@ -41,13 +27,30 @@ public class PlayerStatManager {
 	private Vector position = Vector.VECTOR_CENTER;
 	private Vector home = Vector.VECTOR_CENTER;
 	
+	//item options
+	private int strengthMovesRemaining = 0;
+	
 	/**
 	 * The default constructor
 	 * @author Quintin Harter
 	 */
 	public PlayerStatManager(Game game) {
 		this.game = game;
+		//add all the items
+		consumables = new ItemConsumable[Library.CARRYING_CAPACITY];
+		tools = new ItemTool[Library.CARRYING_CAPACITY];
+		buildings = new ItemBuilding[Library.CARRYING_CAPACITY];
+		
+		consumables[0] = new ItemWaterBottle(this);
+		consumables[1] = new ItemLunchBox(this);
+		consumables[2] = new ItemMedKit(this);
+		consumables[3] = new ItemStrengthPotion(this);
+		
 	}
+	
+	public ItemConsumable[] getConsumables() {return consumables;}
+	public ItemTool[] getTools() {return tools;}
+	public ItemBuilding[] getBuildings() {return buildings;}
 	
 	public Game getGame() {
 		return game;
@@ -207,128 +210,16 @@ public class PlayerStatManager {
 		return home;
 	}
 	
-	/**
-	 * @return the lunchBoxUnlocked
-	 */
-	public boolean isLunchBoxUnlocked() {
-		return lunchBoxUnlocked;
-	}
-
-	/**
-	 * @param lunchBoxUnlocked the lunchBoxUnlocked to set
-	 */
-	public void setLunchBoxUnlocked(boolean lunchBoxUnlocked) {
-		this.lunchBoxUnlocked = lunchBoxUnlocked;
-	}
-
-	/**
-	 * @return the lunchBoxFull
-	 */
-	public boolean isLunchBoxFull() {
-		return lunchBoxFull;
-	}
-
-	/**
-	 * @param lunchBoxFull the lunchBoxFull to set
-	 */
-	public void setLunchBoxFull(boolean lunchBoxFull) {
-		this.lunchBoxFull = lunchBoxFull;
-	}
-
-	/**
-	 * @return the medKitUnlocked
-	 */
-	public boolean isMedKitUnlocked() {
-		return medKitUnlocked;
-	}
-
-	/**
-	 * @param medKitUnlocked the medKitUnlocked to set
-	 */
-	public void setMedKitUnlocked(boolean medKitUnlocked) {
-		this.medKitUnlocked = medKitUnlocked;
-	}
-
-	/**
-	 * @return the medKitFull
-	 */
-	public boolean isMedKitFull() {
-		return medKitFull;
-	}
-
-	/**
-	 * @param medKitFull the medKitFull to set
-	 */
-	public void setMedKitFull(boolean medKitFull) {
-		this.medKitFull = medKitFull;
-	}
-
-	/**
-	 * @return the potionOfSpeedUnlocked
-	 */
-	public boolean isPotionOfSpeedUnlocked() {
-		return potionOfSpeedUnlocked;
-	}
-
-	/**
-	 * @param potionOfSpeedUnlocked the potionOfSpeedUnlocked to set
-	 */
-	public void setPotionOfSpeedUnlocked(boolean potionOfSpeedUnlocked) {
-		this.potionOfSpeedUnlocked = potionOfSpeedUnlocked;
-	}
-
-	/**
-	 * @return the potionOfSpeedFull
-	 */
-	public boolean isPotionOfSpeedFull() {
-		return potionOfSpeedFull;
-	}
-
-	/**
-	 * @param potionOfSpeedFull the potionOfSpeedFull to set
-	 */
-	public void setPotionOfSpeedFull(boolean potionOfSpeedFull) {
-		this.potionOfSpeedFull = potionOfSpeedFull;
-	}
-
-	/**
-	 * @return the potionOfSpeedMovesLeft
-	 */
-	public int getPotionOfSpeedMovesLeft() {
-		return potionOfSpeedMovesLeft;
-	}
-
-	/**
-	 * @param potionOfSpeedMovesLeft the potionOfSpeedMovesLeft to set
-	 */
-	public void setPotionOfSpeedMovesLeft(int potionOfSpeedMovesLeft) {
-		this.potionOfSpeedMovesLeft = potionOfSpeedMovesLeft;
+	public boolean attemptToMoveStrength() {
+		if (strengthMovesRemaining > 0) {
+			strengthMovesRemaining--;
+			return true;
+		}
+		return false;
 	}
 	
-	public void useWaterBottle() {
-		updateWater(water + Library.WATER_BOTTLE_PERCENT);
-		Library.print("Used Water Bottle");
-	}
-	
-	public void useLunchBox() {
-		updateFood(food + Library.LUNCH_BOX_PERCENT);
-		Library.print("Used Lunch Box");
-	}
-	
-	public void useMedKit() {
-		updateHealth(health + Library.MED_KIT_PERCENT);
-		Library.print("Used Med Kit");
-	}
-	
-	public void usePotionOfSpeed() {
-		Library.print("Used Potion of Speed");
-	}
-	
-	public void useTeleporter() {
-		position = Vector.VECTOR_CENTER;
-		game.update();
-		Library.print("Used Teleporter");
-		
+	public void addStrengthMoves(int number) {
+		strengthMovesRemaining += number;
 	}
 
 	@Override

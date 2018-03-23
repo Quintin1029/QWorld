@@ -57,7 +57,7 @@ public class UI {
 		
 		//instantiate the main JFrame
 		frame = new JFrame("QWorld");
-		frame.setSize(650, 650);
+		frame.setSize(800, 650);
 		frame.setLocationRelativeTo(null);
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

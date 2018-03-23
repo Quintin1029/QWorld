@@ -51,7 +51,7 @@ public class Library {
 	public static final int WATER_BOTTLE_PERCENT = 20;
 	public static final int LUNCH_BOX_PERCENT = 20;
 	public static final int MED_KIT_PERCENT = 20;
-	public static final int POTION_OF_SPEED_LENGTH = 25;
+	public static final int STRENGTH_POTION_AMOUNT = 25;
 
 	// temperatures: affect water loss in zones
 	public static final double TEMP_NORMAL = 0.01; // lose 1% of water per move
@@ -62,18 +62,22 @@ public class Library {
 
 	// hungers: affect food loss in zones
 	public static final double FOOD_LOSS_COEFFICIENT = 0.01; // lose 1% of food per move
-	
+		
 	//icons used for items
 	public static final ImageIcon [] ITEM_CONSUMABLE_ICONS = {
 			getImage("icons/waterbottle.png")
 	};
 	
-	public static final ImageIcon [] ITEM_WEAPON_ICONS = {
+	public static final ImageIcon [] ITEM_TOOL_ICONS = {
 			getImage("icons/branch.jpg")
 	};
 	
 	public static final ImageIcon [] ITEM_ARMOR_ICONS = {
 			getImage("icons/shirt.png")
+	};
+	
+	public static final ImageIcon [] RESOURCE_ICONS = {
+			
 	};
 
 	public static ImageIcon getImage(String file) {

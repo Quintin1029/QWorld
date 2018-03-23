@@ -9,6 +9,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import game.Library;
@@ -28,10 +29,10 @@ public class InventoryPanel extends JPanel {
 	private PlayerStatManager player;
 	private JPanel consumablesGridPanel;
 	private JButton [] consumableButtons;
-	private JPanel weaponGridPanel;
-	private JButton [] weaponButtons;
-	private JPanel armorGridPanel;
-	private JButton [] armorButtons;
+	private JPanel toolGridPanel;
+	private JButton [] toolButtons;
+	private JPanel buildingGridPanel;
+	private JButton [] buildingButtons;
 	
 	public InventoryPanel(PlayerStatManager player) {
 		this.player = player;
@@ -39,117 +40,48 @@ public class InventoryPanel extends JPanel {
 		consumablesGridPanel = new JPanel();
 		consumablesGridPanel.setLayout(new GridLayout((int) Math.ceil(Library.CARRYING_CAPACITY * 1. / WIDTH), WIDTH));
 		for (int b = 0; b < Library.CARRYING_CAPACITY; b++) {
-			consumableButtons[b] = new QConsumableButton(b);
+			consumableButtons[b] = new QButton(player.getConsumables()[b]);
 			consumablesGridPanel.add(consumableButtons[b]);
 		}
 		
-		weaponButtons = new JButton[Library.CARRYING_CAPACITY];
-		weaponGridPanel = new JPanel();
-		weaponGridPanel.setLayout(new GridLayout((int) Math.ceil(Library.CARRYING_CAPACITY * 1. / WIDTH), WIDTH));
+		toolButtons = new JButton[Library.CARRYING_CAPACITY];
+		toolGridPanel = new JPanel();
+		toolGridPanel.setLayout(new GridLayout((int) Math.ceil(Library.CARRYING_CAPACITY * 1. / WIDTH), WIDTH));
 		for (int b = 0; b < Library.CARRYING_CAPACITY; b++) {
-			weaponButtons[b] = new QWeaponButton(b);
-			weaponGridPanel.add(weaponButtons[b]);
+			toolButtons[b] = new QButton(player.getTools()[b]);
+			toolGridPanel.add(toolButtons[b]);
 		}
 		
-		armorButtons = new JButton[Library.CARRYING_CAPACITY];
-		armorGridPanel = new JPanel();
-		armorGridPanel.setLayout(new GridLayout((int) Math.ceil(Library.CARRYING_CAPACITY * 1. / WIDTH), WIDTH));
+		buildingButtons = new JButton[Library.CARRYING_CAPACITY];
+		buildingGridPanel = new JPanel();
+		buildingGridPanel.setLayout(new GridLayout((int) Math.ceil(Library.CARRYING_CAPACITY * 1. / WIDTH), WIDTH));
 		for (int b = 0; b < Library.CARRYING_CAPACITY; b++) {
-			armorButtons[b] = new QArmorButton(b);
-			armorGridPanel.add(armorButtons[b]);
+			buildingButtons[b] = new QButton(player.getBuildings()[b]);
+			buildingGridPanel.add(buildingButtons[b]);
 		}
 		
 		setLayout(new FlowLayout());
 		add(consumablesGridPanel);
-		add(weaponGridPanel);
-		add(armorGridPanel);
+		add(toolGridPanel);
+		add(buildingGridPanel);
 		setFocusable(false);
 	}
 	
-	private interface QButton {
-		public void use();
-	}
-	
-	private class QConsumableButton extends JButton implements QButton {
+	private class QButton extends JButton {
+		public Item item;
 		
-		private int type;
-		
-		public QConsumableButton(int type) {
-			this.type = type;
-			addMouseListener(new QButtonMouseListener());
-			setMargin(new Insets(0, 0, 0, 0));
-			//IMPORTANT!!! Movement Key Listener will not function without setting focusable to false
+		public QButton(Item item) {
+			this.item = item;
+			if (item != null)
+				setIcon(item.getIcon());
 			setFocusable(false);
-			try {
-				setIcon(Library.ITEM_CONSUMABLE_ICONS[type]);
-				Library.print("Loaded icon for button type " + type);
-			} catch (ArrayIndexOutOfBoundsException e) {
-				Library.print("ERROR: IMAGE ICON DOES NOT EXIST");
-			}
+			addMouseListener(new QButtonMouseListener());
 		}
 		
 		public void use() {
-			switch(type) {
-			case INDEX_WATER_BOTTLE: player.useWaterBottle(); return;
-			case INDEX_LUNCH_BOX: player.useLunchBox(); return;
-			case INDEX_MED_KIT: player.useMedKit(); return;
-			case INDEX_POTION_OF_SPEED: player.usePotionOfSpeed(); return;
-			case INDEX_TELEPORTER: player.useTeleporter(); return;
-			}
-			player.getGame().update();
+			if (item != null)
+				item.use();
 		}
-	}
-	
-	
-	
-	private class QWeaponButton extends JButton implements QButton {
-		
-		private int type;
-		
-		public QWeaponButton(int type) {
-			this.type = type;
-			addMouseListener(new QButtonMouseListener());
-			setMargin(new Insets(0, 0, 0, 0));
-			//IMPORTANT!!! Movement Key Listener will not function without setting focusable to false
-			setFocusable(false);
-			try {
-				setIcon(Library.ITEM_WEAPON_ICONS[type]);
-				Library.print("Loaded icon for button type " + type);
-			} catch (ArrayIndexOutOfBoundsException e) {
-				Library.print("ERROR: IMAGE ICON DOES NOT EXIST");
-			}
-		}
-		
-		public void use() {
-			//equip and dequip here
-			
-		}
-		
-	}
-	
-private class QArmorButton extends JButton implements QButton {
-		
-		private int type;
-		
-		public QArmorButton(int type) {
-			this.type = type;
-			addMouseListener(new QButtonMouseListener());
-			setMargin(new Insets(0, 0, 0, 0));
-			//IMPORTANT!!! Movement Key Listener will not function without setting focusable to false
-			setFocusable(false);
-			try {
-				setIcon(Library.ITEM_ARMOR_ICONS[type]);
-				Library.print("Loaded icon for button type " + type);
-			} catch (ArrayIndexOutOfBoundsException e) {
-				Library.print("ERROR: IMAGE ICON DOES NOT EXIST");
-			}
-		}
-		
-		public void use() {
-			//equip and dequip here
-			
-		}
-		
 	}
 	
 	private class QButtonMouseListener implements MouseListener {

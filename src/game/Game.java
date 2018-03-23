@@ -51,7 +51,8 @@ public class Game {
 			Library.print("Moving to location " + newPos);
 			//move the player
 			player.updatePosition(newPos);
-			refreshPlayerStats();
+			if (!player.attemptToMoveStrength())
+				refreshPlayerStats();
 			moved = true;
 		} else {
 			Library.print("Move failed. Solid Object. Current position " + player.getPosition());

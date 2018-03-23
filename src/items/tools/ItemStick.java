@@ -22,7 +22,7 @@ public class ItemStick extends ItemTool {
 
 	@Override
 	public Icon getIcon() {
-		return null;
+		return Library.ITEM_TOOL_ICONS[0];
 	}
 
 }

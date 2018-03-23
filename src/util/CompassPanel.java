@@ -8,6 +8,8 @@ import java.awt.Polygon;
 
 import javax.swing.JPanel;
 
+import game.Library;
+
 /**
  * The JPanel to represent the compass used in UI.java
  * Pass in an angle using the method {@code setAngle}
@@ -30,6 +32,7 @@ public class CompassPanel extends JPanel {
 	 */
 	public CompassPanel() {
 		angle = 0;
+		setBackground(Library.COLOR_SCHEME.getBackgroundColor());
 	}
 	
 	/**
@@ -45,8 +48,8 @@ public class CompassPanel extends JPanel {
 	@Override
 	public void paintComponent(Graphics g) {
 		Graphics2D g2 = (Graphics2D) g;
-		g2.setColor(new Color(238, 238, 238));
-		g2.fillRect(0, 0, DIAMETER + 2 * DISPLACEMENT, DIAMETER + 2 * DISPLACEMENT);
+		g2.setColor(Library.COLOR_SCHEME.getBackgroundColor());
+		g2.fillRect(0, 0, DIAMETER + 2 * DISPLACEMENT + 200, DIAMETER + 2 * DISPLACEMENT);
 		g2.setColor(Color.YELLOW);
 		g2.fillOval(DISPLACEMENT, DISPLACEMENT, DIAMETER, DIAMETER);
 		g2.translate(DISPLACEMENT + DIAMETER / 2, DISPLACEMENT + DIAMETER / 2);

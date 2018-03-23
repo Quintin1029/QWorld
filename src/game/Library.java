@@ -2,6 +2,8 @@ package game;
 
 import javax.swing.ImageIcon;
 
+import colorschemes.*;;
+
 /**
  * A static class used to store most constants and general methods used
  * throughout the game.
@@ -9,11 +11,14 @@ import javax.swing.ImageIcon;
  * @author Quintin Harter
  */
 public class Library {
-
+	
 	// debug constant: turn this off when you no longer want to print to the
 	// console.
 	public static boolean DEBUG_MODE = true;
 	public static boolean DEBUG_FILE = false;
+	
+	//color scheme
+	public static final ColorScheme COLOR_SCHEME = new DarkColorScheme();
 
 	// landmark char constants: used by landmarks to display to the screen
 	public static final char LANDMARK_NULL = 'X';// '\u2593';

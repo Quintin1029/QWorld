@@ -8,6 +8,7 @@ import java.awt.Insets;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -61,6 +62,7 @@ public class InventoryPanel extends JPanel {
 			buildingGridPanel.add(buildingButtons[b]);
 		}
 		
+		setBackground(Library.COLOR_SCHEME.getBackgroundColor());
 		setLayout(new FlowLayout());
 		add(consumablesGridPanel);
 		add(toolGridPanel);
@@ -77,6 +79,9 @@ public class InventoryPanel extends JPanel {
 				setIcon(item.getIcon());
 			setFocusable(false);
 			addMouseListener(new QButtonMouseListener());
+			setBorderPainted(false);
+			setBorder(BorderFactory.createLineBorder(Library.COLOR_SCHEME.getButtonBorderColor()));
+			setBackground(Library.COLOR_SCHEME.getButtonColor());
 		}
 		
 		public void use() {

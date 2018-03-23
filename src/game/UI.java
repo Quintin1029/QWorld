@@ -67,9 +67,12 @@ public class UI {
 		//instantiate the main JPanel
 		mainPanel = new JPanel();
 		mainPanel.setLayout(new FlowLayout());
+		mainPanel.setBackground(Library.COLOR_SCHEME.getBackgroundColor());
 		
 		//create and load default grid
 		gridPanel = new JPanel();
+		gridPanel.setBackground(Library.COLOR_SCHEME.getWorldBorderColor());
+		gridPanel.setBorder(BorderFactory.createLineBorder(Library.COLOR_SCHEME.getWorldBorderColor(), 5, false));
 		gridPanel.setPreferredSize(new Dimension(Library.WINDOW_SCREEN_PIXEL_WIDTH, Library.WINDOW_SCREEN_PIXEL_HEIGHT));
 		gridPanel.setLayout(new GridLayout(Library.WINDOW_SCREEN_CHAR_WIDTH, Library.WINDOW_SCREEN_CHAR_HEIGHT, 0, 0));
 		labelHolder = new JLabel[Library.WINDOW_SCREEN_CHAR_WIDTH][Library.WINDOW_SCREEN_CHAR_HEIGHT];

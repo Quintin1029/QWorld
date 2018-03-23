@@ -24,6 +24,7 @@ public class ResourcePanel extends JPanel {
 	public ResourcePanel(PlayerStatManager player) {
 		this.player = player;
 		setLayout(new FlowLayout());
+		setBackground(Library.COLOR_SCHEME.getBackgroundColor());
 		panelWood = new ResourceDisplayPanel(ResourceStack.WOOD);
 		panelRock = new ResourceDisplayPanel(ResourceStack.ROCK);
 		panelGrass = new ResourceDisplayPanel(ResourceStack.GRASS);
@@ -56,9 +57,11 @@ public class ResourcePanel extends JPanel {
 		
 		public ResourceDisplayPanel(int type) {
 			numberLabel = new JLabel();
+			numberLabel.setForeground(Library.COLOR_SCHEME.getTextColor());
 			this.type = type;
 			
 			setLayout(new FlowLayout());
+			setBackground(Library.COLOR_SCHEME.getBackgroundColor());
 			
 			switch(this.type) {
 			case ResourceStack.WOOD: typeText = "Wood: "; break;
@@ -78,6 +81,7 @@ public class ResourcePanel extends JPanel {
 			number = player.getResource(type).getNumber();
 			
 			JLabel iconLabel = new JLabel(icon);
+			iconLabel.setForeground(Library.COLOR_SCHEME.getTextColor());
 			add(iconLabel);
 			add(numberLabel);
 			redraw();

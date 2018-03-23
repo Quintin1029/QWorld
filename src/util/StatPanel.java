@@ -44,6 +44,9 @@ public class StatPanel extends JPanel {
 		topPanel = new JPanel();
 		middlePanel = new JPanel();
 		bottomPanel = new JPanel();
+		topPanel.setBackground(Library.COLOR_SCHEME.getBackgroundColor());
+		middlePanel.setBackground(Library.COLOR_SCHEME.getBackgroundColor());
+		bottomPanel.setBackground(Library.COLOR_SCHEME.getBackgroundColor());
 		
 		this.player = player;
 		
@@ -64,20 +67,33 @@ public class StatPanel extends JPanel {
 		compass = new CompassPanel();
 		
 		labelWater = new JLabel((int)(percentWater * 100) + "%");
+		labelWater.setBackground(Library.COLOR_SCHEME.getBackgroundColor());
+		labelWater.setForeground(Library.COLOR_SCHEME.getTextColor());
 		labelFood = new JLabel((int)(percentFood * 100) + "%");
+		labelFood.setBackground(Library.COLOR_SCHEME.getBackgroundColor());
+		labelFood.setForeground(Library.COLOR_SCHEME.getTextColor());
 		labelHealth = new JLabel((int)(percentHealth * 100) + "%");
+		labelHealth.setBackground(Library.COLOR_SCHEME.getBackgroundColor());
+		labelHealth.setForeground(Library.COLOR_SCHEME.getTextColor());
 
-		topPanel.add(new JLabel("Water: "));
+		JLabel labelTextWater = new JLabel("Water: ");
+		labelTextWater.setForeground(Library.COLOR_SCHEME.getTextColor());
+		topPanel.add(labelTextWater);
 		topPanel.add(barWater);
 		topPanel.add(labelWater);
-		middlePanel.add(new JLabel("Food:   "));
+		JLabel labelTextFood = new JLabel("Food:   ");
+		labelTextFood.setForeground(Library.COLOR_SCHEME.getTextColor());
+		middlePanel.add(labelTextFood);
 		middlePanel.add(barFood);
 		middlePanel.add(labelFood);
-		bottomPanel.add(new JLabel("Health: "));
+		JLabel labelTextHealth = new JLabel("Health: ");
+		labelTextHealth.setForeground(Library.COLOR_SCHEME.getTextColor());
+		bottomPanel.add(labelTextHealth);
 		bottomPanel.add(barHealth);
 		bottomPanel.add(labelHealth);
 		
 		borderPanel = new JPanel();
+		borderPanel.setBackground(Library.COLOR_SCHEME.getBackgroundColor());
 		borderPanel.setLayout(new BorderLayout());
 		
 		setLayout(new BorderLayout());

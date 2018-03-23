@@ -1,6 +1,7 @@
 package landmarks;
 
 import game.Library;
+import resources.ResourceStack;
 
 /**
  * The home landmark (H)
@@ -22,6 +23,16 @@ public class LandmarkHome extends Landmark {
 	@Override
 	public String getName() {
 		return "Home";
+	}
+
+	@Override
+	public ResourceStack getHarvest(int toolType) {
+		return null;
+	}
+
+	@Override
+	public Landmark getReplacementLandmark(int condition) {
+		return this;
 	}
 
 }

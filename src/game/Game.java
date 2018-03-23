@@ -2,7 +2,10 @@ package game;
 
 import java.util.Random;
 
+import items.Item;
+import items.tools.ItemTool;
 import landmarks.Landmark;
+import resources.ResourceStack;
 import util.Vector;
 import zones.Zone;
 
@@ -60,6 +63,32 @@ public class Game {
 		getLandmarkAtPosition(newPos).interact(player, world);
 		ui.redrawScreen(world, zones, (moved)? newPos : player.getPosition());
 		return moved;
+	}
+	
+	public boolean attemptHarvest(Item tool, int condition) {
+		Library.print("Attempting harvest");
+		Vector [] positionsToHarvest = {
+				player.getPosition().add(Vector.VECTOR_UP),
+				player.getPosition().add(Vector.VECTOR_RIGHT),
+				player.getPosition().add(Vector.VECTOR_DOWN),
+				player.getPosition().add(Vector.VECTOR_LEFT)
+		};
+		
+		boolean harvested = false;
+		for (Vector position : positionsToHarvest) {
+			int [] toolTypes = ((ItemTool)tool).getToolTypes();
+			for (int toolType : toolTypes) {
+				Landmark landmarkAtPos = world[position.getX()][position.getY()];
+				ResourceStack result = landmarkAtPos.getHarvest(toolType);
+				if (result != null) {
+					player.addResource(result);
+					world[position.getX()][position.getY()] = landmarkAtPos.getReplacementLandmark(condition);
+					harvested = true;
+				}
+			}
+		}
+		ui.redrawScreen(world, zones, player.getPosition());
+		return harvested;
 	}
 	
 	public void update() {

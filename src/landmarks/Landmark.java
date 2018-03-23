@@ -3,6 +3,7 @@ package landmarks;
 import java.awt.Color;
 
 import game.PlayerStatManager;
+import resources.ResourceStack;
 
 /**
  * The superclass for all landmark objects
@@ -23,6 +24,11 @@ public abstract class Landmark {
 	 * @author Quintin Harter
 	 */
 	public abstract boolean getIsSolid();
+	
+	public abstract ResourceStack getHarvest(int toolType);
+	
+	public abstract Landmark getReplacementLandmark(int condition);
+	
 	/**
 	 * Gets the name of the landmark (mostly for debugging)
 	 * @return the name of the landmark

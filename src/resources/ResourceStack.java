@@ -4,35 +4,57 @@ import javax.swing.Icon;
 
 import game.Library;
 
-public class ResourceStack<E extends ResourceStack.Resource> {
+public class ResourceStack {
 
-	private int number;
+	public static final int WOOD = 0;
+	public static final int ROCK = 1;
+	public static final int GRASS = 2;
+	public static final int IRON = 3;
+	public static final int DARK = 4;
 	
-	public void add(ResourceStack<E> other) {
-		number += other.number;
+	private int number;
+	private int type;
+	
+	public ResourceStack(int type, int number) {
+		this.type = type;
+		this.number = number;
+	}
+	
+	public ResourceStack(int type) {
+		this.type = type;
+		this.number = 0;
+	}
+	
+	public boolean add(ResourceStack other) {
+		if (other.getType() == type) {
+			number += other.number;
+			return true;
+		}
+		return false;
 	}
 	
 	public void add(int amount) {
 		number += amount;
 	}
 	
-	public void subtract(ResourceStack<E> other) {
-		number -= other.number;
+	public boolean subtract(ResourceStack other) {
+		if (other.getType() == type) {
+			number -= other.number;
+			return true;
+		}
+		return false;
 	}
 	
 	public void subtract(int amount) {
 		number -= amount;
 	}
 	
+	public int getType() {
+		return type;
+	}
+	
 	public int getNumber() {
 		return number;
 	}
-	
-	public abstract class Resource {}
-	public class ResourceWood extends Resource {}
-	public class ResourceRock extends Resource {}
-	public class ResourceGrass extends Resource {}
-	public class ResourceIron extends Resource {}
-	public class ResourceDark extends Resource {}
 	
 }

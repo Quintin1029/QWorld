@@ -52,6 +52,17 @@ public class Library {
 	public static final int LUNCH_BOX_PERCENT = 20;
 	public static final int MED_KIT_PERCENT = 20;
 	public static final int STRENGTH_POTION_AMOUNT = 25;
+	
+	//tool types:
+	public static final int TOOL_NONE = 0;
+	public static final int TOOL_WOOD = 1;
+	public static final int TOOL_GRASS = 2;
+	public static final int TOOL_IRON = 3;
+	public static final int TOOL_DARK = 4;
+	public static final int TOOL_CLOUD = 5;
+	
+	//harvesting conditions
+	public static final int HARVEST_CONDITION_NORMAL = 0;
 
 	// temperatures: affect water loss in zones
 	public static final double TEMP_NORMAL = 0.01; // lose 1% of water per move

@@ -1,4 +1,4 @@
-package items;
+package util;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 import game.Library;
 import game.PlayerStatManager;
 import game.UI;
+import items.Item;
 
 public class InventoryPanel extends JPanel {
 

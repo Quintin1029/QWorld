@@ -1,6 +1,7 @@
-package items;
+package items.buildings;
 
 import game.PlayerStatManager;
+import items.Item;
 
 public abstract class ItemBuilding extends Item {
 

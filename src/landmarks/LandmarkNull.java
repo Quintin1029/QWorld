@@ -3,6 +3,7 @@ package landmarks;
 import java.awt.Color;
 
 import game.Library;
+import resources.ResourceStack;
 
 /**
  * The null landmark
@@ -29,6 +30,16 @@ public class LandmarkNull extends Landmark {
 	@Override
 	public Color getColor() {
 		return Color.BLACK;
+	}
+
+	@Override
+	public ResourceStack getHarvest(int toolType) {
+		return null;
+	}
+
+	@Override
+	public Landmark getReplacementLandmark(int condition) {
+		return this;
 	}
 
 }

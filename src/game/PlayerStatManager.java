@@ -3,6 +3,15 @@ package game;
 import java.util.HashMap;
 
 import items.*;
+import items.buildings.ItemBuilding;
+import items.consumables.ItemConsumable;
+import items.consumables.ItemLunchBox;
+import items.consumables.ItemMedKit;
+import items.consumables.ItemStrengthPotion;
+import items.consumables.ItemWaterBottle;
+import items.tools.ItemStick;
+import items.tools.ItemTool;
+import resources.ResourceStack;
 import util.Vector;
 
 /**
@@ -30,6 +39,13 @@ public class PlayerStatManager {
 	//item options
 	private int strengthMovesRemaining = 0;
 	
+	//resources
+	private ResourceStack woodStack = new ResourceStack(ResourceStack.WOOD);
+	private ResourceStack rockStack = new ResourceStack(ResourceStack.ROCK);
+	private ResourceStack  grassStack = new ResourceStack(ResourceStack.GRASS);
+	private ResourceStack ironStack = new ResourceStack(ResourceStack.IRON);
+	private ResourceStack darkStack = new ResourceStack(ResourceStack.DARK);
+	
 	/**
 	 * The default constructor
 	 * @author Quintin Harter
@@ -45,6 +61,8 @@ public class PlayerStatManager {
 		consumables[1] = new ItemLunchBox(this);
 		consumables[2] = new ItemMedKit(this);
 		consumables[3] = new ItemStrengthPotion(this);
+		
+		tools[0] = new ItemStick(this);
 		
 	}
 	
@@ -220,6 +238,25 @@ public class PlayerStatManager {
 	
 	public void addStrengthMoves(int number) {
 		strengthMovesRemaining += number;
+	}
+	
+	public void addResource(ResourceStack resources) {
+		woodStack.add(resources);
+		rockStack.add(resources);
+		grassStack.add(resources);
+		ironStack.add(resources);
+		darkStack.add(resources);
+	}
+	
+	public ResourceStack getResource(int type) {
+		switch(type) {
+		case 0: return woodStack;
+		case 1: return rockStack;
+		case 2: return grassStack;
+		case 3: return ironStack;
+		case 4: return darkStack;
+		default: return null;
+		}
 	}
 
 	@Override

@@ -1,6 +1,7 @@
-package items;
+package items.consumables;
 
 import game.PlayerStatManager;
+import items.Item;
 
 public abstract class ItemConsumable extends Item {
 	

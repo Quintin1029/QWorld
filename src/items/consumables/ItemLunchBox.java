@@ -1,4 +1,4 @@
-package items;
+package items.consumables;
 
 import javax.swing.Icon;
 

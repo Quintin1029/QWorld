@@ -2,9 +2,10 @@ package game;
 
 import javax.swing.*;
 
-import items.InventoryPanel;
 import landmarks.Landmark;
+import util.InventoryPanel;
 import util.MovementKeyListener;
+import util.ResourcePanel;
 import util.StatPanel;
 import util.Vector;
 import zones.Zone;
@@ -23,6 +24,7 @@ public class UI {
 	private JPanel gridPanel;
 	private JPanel inventoryPanel;
 	private StatPanel statPanel;
+	private ResourcePanel resourcePanel;
 	private PlayerStatManager player;
 
 	private JLabel [] [] labelHolder;
@@ -85,10 +87,14 @@ public class UI {
 		//create and load stat panel
 		statPanel = new StatPanel(player);
 		
+		//create and load resource panel
+		resourcePanel = new ResourcePanel(player);
+		
 		//create window & begin game
 		mainPanel.add(gridPanel);
 		mainPanel.add(inventoryPanel);
 		mainPanel.add(statPanel);
+		mainPanel.add(resourcePanel);
 		frame.add(mainPanel);
 		frame.setVisible(true);
 		frame.addKeyListener(new MovementKeyListener(game));
@@ -121,6 +127,8 @@ public class UI {
 		
 		//update stats
 		statPanel.updatePanel();
+		//update resources
+		resourcePanel.redraw();
 	}
 	
 }

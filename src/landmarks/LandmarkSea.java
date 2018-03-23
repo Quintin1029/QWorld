@@ -3,6 +3,7 @@ package landmarks;
 import java.awt.Color;
 
 import game.Library;
+import resources.ResourceStack;
 
 public class LandmarkSea extends Landmark {
 
@@ -24,6 +25,16 @@ public class LandmarkSea extends Landmark {
 	@Override
 	public Color getColor() {
 		return Color.BLUE;
+	}
+
+	@Override
+	public ResourceStack getHarvest(int toolType) {
+		return null;
+	}
+
+	@Override
+	public Landmark getReplacementLandmark(int condition) {
+		return null;
 	}
 
 }

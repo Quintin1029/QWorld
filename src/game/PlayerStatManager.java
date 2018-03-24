@@ -70,6 +70,10 @@ public class PlayerStatManager {
 	public ItemTool[] getTools() {return tools;}
 	public ItemBuilding[] getBuildings() {return buildings;}
 	
+	/**
+	 * Gets the game attached to this player.
+	 * @return the instance of the game
+	 */
 	public Game getGame() {
 		return game;
 	}
@@ -228,6 +232,10 @@ public class PlayerStatManager {
 		return home;
 	}
 	
+	/**
+	 * Attempts to move with the strength potion. Decrements the int used to keep track of the potion.
+	 * @return if the potion was successfully used.
+	 */
 	public boolean attemptToMoveStrength() {
 		if (strengthMovesRemaining > 0) {
 			strengthMovesRemaining--;
@@ -236,10 +244,18 @@ public class PlayerStatManager {
 		return false;
 	}
 	
+	/**
+	 * Adds a number to the number of remaining strength moves.
+	 * @param number the number to add
+	 */
 	public void addStrengthMoves(int number) {
 		strengthMovesRemaining += number;
 	}
 	
+	/**
+	 * Adds the resource stack to the player's current resources.
+	 * @param resources the resource stack to add.
+	 */
 	public void addResource(ResourceStack resources) {
 		woodStack.add(resources);
 		rockStack.add(resources);
@@ -248,6 +264,11 @@ public class PlayerStatManager {
 		darkStack.add(resources);
 	}
 	
+	/**
+	 * Gets the resource stack owned by the player of the given type
+	 * @param type the type of resource to get
+	 * @return the resource stack of that type
+	 */
 	public ResourceStack getResource(int type) {
 		switch(type) {
 		case 0: return woodStack;

@@ -10,6 +10,10 @@ public abstract class ItemTool extends Item {
 		super(player);
 	}
 	
+	/**
+	 * Gets the tool types of this object. Use Libary.java to compare.
+	 * @return
+	 */
 	public abstract int [] getToolTypes();
 
 	@Override

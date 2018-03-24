@@ -2,6 +2,11 @@ package colorschemes;
 
 import java.awt.Color;
 
+/**
+ * A dark color scheme: dark gray backgrounds with yellow text
+ * @author Quintin Harter
+ *
+ */
 public class DarkColorScheme extends ColorScheme {
 
 	@Override

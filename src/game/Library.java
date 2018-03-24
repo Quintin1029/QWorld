@@ -96,6 +96,11 @@ public class Library {
 			
 	};
 
+	/**
+	 * Gets an image icon from a string. Used mostly internally by Library.java
+	 * @param file the file directory
+	 * @return the image icon from that directory
+	 */
 	public static ImageIcon getImage(String file) {
 		try {
 		return new ImageIcon(Library.class.getClassLoader().getResource(file));

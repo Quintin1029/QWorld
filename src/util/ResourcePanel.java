@@ -10,6 +10,11 @@ import game.Library;
 import game.PlayerStatManager;
 import resources.ResourceStack;
 
+/**
+ * The JPanel that displays the resources in QWorld.
+ * @author Quintin Harter
+ *
+ */
 public class ResourcePanel extends JPanel {
 
 	private PlayerStatManager player;
@@ -21,6 +26,10 @@ public class ResourcePanel extends JPanel {
 	
 	private ResourceDisplayPanel woodPanel;
 	
+	/**
+	 * Constructor.
+	 * @param player the player to display the resources of
+	 */
 	public ResourcePanel(PlayerStatManager player) {
 		this.player = player;
 		setLayout(new FlowLayout());
@@ -39,6 +48,9 @@ public class ResourcePanel extends JPanel {
 		
 	}
 	
+	/**
+	 * Redraws the panel. Used in UI.js.
+	 */
 	public void redraw() {
 		panelWood.redraw();
 		panelRock.redraw();
@@ -47,6 +59,11 @@ public class ResourcePanel extends JPanel {
 		panelDark.redraw();
 	}
 	
+	/**
+	 * A private class in ResourcePanel that represents an individual resource panel.
+	 * @author Quintin Harter
+	 *
+	 */
 	private class ResourceDisplayPanel extends JPanel{
 		
 		private JLabel numberLabel;
@@ -55,6 +72,10 @@ public class ResourcePanel extends JPanel {
 		private String typeText;
 		private int number;
 		
+		/**
+		 * Constructor.
+		 * @param type the type of resource to display (from ResourceStack.java)
+		 */
 		public ResourceDisplayPanel(int type) {
 			numberLabel = new JLabel();
 			numberLabel.setForeground(Library.COLOR_SCHEME.getTextColor());
@@ -87,6 +108,9 @@ public class ResourcePanel extends JPanel {
 			redraw();
 		}
 		
+		/**
+		 * Redraws the individual resource panel.
+		 */
 		public void redraw() {
 			number = player.getResource(type).getNumber();
 			numberLabel.setText(typeText + number);

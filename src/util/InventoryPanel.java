@@ -36,6 +36,10 @@ public class InventoryPanel extends JPanel {
 	private JPanel buildingGridPanel;
 	private JButton [] buildingButtons;
 	
+	/**
+	 * Constructor.
+	 * @param player the player to display the inventory of
+	 */
 	public InventoryPanel(PlayerStatManager player) {
 		this.player = player;
 		consumableButtons = new JButton[Library.CARRYING_CAPACITY];
@@ -70,9 +74,18 @@ public class InventoryPanel extends JPanel {
 		setFocusable(false);
 	}
 	
+	/**
+	 * A private class in InventoryPanel that handle the buttons used for the items.
+	 * @author Quintin Harter
+	 *
+	 */
 	private class QButton extends JButton {
 		public Item item;
 		
+		/**
+		 * Constructor.
+		 * @param item the item to store in this QButton
+		 */
 		public QButton(Item item) {
 			this.item = item;
 			if (item != null)
@@ -84,12 +97,20 @@ public class InventoryPanel extends JPanel {
 			setBackground(Library.COLOR_SCHEME.getButtonColor());
 		}
 		
+		/**
+		 * Uses the item stored by the button (if the item is not null)
+		 */
 		public void use() {
 			if (item != null)
 				item.use();
 		}
 	}
 	
+	/**
+	 * A private class in InventoryPanel that is used by QButton to handle clicks. DO NOT ATTACH TO ANYTHING OTHER THAN A QBUTTON!!!
+	 * @author Quintin Harter
+	 *
+	 */
 	private class QButtonMouseListener implements MouseListener {
 
 		@Override

@@ -14,6 +14,11 @@ public abstract class Structure {
 	 * @param size the size of the structure
 	 */
 	public abstract void generate(Landmark [] [] world, Vector topLeft);
+	
+	/**
+	 * Gets the size of this structure.
+	 * @return the size of this structure.
+	 */
 	public abstract Vector getSize();	
 	
 }

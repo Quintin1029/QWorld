@@ -2,6 +2,11 @@ package colorschemes;
 
 import java.awt.Color;
 
+/**
+ * A light color scheme: white backgrounds with black text
+ * @author Quintin Harter
+ *
+ */
 public class LightColorScheme extends ColorScheme {
 
 	@Override

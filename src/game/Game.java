@@ -65,6 +65,12 @@ public class Game {
 		return moved;
 	}
 	
+	/**
+	 * Attempts to harvest the landmarks bordering the player.
+	 * @param tool the tool to harvest with. THIS MUST BE A CHILD OF ITEMTOOL!!
+	 * @param condition a parameter used to pass along messages.
+	 * @return if we successfully harvested any landmark
+	 */
 	public boolean attemptHarvest(Item tool, int condition) {
 		Library.print("Attempting harvest");
 		Vector [] positionsToHarvest = {
@@ -91,6 +97,9 @@ public class Game {
 		return harvested;
 	}
 	
+	/**
+	 * Update the game: use this when you want the screen to be updated.
+	 */
 	public void update() {
 		//redraw the user interface
 		ui.redrawScreen(world, zones, player.getPosition());

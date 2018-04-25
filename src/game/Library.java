@@ -62,9 +62,10 @@ public class Library {
 	public static final int TOOL_NONE = 0;
 	public static final int TOOL_WOOD = 1;
 	public static final int TOOL_GRASS = 2;
-	public static final int TOOL_IRON = 3;
-	public static final int TOOL_DARK = 4;
-	public static final int TOOL_CLOUD = 5;
+	public static final int TOOL_ROCK = 3;
+	public static final int TOOL_IRON = 4;
+	public static final int TOOL_DARK = 5;
+	public static final int TOOL_CLOUD = 6;
 	
 	//harvesting conditions
 	public static final int HARVEST_CONDITION_NORMAL = 0;

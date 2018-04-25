@@ -4,6 +4,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
 
+import util.Line;
+import util.Vector;
+import worldgen.RangeGenerator;
+
 /**
  * The main method of QWorld. Uses {@code game.run();}
  * 
@@ -26,6 +30,17 @@ public class Main {
 			}
 		}
 		Game game = new Game();
+		
+		
+		//Line l1 = new Line(new Vector(0, 0), new Vector(1, 1));
+		//Line l2 = new Line(new Vector(0, 0), new Vector(1, 2));
+		//Library.print("" + Vector.lineSegmentsIntersect(new Vector(0, 0), new Vector(3, 0), new Vector(1, -1), new Vector(2, 3)));
+		
+		
+		
+		//RangeGenerator rg = new RangeGenerator(20, 30, 5, 10, 5);		
+		
+		
 	}
 
 }

@@ -21,4 +21,5 @@ public abstract class Structure {
 	 */
 	public abstract Vector getSize();	
 	
+	public abstract String getName();
 }

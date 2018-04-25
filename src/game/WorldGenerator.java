@@ -202,7 +202,8 @@ public class WorldGenerator {
 	 */
 	public static boolean dropStructure(Landmark [] [] world, Zone zone, Vector pos, int index) {
 		try {
-			zone.getStructure(index).generate(world, pos);;
+			zone.getStructure(index).generate(world, pos);
+			Library.print("Generated " + zone.getStructure(index).getName() + " at " + pos);
 			return true;
 		} catch (ArrayIndexOutOfBoundsException e) {
 			return false;

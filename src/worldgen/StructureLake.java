@@ -30,8 +30,13 @@ public class StructureLake extends Structure {
 	public void generate(Landmark[][] world, Vector topLeft) {
 		for (int x = 0; x < SIZE.getX(); x++)
 			for (int y = 0; y < SIZE.getY(); y++)
-				if (map[x][y] && !WorldGenerator.isInSpawnArea(new Vector(topLeft.getX() + x, topLeft.getY())))
+				if (map[x][y] && !WorldGenerator.isInSpawnArea(new Vector(topLeft.getX() + x, topLeft.getY() + y)))
 					world[topLeft.getX() + x][topLeft.getY() + y] = new LandmarkSea();
+	}
+
+	@Override
+	public String getName() {
+		return "LAKE";
 	}
 
 }

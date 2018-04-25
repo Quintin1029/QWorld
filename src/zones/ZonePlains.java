@@ -6,6 +6,7 @@ import game.Library;
 import landmarks.*;
 import worldgen.Structure;
 import worldgen.StructureLake;
+import worldgen.StructureMountainRange;
 
 /**
  * The plains zone
@@ -77,6 +78,7 @@ public class ZonePlains extends Zone {
 	public Structure getStructure(int index) {
 		switch(index) {
 		case 0: return new StructureLake();
+		//case 1: return new StructureMountainRange();
 		}
 		return null;
 	}
@@ -85,6 +87,7 @@ public class ZonePlains extends Zone {
 	public double getStructureFrequency(int index) {
 		switch(index) {
 		case 0: return 0.0005;
+		//awdacase 1: return 0.0001;
 		}
 		return -1.;
 	}

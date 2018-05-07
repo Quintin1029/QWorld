@@ -5,6 +5,11 @@ import javax.swing.Icon;
 import game.Library;
 import game.PlayerStatManager;
 
+/**
+ * Represents the stick item. Can destroy wood.
+ * @author Quintin Harter
+ *
+ */
 public class ItemStick extends ItemTool {
 	
 	public ItemStick(PlayerStatManager player) {
@@ -23,6 +28,11 @@ public class ItemStick extends ItemTool {
 	@Override
 	public Icon getIcon() {
 		return Library.ITEM_TOOL_ICONS[0];
+	}
+
+	@Override
+	public String getName() {
+		return "Stick";
 	}
 
 }

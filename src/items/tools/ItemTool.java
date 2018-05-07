@@ -4,6 +4,11 @@ import game.Library;
 import game.PlayerStatManager;
 import items.Item;
 
+/**
+ * The superclass for all tool items.
+ * @author Quintin Harter
+ *
+ */
 public abstract class ItemTool extends Item {
 
 	public ItemTool(PlayerStatManager player) {

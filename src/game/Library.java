@@ -37,6 +37,7 @@ public class Library {
 	public static final char LANDMARK_ENEMY = '\u2738'; // star
 	public static final char LANDMARK_HOME = 'H';
 	public static final char LANDMARK_WELL = 'W';
+	public static final char LANDMARK_HUT = '#';
 
 	// window stats: affect UI display
 	public static final int WINDOW_SCREEN_CHAR_WIDTH = 40;
@@ -51,7 +52,19 @@ public class Library {
 	public static final int WORLD_SIZE = 1000;
 	public static final int SPAWN_RADIUS = 30; //no structures will be generated in the circle at the center of the world with this radius
 	public static final int CARRYING_CAPACITY = 10;
-
+	
+	//hut gen
+	public static final int ITEM_WATER_BOTTLE_HUT_INNER_RADIUS = 20;
+	public static final int ITEM_WATER_BOTTLE_HUT_OUTER_RADIUS = 100;
+	public static final int ITEM_LUNCH_BOX_HUT_INNER_RADIUS = 20;
+	public static final int ITEM_LUNCH_BOX_HUT_OUTER_RADIUS = 100;
+	public static final int ITEM_MED_KIT_HUT_INNER_RADIUS = 20;
+	public static final int ITEM_MED_KIT_HUT_OUTER_RADIUS = 100;
+	public static final int ITEM_STRENGTH_POTION_HUT_INNER_RADIUS = 20;
+	public static final int ITEM_STRENGTH_POTION_HUT_OUTER_RADIUS = 100;
+	public static final int ITEM_STICK_HUT_INNER_RADIUS = 20;
+	public static final int ITEM_STICK_HUT_OUTER_RADIUS = 100;
+	
 	// item options:
 	public static final int WATER_BOTTLE_PERCENT = 20;
 	public static final int LUNCH_BOX_PERCENT = 20;

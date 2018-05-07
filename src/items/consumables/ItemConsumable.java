@@ -1,8 +1,16 @@
 package items.consumables;
 
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+
 import game.PlayerStatManager;
 import items.Item;
 
+/**
+ * The superclass for all consumable items.
+ * @author Quintin Harter
+ *
+ */
 public abstract class ItemConsumable extends Item {
 	
 	private boolean usable;
@@ -17,6 +25,6 @@ public abstract class ItemConsumable extends Item {
 	 */
 	public void regenerate() {
 		usable = true;
-	}
+	}	
 
 }

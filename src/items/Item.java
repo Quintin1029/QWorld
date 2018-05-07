@@ -49,4 +49,10 @@ public abstract class Item {
 		return unlocked;
 	}
 	
+	/**
+	 * Gets the name of the item.
+	 * @return the name of the item
+	 */
+	public abstract String getName();
+	
 }

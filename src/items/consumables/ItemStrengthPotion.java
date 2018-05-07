@@ -5,6 +5,11 @@ import javax.swing.Icon;
 import game.Library;
 import game.PlayerStatManager;
 
+/**
+ * Represents the strength potion item. Adds strength moves (does not consume any food or water)
+ * @author Quintin Harter
+ *
+ */
 public class ItemStrengthPotion extends ItemConsumable {
 
 	public ItemStrengthPotion(PlayerStatManager player) {
@@ -18,7 +23,13 @@ public class ItemStrengthPotion extends ItemConsumable {
 
 	@Override
 	public void use() {
-		player.addStrengthMoves(Library.STRENGTH_POTION_AMOUNT);
+		if (unlocked)
+			player.addStrengthMoves(Library.STRENGTH_POTION_AMOUNT);
+	}
+
+	@Override
+	public String getName() {
+		return "Strength Potion";
 	}
 
 }

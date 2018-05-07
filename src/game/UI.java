@@ -134,4 +134,12 @@ public class UI {
 		resourcePanel.redraw();
 	}
 	
+	/**
+	 * Displays a dialogue box to tell the user something
+	 * @param dialogue the string to display
+	 * @param title the title of the box to displat
+	 */
+	public void displayDialogue(String dialogue, String title) {
+		JOptionPane.showMessageDialog(frame, dialogue, title, JOptionPane.OK_OPTION);
+	}
 }

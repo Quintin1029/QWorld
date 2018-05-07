@@ -5,6 +5,11 @@ import javax.swing.Icon;
 import game.Library;
 import game.PlayerStatManager;
 
+/**
+ * Represents the water bottle item. Restores water.
+ * @author Quintin Harter
+ *
+ */
 public class ItemWaterBottle extends ItemConsumable {
 
 	public ItemWaterBottle(PlayerStatManager player) {
@@ -18,7 +23,13 @@ public class ItemWaterBottle extends ItemConsumable {
 
 	@Override
 	public void use() {
-		player.updateWater(player.getWater() + Library.WATER_BOTTLE_PERCENT);
+		if (unlocked)
+			player.updateWater(player.getWater() + Library.WATER_BOTTLE_PERCENT);
+	}
+
+	@Override
+	public String getName() {
+		return "Water Bottle";
 	}
 
 }

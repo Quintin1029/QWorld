@@ -14,7 +14,7 @@ public class Library {
 	
 	// debug constant: turn this off when you no longer want to print to the
 	// console.
-	public static boolean DEBUG_MODE = false;
+	public static boolean DEBUG_MODE = true;
 	public static boolean DEBUG_FILE = false;
 	
 	//color scheme
@@ -57,21 +57,39 @@ public class Library {
 	
 	//hut gen
 	public static final int ITEM_WATER_BOTTLE_HUT_INNER_RADIUS = 20;
-	public static final int ITEM_WATER_BOTTLE_HUT_OUTER_RADIUS = 100;
+	public static final int ITEM_WATER_BOTTLE_HUT_OUTER_RADIUS = 50;
 	public static final int ITEM_LUNCH_BOX_HUT_INNER_RADIUS = 20;
-	public static final int ITEM_LUNCH_BOX_HUT_OUTER_RADIUS = 100;
+	public static final int ITEM_LUNCH_BOX_HUT_OUTER_RADIUS = 50;
 	public static final int ITEM_MED_KIT_HUT_INNER_RADIUS = 20;
-	public static final int ITEM_MED_KIT_HUT_OUTER_RADIUS = 100;
+	public static final int ITEM_MED_KIT_HUT_OUTER_RADIUS = 50;
 	public static final int ITEM_STRENGTH_POTION_HUT_INNER_RADIUS = 20;
-	public static final int ITEM_STRENGTH_POTION_HUT_OUTER_RADIUS = 100;
+	public static final int ITEM_STRENGTH_POTION_HUT_OUTER_RADIUS = 50;
+	public static final int ITEM_RUBY_SLIPPERS_HUT_INNER_RADIUS = 20;
+	public static final int ITEM_RUBY_SLIPPERS_HUT_OUTER_RADIUS = 50;
+	public static final int ITEM_SPEED_POTION_HUT_INNER_RADIUS = 20;
+	public static final int ITEM_SPEED_POTION_HUT_OUTER_RADIUS = 50;
+	public static final int ITEM_SHIELD_HUT_INNER_RADIUS = 20;
+	public static final int ITEM_SHIELD_HUT_OUTER_RADIUS = 50;
+	public static final int ITEM_LUCK_POTION_HUT_INNER_RADIUS = 20;
+	public static final int ITEM_LUCK_POTION_HUT_OUTER_RADIUS = 50;
+	public static final int ITEM_CHAOS_TELEPORTER_HUT_INNER_RADIUS = 20;
+	public static final int ITEM_CHAOS_TELEPORTER_HUT_OUTER_RADIUS = 50;
+	public static final int ITEM_FIREBALL_HUT_INNER_RADIUS = 20;
+	public static final int ITEM_FIREBALL_HUT_OUTER_RADIUS = 50;
 	public static final int ITEM_STICK_HUT_INNER_RADIUS = 20;
-	public static final int ITEM_STICK_HUT_OUTER_RADIUS = 100;
+	public static final int ITEM_STICK_HUT_OUTER_RADIUS = 50;
+	
 	
 	// item options:
 	public static final int WATER_BOTTLE_PERCENT = 20;
 	public static final int LUNCH_BOX_PERCENT = 20;
 	public static final int MED_KIT_PERCENT = 20;
 	public static final int STRENGTH_POTION_AMOUNT = 25;
+	public static final int SHIELD_AMOUNT = 5;
+	public static final int SPEED_POTION_AMOUNT = 10;
+	public static final int LUCK_POTION_AMOUNT = 5;
+	public static final int CHAOS_TELEPORTER_LOW_RANGE = 20;
+	public static final int CHAOS_TELEPORTER_HIGH_RANGE = 100;
 	
 	//tool types:
 	public static final int TOOL_NONE = 0;

@@ -4,9 +4,15 @@ import java.util.HashMap;
 
 import items.*;
 import items.buildings.ItemBuilding;
+import items.consumables.ItemChaosTeleporter;
 import items.consumables.ItemConsumable;
+import items.consumables.ItemFireball;
+import items.consumables.ItemLuckPotion;
 import items.consumables.ItemLunchBox;
 import items.consumables.ItemMedKit;
+import items.consumables.ItemRubySlippers;
+import items.consumables.ItemShield;
+import items.consumables.ItemSpeedPotion;
 import items.consumables.ItemStrengthPotion;
 import items.consumables.ItemWaterBottle;
 import items.tools.ItemStick;
@@ -38,6 +44,9 @@ public class PlayerStatManager {
 	
 	//item options
 	private int strengthMovesRemaining = 0;
+	private int shieldUsesRemaining = 0;
+	private int speedMovesRemaining = 0;
+	private int luckUsesRemaining = 0;
 	
 	//resources
 	private ResourceStack woodStack = new ResourceStack(ResourceStack.WOOD);
@@ -61,13 +70,12 @@ public class PlayerStatManager {
 		consumables[1] = new ItemLunchBox(this);
 		consumables[2] = new ItemMedKit(this);
 		consumables[3] = new ItemStrengthPotion(this);
-		//Ruby Slippers
-		//Speed Potion
-		//Shield
-		//Luck Potion
-		//Chaos Teleporter
-		//Fireball
-		
+		consumables[4] = new ItemRubySlippers(this);
+		consumables[5] = new ItemSpeedPotion(this);
+		consumables[6] = new ItemShield(this);
+		consumables[7] = new ItemLuckPotion(this);
+		consumables[8] = new ItemChaosTeleporter(this);
+		consumables[9] = new ItemFireball(this);
 		
 		tools[0] = new ItemStick(this); //wood
 		//Scythe - grass
@@ -266,6 +274,42 @@ public class PlayerStatManager {
 	 */
 	public void addStrengthMoves(int number) {
 		strengthMovesRemaining += number;
+	}
+	
+	public boolean attemptToMoveSpeed() {
+		if (speedMovesRemaining > 0) {
+			speedMovesRemaining--;
+			return true;
+		}
+		return false;
+	}
+	
+	public void addSpeedMoves(int number) {
+		speedMovesRemaining += number;
+	}
+	
+	public boolean attemptToUseShield() {
+		if (shieldUsesRemaining > 0) {
+			shieldUsesRemaining--;
+			return true;
+		}
+		return false;
+	}
+	
+	public void addShieldUses(int number) {
+		shieldUsesRemaining += number;
+	}
+	
+	public boolean attemptToUseLuck() {
+		if (luckUsesRemaining > 0) {
+			luckUsesRemaining--;
+			return true;
+		}
+		return false;
+	}
+	
+	public void addLuckUses(int number) {
+		luckUsesRemaining += number;
 	}
 	
 	/**

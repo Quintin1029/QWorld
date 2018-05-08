@@ -19,6 +19,13 @@ public class LandmarkHut extends Landmark {
 	public static final String ITEM_TYPE_LUNCH_BOX = "Lunch Box";
 	public static final String ITEM_TYPE_MED_KIT = "Med Kit";
 	public static final String ITEM_TYPE_STRENGTH_POTION = "Strength Potion";
+	public static final String ITEM_TYPE_RUBY_SLIPPERS = "Ruby Slippers";
+	public static final String ITEM_TYPE_SHIELD = "Shield";
+	public static final String ITEM_TYPE_SPEED_POTION = "Speed Potion";
+	public static final String ITEM_TYPE_LUCK_POTION = "Luck Potion";
+	public static final String ITEM_TYPE_CHAOS_TELEPORTER = "Chaos Teleporter";
+	public static final String ITEM_TYPE_FIREBALL = "Fireball";
+	
 	public static final String ITEM_TYPE_STICK = "Stick";
 	
 	private String tiedItem;

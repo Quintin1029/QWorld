@@ -46,7 +46,7 @@ public class Game {
 	 */
 	public boolean attemptMove(Vector direction) {
 		Library.print("Attempting move...");
-		Vector newPos = player.getPosition().add(direction);
+		Vector newPos = player.getPosition().add((player.attemptToMoveSpeed())? direction.multiply(2) : direction);
 		//interact with the new landmark
 		//only perform the move if we can move there
 		boolean moved = false;
@@ -86,6 +86,8 @@ public class Game {
 			for (int toolType : toolTypes) {
 				Landmark landmarkAtPos = world[position.getX()][position.getY()];
 				ResourceStack result = landmarkAtPos.getHarvest(toolType);
+				if (player.attemptToUseLuck())
+					result.add(result);
 				if (result != null) {
 					player.addResource(result);
 					world[position.getX()][position.getY()] = landmarkAtPos.getReplacementLandmark(condition);

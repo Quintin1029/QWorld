@@ -158,6 +158,12 @@ public class WorldGenerator {
 		generateWithinRadiusOf(world, new LandmarkHut(LandmarkHut.ITEM_TYPE_LUNCH_BOX), Library.ITEM_LUNCH_BOX_HUT_INNER_RADIUS, Library.ITEM_LUNCH_BOX_HUT_OUTER_RADIUS, home);
 		generateWithinRadiusOf(world, new LandmarkHut(LandmarkHut.ITEM_TYPE_MED_KIT), Library.ITEM_MED_KIT_HUT_INNER_RADIUS, Library.ITEM_LUNCH_BOX_HUT_OUTER_RADIUS, home);
 		generateWithinRadiusOf(world, new LandmarkHut(LandmarkHut.ITEM_TYPE_STRENGTH_POTION), Library.ITEM_STRENGTH_POTION_HUT_INNER_RADIUS, Library.ITEM_STRENGTH_POTION_HUT_OUTER_RADIUS, home);
+		generateWithinRadiusOf(world, new LandmarkHut(LandmarkHut.ITEM_TYPE_RUBY_SLIPPERS), Library.ITEM_RUBY_SLIPPERS_HUT_INNER_RADIUS, Library.ITEM_RUBY_SLIPPERS_HUT_OUTER_RADIUS, home);
+		generateWithinRadiusOf(world, new LandmarkHut(LandmarkHut.ITEM_TYPE_SPEED_POTION), Library.ITEM_SPEED_POTION_HUT_INNER_RADIUS, Library.ITEM_SPEED_POTION_HUT_OUTER_RADIUS, home);
+		generateWithinRadiusOf(world, new LandmarkHut(LandmarkHut.ITEM_TYPE_SHIELD), Library.ITEM_SHIELD_HUT_INNER_RADIUS, Library.ITEM_SHIELD_HUT_OUTER_RADIUS, home);
+		generateWithinRadiusOf(world, new LandmarkHut(LandmarkHut.ITEM_TYPE_LUCK_POTION), Library.ITEM_LUCK_POTION_HUT_INNER_RADIUS, Library.ITEM_LUCK_POTION_HUT_OUTER_RADIUS, home);
+		generateWithinRadiusOf(world, new LandmarkHut(LandmarkHut.ITEM_TYPE_CHAOS_TELEPORTER), Library.ITEM_CHAOS_TELEPORTER_HUT_INNER_RADIUS, Library.ITEM_CHAOS_TELEPORTER_HUT_OUTER_RADIUS, home);
+		generateWithinRadiusOf(world, new LandmarkHut(LandmarkHut.ITEM_TYPE_FIREBALL), Library.ITEM_FIREBALL_HUT_INNER_RADIUS, Library.ITEM_FIREBALL_HUT_OUTER_RADIUS, home);
 		//tools
 		generateWithinRadiusOf(world, new LandmarkHut(LandmarkHut.ITEM_TYPE_STICK), Library.ITEM_STICK_HUT_INNER_RADIUS, Library.ITEM_STRENGTH_POTION_HUT_OUTER_RADIUS, home);
 		//buildings

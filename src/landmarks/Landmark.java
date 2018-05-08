@@ -51,7 +51,15 @@ public abstract class Landmark {
 	 * @return the color to override with, null if none
 	 * @author Quintin Harter
 	 */
-	public Color getColor() {
+	public Color getBackgroundColor() {
+		return null;
+	}
+	
+	/**
+	 * Gets the color of the text of the landmark if it should override the default (black).
+	 * @return the color to override, null if none
+	 */
+	public Color getForegroundColor() {
 		return null;
 	}
 	

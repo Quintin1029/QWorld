@@ -37,7 +37,7 @@ public class LandmarkMountain extends Landmark {
 	}
 	
 	@Override
-	public Color getColor() {
+	public Color getBackgroundColor() {
 		return Color.GRAY;
 	}
 

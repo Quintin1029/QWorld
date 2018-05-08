@@ -23,7 +23,7 @@ public class LandmarkSea extends Landmark {
 	}
 	
 	@Override
-	public Color getColor() {
+	public Color getBackgroundColor() {
 		return Color.BLUE;
 	}
 

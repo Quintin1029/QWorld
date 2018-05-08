@@ -117,8 +117,10 @@ public class UI {
 		for (int x = 0; x < Library.WINDOW_SCREEN_CHAR_WIDTH; x++)
 			for (int y = 0; y < Library.WINDOW_SCREEN_CHAR_HEIGHT; y++) {
 				try {
-					Color color = world[x + pPos.getX() - Library.WINDOW_SCREEN_CHAR_WIDTH / 2][y + pPos.getY() - Library.WINDOW_SCREEN_CHAR_HEIGHT / 2].getColor();
-					labelHolder[x][y].setBackground((color == null)? WorldGenerator.getZoneAtPosition(zones, new Vector(x, y)).getGroundColor() : color);
+					Color bcolor = world[x + pPos.getX() - Library.WINDOW_SCREEN_CHAR_WIDTH / 2][y + pPos.getY() - Library.WINDOW_SCREEN_CHAR_HEIGHT / 2].getBackgroundColor();
+					Color fcolor = world[x + pPos.getX() - Library.WINDOW_SCREEN_CHAR_WIDTH / 2][y + pPos.getY() - Library.WINDOW_SCREEN_CHAR_HEIGHT / 2].getForegroundColor();
+					labelHolder[x][y].setBackground((bcolor == null)? WorldGenerator.getZoneAtPosition(zones, new Vector(x, y)).getGroundColor() : bcolor);
+					labelHolder[x][y].setForeground((fcolor == null)? Color.BLACK : fcolor);
 					labelHolder[x][y].setText("" + world[x + pPos.getX() - Library.WINDOW_SCREEN_CHAR_WIDTH / 2][y + pPos.getY() - Library.WINDOW_SCREEN_CHAR_HEIGHT / 2].getChar());
 				} catch (ArrayIndexOutOfBoundsException e) {
 					labelHolder[x][y].setText("" + Library.LANDMARK_NULL);
@@ -137,7 +139,7 @@ public class UI {
 	/**
 	 * Displays a dialogue box to tell the user something
 	 * @param dialogue the string to display
-	 * @param title the title of the box to displat
+	 * @param title the title of the box to display
 	 */
 	public void displayDialogue(String dialogue, String title) {
 		JOptionPane.showMessageDialog(frame, dialogue, title, JOptionPane.OK_OPTION);

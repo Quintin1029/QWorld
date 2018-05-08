@@ -39,8 +39,13 @@ public class LandmarkRuins extends Landmark {
 	}
 	
 	@Override
-	public Color getColor() {
-		return new Color(38, 149, 47);
+	public Color getBackgroundColor() {
+		return null; //new Color(38, 149, 47);
+	}
+	
+	@Override
+	public Color getForegroundColor() {
+		return Color.DARK_GRAY;
 	}
 
 }

@@ -1,10 +1,8 @@
-package worldgen;
+package landmarks;
 
 import java.awt.Color;
 
 import game.Library;
-import landmarks.Landmark;
-import landmarks.LandmarkGround;
 import resources.ResourceStack;
 import util.QRandom;
 

@@ -37,7 +37,9 @@ public class Library {
 	public static final char LANDMARK_ENEMY = '\u2738'; // star
 	public static final char LANDMARK_HOME = 'H';
 	public static final char LANDMARK_WELL = 'W';
-	public static final char LANDMARK_HUT = '#';
+	public static final char LANDMARK_HUT = '@';
+	public static final char LANDMARK_HUT_BROKEN = '#';
+	public static final char LANDMARK_RUINS = '#';
 
 	// window stats: affect UI display
 	public static final int WINDOW_SCREEN_CHAR_WIDTH = 40;

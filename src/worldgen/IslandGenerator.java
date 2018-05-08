@@ -6,6 +6,12 @@ import landmarks.LandmarkSea;
 import util.QRandom;
 import util.Vector;
 
+/**
+ * Generates an island usin the arms-polygon method (invented by Quintin Harter).
+ * Use getMap() to access the generation.
+ * @author Quintin Harter
+ *
+ */
 public class IslandGenerator {
 
 	private boolean [] [] map;

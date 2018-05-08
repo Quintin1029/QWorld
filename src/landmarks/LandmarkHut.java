@@ -20,8 +20,9 @@ public class LandmarkHut extends Landmark {
 	public static final String ITEM_TYPE_MED_KIT = "Med Kit";
 	public static final String ITEM_TYPE_STRENGTH_POTION = "Strength Potion";
 	public static final String ITEM_TYPE_STICK = "Stick";
-
+	
 	private String tiedItem;
+	boolean used = false;
 
 	public LandmarkHut(String tiedItem) {
 		super();
@@ -30,7 +31,7 @@ public class LandmarkHut extends Landmark {
 
 	@Override
 	public char getChar() {
-		return Library.LANDMARK_HUT;
+		return (used)? Library.LANDMARK_HUT_BROKEN : Library.LANDMARK_HUT;
 	}
 
 	@Override
@@ -45,6 +46,7 @@ public class LandmarkHut extends Landmark {
 			pItem.unlock();
 			player.getGame().ui.displayDialogue("You've unlocked " + pItem.getName() + "!!!", "Congradulations!");
 		}
+		used = true;
 	}
 
 	@Override
@@ -62,6 +64,12 @@ public class LandmarkHut extends Landmark {
 		return "Hut";
 	}
 	
+	/**
+	 * Gets the player's item of a certain type
+	 * @param type the type to get
+	 * @param player the player of the game
+	 * @return the player's item of that type
+	 */
 	public static Item getPlayerItem(String type, PlayerStatManager player) {
 		for (Item consumable : player.getConsumables()) {
 			if (consumable != null && consumable.getName().equals(type))

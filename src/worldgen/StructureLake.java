@@ -8,6 +8,11 @@ import landmarks.LandmarkSea;
 import util.QRandom;
 import util.Vector;
 
+/**
+ * Structure of a lake. Randomly generated using IslandGenerator.
+ * @author Quintin Harter
+ *
+ */
 public class StructureLake extends Structure {
 	
 	public static final Vector SIZE = new Vector(30, 30);
@@ -16,6 +21,9 @@ public class StructureLake extends Structure {
 	
 	public boolean [] [] map;
 	
+	/**
+	 * Constructor.
+	 */
 	public StructureLake() {
 		IslandGenerator islandGen = new IslandGenerator(SIZE, ARMS, ARM_LOW_RANGE);
 		map = islandGen.getIsland();

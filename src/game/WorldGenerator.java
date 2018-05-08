@@ -146,7 +146,7 @@ public class WorldGenerator {
 	 * @author Quintin Harter
 	 */
 	public static void generateUnique(Landmark[][] world, Zone[][] zones) {
-		world[Library.WORLD_SIZE / 2][Library.WORLD_SIZE / 2] = new LandmarkHome();
+		placeLandmark(world, new LandmarkHome(), Vector.VECTOR_CENTER);
 		dropHuts(world, zones);
 	}
 
@@ -183,9 +183,9 @@ public class WorldGenerator {
 		double length = QRandom.randDouble(innerRadius, outerRadius);
 		// create the landmark at the new position
 		Vector posToDrop = centerPos.add(new Vector((int) (Math.cos(angle) * length), (int) (Math.sin(angle) * length)));
-		if (!world[posToDrop.getX()][posToDrop.getY()].getIsSolid()) {
+		if (world[posToDrop.getX()][posToDrop.getY()] == null || !world[posToDrop.getX()][posToDrop.getY()].getIsSolid()) {
 			Library.print("Dropped a " + toGenerate.getName() + " at " + posToDrop.toString());
-			world[posToDrop.getX()][posToDrop.getY()] = toGenerate;
+			placeLandmark(world, toGenerate, posToDrop);
 		} else {
 			generateWithinRadiusOf(world, toGenerate, innerRadius, outerRadius, centerPos);
 		}
@@ -236,12 +236,7 @@ public class WorldGenerator {
 	 * @author Quintin Harter
 	 */
 	public static boolean dropGround(Landmark[][] world, Zone zone, Vector pos) {
-		try {
-			world[pos.getX()][pos.getY()] = zone.getGroundLandmark();
-			return true;
-		} catch (ArrayIndexOutOfBoundsException e) {
-			return false;
-		}
+		return placeLandmark(world, zone.getGroundLandmark(), pos);
 	}
 
 	/**
@@ -257,12 +252,7 @@ public class WorldGenerator {
 	 * @author Quintin Harter
 	 */
 	public static boolean dropTree(Landmark[][] world, Zone zone, Vector pos, int index) {
-		try {
-			world[pos.getX()][pos.getY()] = zone.getTreeLandmark(index);
-			return true;
-		} catch (ArrayIndexOutOfBoundsException e) {
-			return false;
-		}
+		return placeLandmark(world, zone.getTreeLandmark(index), pos);
 	}
 
 	/**
@@ -302,8 +292,12 @@ public class WorldGenerator {
 	 * @author Quintin Harter
 	 */
 	public static boolean dropPath(Landmark[][] world, Zone zone, Vector pos) {
+		return placeLandmark(world, zone.getPathLandmark(), pos);
+	}
+	
+	public static boolean placeLandmark(Landmark[][] world, Landmark landmark, Vector pos) {
 		try {
-			world[pos.getX()][pos.getY()] = zone.getPathLandmark();
+			world[pos.getX()][pos.getY()] = WGPL.getHigherPriority(world[pos.getX()][pos.getY()], landmark);
 			return true;
 		} catch (ArrayIndexOutOfBoundsException e) {
 			return false;

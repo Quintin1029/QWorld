@@ -26,7 +26,7 @@ public class StructureMountainRange extends Structure {
 		for (int x = 0; x < SIZE.getX(); x++)
 			for (int y = 0; y < SIZE.getY(); y++)
 				if (map[x][y] && !WorldGenerator.isInSpawnArea(new Vector(topLeft.getX() + x, topLeft.getY())))
-					world[topLeft.getX() + x][topLeft.getY() + y] = new LandmarkMountain();
+					WorldGenerator.placeLandmark(world, new LandmarkMountain(), new Vector(topLeft.getX() + x, topLeft.getY() + y));
 	}
 
 	@Override

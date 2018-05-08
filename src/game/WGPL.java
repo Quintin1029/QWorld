@@ -7,6 +7,7 @@ import landmarks.LandmarkHut;
 import landmarks.LandmarkMountain;
 import landmarks.LandmarkNull;
 import landmarks.LandmarkPath;
+import landmarks.LandmarkRuins;
 import landmarks.LandmarkSea;
 import landmarks.LandmarkTree;
 import landmarks.LandmarkWell;
@@ -35,6 +36,7 @@ public class WGPL {
 			new LandmarkMountain(),
 			new LandmarkPath(),
 			new LandmarkTree(),
+			new LandmarkRuins(),
 			
 			//The ground is least important.
 			new LandmarkGround(),
@@ -48,6 +50,8 @@ public class WGPL {
 	 * @return the priority number for that landmark
 	 */
 	public static int getPriority(Landmark l) {
+		if (l == null)
+			return QMath.LARGE_NUMBER;
 		for (int i = 0; i < priorities.length; i++) {
 			if (l.getClass().equals(priorities[i].getClass()))
 				return i;

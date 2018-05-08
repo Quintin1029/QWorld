@@ -1,6 +1,8 @@
 package worldgen;
 
+import game.WorldGenerator;
 import landmarks.Landmark;
+import landmarks.LandmarkMountain;
 import landmarks.LandmarkRuins;
 import util.QRandom;
 import util.Vector;
@@ -42,7 +44,7 @@ public class StructureRuins extends Structure {
 		for (int x = 0; x < map.length; x++) {
 			for (int y = 0; y < map[x].length; y++) {
 				if (map[x][y])
-					world[topLeft.getX() + x][topLeft.getY() + y] = new LandmarkRuins();
+					WorldGenerator.placeLandmark(world, new LandmarkRuins(), new Vector(topLeft.getX() + x, topLeft.getY() + y));
 			}
 		}
 	}

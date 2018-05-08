@@ -90,7 +90,7 @@ public class ZonePlains extends Zone {
 		case 0: return 0.0005;
 		case 1: return 0.0001;
 		}
-		return -1.;
+ww		return -1.;
 	}
 
 }

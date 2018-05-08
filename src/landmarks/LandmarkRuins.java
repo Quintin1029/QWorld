@@ -1,5 +1,7 @@
 package landmarks;
 
+import java.awt.Color;
+
 import game.Library;
 import resources.ResourceStack;
 import util.QRandom;
@@ -34,6 +36,11 @@ public class LandmarkRuins extends Landmark {
 	@Override
 	public String getName() {
 		return "Ruins";
+	}
+	
+	@Override
+	public Color getColor() {
+		return new Color(38, 149, 47);
 	}
 
 }

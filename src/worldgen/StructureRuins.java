@@ -17,7 +17,7 @@ import util.Vector;
  */
 public class StructureRuins extends Structure {
 	
-	public static final int PATH_WIDTH = 3;
+	public static final int PATH_WIDTH = 1;
 	
 	public int rows;
 	public int cols;

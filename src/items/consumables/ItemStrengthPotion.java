@@ -18,7 +18,7 @@ public class ItemStrengthPotion extends ItemConsumable {
 
 	@Override
 	public Icon getIcon() {
-		return null;
+		return Library.ITEM_CONSUMABLE_ICONS[3];
 	}
 
 	@Override

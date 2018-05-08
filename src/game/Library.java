@@ -14,7 +14,7 @@ public class Library {
 	
 	// debug constant: turn this off when you no longer want to print to the
 	// console.
-	public static boolean DEBUG_MODE = true;
+	public static boolean DEBUG_MODE = false;
 	public static boolean DEBUG_FILE = false;
 	
 	//color scheme
@@ -97,11 +97,29 @@ public class Library {
 		
 	//icons used for items
 	public static final ImageIcon [] ITEM_CONSUMABLE_ICONS = {
-			getImage("icons/waterbottle.png")
+			getImage("icons/waterbottle.png"),
+			getImage("icons/lunchbox.png"),
+			getImage("icons/medkit.png"),
+			getImage("icons/strengthpotion.png"),
+			getImage("icons/rubyslippers.png"),
+			getImage("icons/speedpotion.png"),
+			getImage("icons/shield.png"),
+			getImage("icons/luckpotion.png"),
+			getImage("icons/teleporter.png"),
+			getImage("icons/fireball.png")
 	};
 	
 	public static final ImageIcon [] ITEM_TOOL_ICONS = {
-			getImage("icons/branch.jpg")
+			getImage("icons/branch.jpg"),
+			getImage("icons/scythe.png"),
+			getImage("icons/chisel.png"),
+			getImage("icons/pickaxe.png"),
+			getImage("icons/soulcollector.png"),
+			getImage("icons/bottle.png"),
+			getImage("icons/axe.png"),
+			getImage("icons/drill.png"),
+			getImage("icons/soulbottle.png"),
+			getImage("icons/hammer.png")
 	};
 	
 	public static final ImageIcon [] ITEM_ARMOR_ICONS = {

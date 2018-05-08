@@ -61,8 +61,24 @@ public class PlayerStatManager {
 		consumables[1] = new ItemLunchBox(this);
 		consumables[2] = new ItemMedKit(this);
 		consumables[3] = new ItemStrengthPotion(this);
+		//Ruby Slippers
+		//Speed Potion
+		//Shield
+		//Luck Potion
+		//Chaos Teleporter
+		//Fireball
 		
-		tools[0] = new ItemStick(this);
+		
+		tools[0] = new ItemStick(this); //wood
+		//Scythe - grass
+		//Chisel - rock
+		//Pickaxe - iron
+		//Soul Collector - dark
+		//Bottle - cloud
+		//Axe - wood & grass
+		//Drill - rock & iron
+		//Soul Bottle - dark & cloud
+		//Magic Hammer - all (not cloud or dark)
 		
 	}
 	

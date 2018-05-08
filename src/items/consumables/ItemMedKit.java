@@ -18,7 +18,7 @@ public class ItemMedKit extends ItemConsumable {
 
 	@Override
 	public Icon getIcon() {
-		return null;
+		return Library.ITEM_CONSUMABLE_ICONS[2];
 	}
 
 	@Override

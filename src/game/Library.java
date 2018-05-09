@@ -112,6 +112,7 @@ public class Library {
 
 	// hungers: affect food loss in zones
 	public static final double FOOD_LOSS_COEFFICIENT = 0.01; // lose 1% of food per move
+	public static final double HEALTH_LOSS_COEFFICIENT = 0.01; //lose 1% of health per damage while moving
 		
 	//icons used for items
 	public static final ImageIcon [] ITEM_CONSUMABLE_ICONS = {

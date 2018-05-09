@@ -136,6 +136,10 @@ public class UI {
 		resourcePanel.redraw();
 	}
 	
+	public void exit() {
+		frame.dispose();
+	}
+	
 	/**
 	 * Displays a dialogue box to tell the user something
 	 * @param dialogue the string to display
@@ -143,5 +147,9 @@ public class UI {
 	 */
 	public void displayDialogue(String dialogue, String title) {
 		JOptionPane.showMessageDialog(frame, dialogue, title, JOptionPane.OK_OPTION);
+	}
+	
+	public boolean displayYesNo(String message, String title) {
+		return JOptionPane.showConfirmDialog(frame, message, title, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION;
 	}
 }

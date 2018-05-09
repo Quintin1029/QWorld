@@ -116,9 +116,12 @@ public class Game {
 	public void refreshPlayerStats() {
 		player.updateWater(getNewWater());
 		player.updateFood(getNewFood());
+		player.updateHealth(getNewHealth());
+		if (player.getHealth() == 0)
+			die();
 		Library.print(player.toString());
 	}
-	
+
 	/**
 	 * Retrieves the landmark at the position specified.
 	 * 
@@ -157,14 +160,25 @@ public class Game {
 		return player.getFood() - 100 * Library.FOOD_LOSS_COEFFICIENT;
 	}
 	
+	private double getNewHealth() {
+		double health = player.getHealth();
+		health -= (player.getWater() == 0)? 100 * Library.HEALTH_LOSS_COEFFICIENT : 0;
+		health -= (player.getFood() == 0)? 100 * Library.HEALTH_LOSS_COEFFICIENT : 0;
+		return health;
+	}
+	
 	/**
 	 * Kills the player.
 	 * 
 	 * @author Quintin Harter
 	 */
 	public void die() {
-		//TODO add death routine
-		Library.print("You died.");
+		ui.exit();
+		Game g;
+		if (ui.displayYesNo("You died... Play Again?", "..."))
+			g = new Game();
+		else
+			System.exit(0);
 	}
 	
 }

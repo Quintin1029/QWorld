@@ -54,12 +54,14 @@ public class Library {
 	public static final int WINDOW_SCREEN_CHAR_HEIGHT = 40;
 	public static final int WINDOW_SCREEN_PIXEL_WIDTH = 500;
 	public static final int WINDOW_SCREEN_PIXEL_HEIGHT = 500;
-	public static final int ZONE_WIDTH = 10;
-	public static final int ZONE_HEIGHT = 10;
+	public static final int ZONE_WIDTH = 1;
+	public static final int ZONE_HEIGHT = 1;
 	public static final float FONT_SIZE = 15f;
 
 	// game options: affect world generation or settings
 	public static final int WORLD_SIZE = 1000;
+	public static final int ZONE_DENSITY = 200;
+	public static final int ZONE_MINIMUM_DISTANCE = 30; //make sure ZONE_DENSITY * ZONE_MINIMUM_DISTANCE < 1,000,000
 	public static final int SPAWN_RADIUS = 30; //no structures will be generated in the circle at the center of the world with this radius
 	public static final int CARRYING_CAPACITY = 10;
 	

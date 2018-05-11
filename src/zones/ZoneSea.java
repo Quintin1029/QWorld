@@ -68,7 +68,7 @@ public class ZoneSea extends Zone {
 	@Override
 	public double getStructureFrequency(int index) {
 		switch(index) {
-		case 0: return 0.0001;
+		case 0: return -1;
 		}
 		return -1.;
 	}
@@ -80,7 +80,7 @@ public class ZoneSea extends Zone {
 
 	@Override
 	public Color getGroundColor() {
-		return new Color(122, 239, 83); //light green
+		return Color.CYAN; //light green
 	}
 
 }

@@ -20,6 +20,11 @@ import zones.*;
 public class WorldGenerator {
 
 	public static Random random = new Random();
+	
+	public static Zone[] zoneList = {
+			new ZonePlains(),
+			new ZoneSea()
+	};
 
 	/**
 	 * Generates random zones in the grid
@@ -29,16 +34,54 @@ public class WorldGenerator {
 	 */
 	public static Zone[][] generateZones() {
 		// generate random zones
-		Zone[][] zones = new Zone[Library.ZONE_HEIGHT][Library.ZONE_WIDTH];
-		for (int i = 0; i < zones.length; i++)
-			for (int k = 0; k < zones[i].length; k++) {
-				if (i == Library.ZONE_HEIGHT / 2 && k == Library.ZONE_WIDTH / 2)
-					zones[i][k] = new ZonePlains();
-				else
-					zones[i][k] = newRandomZone();
-				Library.print("Zone at (" + i + " , " + k + ") is of type " + zones[i][k].getName());
+		Zone[][] zones = new Zone[Library.WORLD_SIZE][Library.WORLD_SIZE];
+		Vector[] centerPositions = new Vector[Library.ZONE_DENSITY];
+		//generate center positions
+		generateCenterPositions(centerPositions);
+		//drop center position zones
+		for (int z = 0; z < centerPositions.length; z++)
+			try {
+				zones[centerPositions[z].getX()][centerPositions[z].getY()] = zoneList[z % zoneList.length].getClass().newInstance();
+			} catch (InstantiationException e) {
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				e.printStackTrace();
 			}
+		for (int i = 0; i < zones.length; i++) {
+			for (int k = 0; k < zones[i].length; k++) {
+				//loop through each position and set the landmark to the closest zone center position
+				int min = -1;
+				double minSize = QMath.LARGE_NUMBER;
+				for (int pos = 0; pos < centerPositions.length; pos++) {
+					if (centerPositions[pos].subtract(new Vector(i, k)).getMagnitude() < minSize) {
+						min = pos;
+						minSize = centerPositions[pos].subtract(new Vector(i, k)).getMagnitude();
+					}
+				}
+				try {
+					zones[i][k] = zoneList[min % zoneList.length].getClass().newInstance();
+				} catch (InstantiationException e) {
+					e.printStackTrace();
+				} catch (IllegalAccessException e) {
+					e.printStackTrace();
+				}
+			}
+		}
 		return zones;
+	}
+
+	private static void generateCenterPositions(Vector[] centerPositions) {
+		for (int v = 0; v < centerPositions.length; v++) {
+			centerPositions[v] = new Vector(QRandom.randInt(0, Library.WORLD_SIZE), QRandom.randInt(0, Library.WORLD_SIZE));
+			for (int i = 0; i < centerPositions.length; i++) {
+				if (i != v && centerPositions[i] != null && centerPositions[v].subtract(centerPositions[i]).getMagnitude() < Library.ZONE_MINIMUM_DISTANCE) {
+					v--;
+					break;
+				}
+			}
+		}
+		Library.print(Library.arrayToString(centerPositions));
+		
 	}
 
 	/**
@@ -218,9 +261,7 @@ public class WorldGenerator {
 	 * @author Quintin Harter
 	 */
 	public static Zone getZoneAtPosition(Zone[][] zones, Vector pos) {
-		Zone zone = zones[(int) (pos.getX() / (double) Library.WORLD_SIZE * Library.ZONE_HEIGHT)][(int) (pos.getY()
-				/ (double) Library.WORLD_SIZE * Library.ZONE_WIDTH)];
-		return zone;
+		return zones[pos.getX()][pos.getY()];
 	}
 
 	/**

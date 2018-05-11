@@ -21,9 +21,10 @@ public class WorldGenerator {
 
 	public static Random random = new Random();
 	
-	public static Zone[] zoneList = {
+	public static final Zone[] zoneList = {
 			new ZonePlains(),
-			new ZoneSea()
+			new ZoneForest(),
+			new ZoneDesert()
 	};
 
 	/**
@@ -72,7 +73,7 @@ public class WorldGenerator {
 
 	private static void generateCenterPositions(Vector[] centerPositions) {
 		for (int v = 0; v < centerPositions.length; v++) {
-			centerPositions[v] = new Vector(QRandom.randInt(0, Library.WORLD_SIZE), QRandom.randInt(0, Library.WORLD_SIZE));
+			centerPositions[v] = new Vector(QRandom.randInt(0, Library.WORLD_SIZE - 1), QRandom.randInt(0, Library.WORLD_SIZE - 1));
 			for (int i = 0; i < centerPositions.length; i++) {
 				if (i != v && centerPositions[i] != null && centerPositions[v].subtract(centerPositions[i]).getMagnitude() < Library.ZONE_MINIMUM_DISTANCE) {
 					v--;

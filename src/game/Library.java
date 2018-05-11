@@ -19,6 +19,7 @@ public class Library {
 	
 	//testing variable: turn true when you want to be invincible
 	public static boolean NO_DEATH = true;
+	public static boolean ENABLE_ALL_ITEMS = true;
 	
 	//color scheme
 	public static final ColorScheme COLOR_SCHEME = new DarkColorScheme();
@@ -48,6 +49,7 @@ public class Library {
 	public static final char LANDMARK_SHRINE_TOP = '|';
 	public static final char LANDMARK_SHRINE_DIAG_LEFT = '\\';
 	public static final char LANDMARK_SHRINE_DIAG_RIGHT = '/';
+	public static final char LANDMARK_CACTUS = 'i';
 
 	// window stats: affect UI display
 	public static final int WINDOW_SCREEN_CHAR_WIDTH = 40;

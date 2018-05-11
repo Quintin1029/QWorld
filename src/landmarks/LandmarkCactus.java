@@ -1,21 +1,13 @@
 package landmarks;
 
-import java.awt.Color;
-
 import game.Library;
 import resources.ResourceStack;
-import util.QRandom;
 
-/**
- * The tree landmark
- * @author Quintin Harter
- *
- */
-public class LandmarkTree extends Landmark {
+public class LandmarkCactus extends Landmark {
 
 	@Override
 	public char getChar() {
-		return Library.LANDMARK_TREE;
+		return Library.LANDMARK_CACTUS;
 	}
 
 	@Override
@@ -24,14 +16,9 @@ public class LandmarkTree extends Landmark {
 	}
 
 	@Override
-	public String getName() {
-		return "Tree";
-	}
-
-	@Override
 	public ResourceStack getHarvest(int toolType) {
 		switch(toolType) {
-		case Library.TOOL_WOOD: return new ResourceStack(ResourceStack.WOOD, QRandom.randInt(20, 30));
+		case 0: return new ResourceStack(ResourceStack.GRASS, 1);
 		}
 		return null;
 	}
@@ -40,10 +27,10 @@ public class LandmarkTree extends Landmark {
 	public Landmark getReplacementLandmark(int condition) {
 		return new LandmarkGround();
 	}
-	
+
 	@Override
-	public Color getForegroundColor() {
-		return new Color(19, 64, 0);
+	public String getName() {
+		return "Cactus";
 	}
 
 }

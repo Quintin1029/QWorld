@@ -1,6 +1,7 @@
 package game;
 
 import landmarks.Landmark;
+import landmarks.LandmarkCactus;
 import landmarks.LandmarkGround;
 import landmarks.LandmarkHome;
 import landmarks.LandmarkHut;
@@ -39,6 +40,7 @@ public class WGPL {
 			new LandmarkShrineCenter(),
 			new LandmarkShrineBorder(0),
 			new LandmarkPath(),
+			new LandmarkCactus(),
 			new LandmarkTree(),
 			new LandmarkRuins(),
 			

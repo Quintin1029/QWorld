@@ -18,7 +18,8 @@ public class ItemSpeedPotion extends ItemConsumable {
 
 	@Override
 	public void use() {
-		player.addSpeedMoves(Library.SPEED_POTION_AMOUNT);
+		if (unlocked || Library.ENABLE_ALL_ITEMS)
+			player.addSpeedMoves(Library.SPEED_POTION_AMOUNT);
 	}
 
 	@Override

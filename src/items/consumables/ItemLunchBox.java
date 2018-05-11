@@ -23,7 +23,7 @@ public class ItemLunchBox extends ItemConsumable {
 
 	@Override
 	public void use() {
-		if (unlocked)
+		if (unlocked || Library.ENABLE_ALL_ITEMS)
 			player.updateFood(player.getFood() + Library.LUNCH_BOX_PERCENT);
 	}
 

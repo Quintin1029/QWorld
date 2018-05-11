@@ -19,7 +19,7 @@ public class ItemRubySlippers extends ItemConsumable {
 
 	@Override
 	public void use() {
-		if (unlocked) {
+		if (unlocked || Library.ENABLE_ALL_ITEMS) {
 			Vector direction = Vector.VECTOR_CENTER.subtract(player.getPosition());
 			player.getGame().attemptMove(direction);
 		}

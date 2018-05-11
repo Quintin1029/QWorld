@@ -23,7 +23,7 @@ public class ItemMedKit extends ItemConsumable {
 
 	@Override
 	public void use() {
-		if (unlocked)
+		if (unlocked || Library.ENABLE_ALL_ITEMS)
 			player.updateHealth(player.getHealth() + Library.MED_KIT_PERCENT);
 	}
 

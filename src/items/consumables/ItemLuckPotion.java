@@ -18,6 +18,7 @@ public class ItemLuckPotion extends ItemConsumable {
 
 	@Override
 	public void use() {
+		if (unlocked || Library.ENABLE_ALL_ITEMS) 
 		player.addLuckUses(Library.LUCK_POTION_AMOUNT);
 	}
 

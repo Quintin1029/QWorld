@@ -23,7 +23,7 @@ public class ItemStrengthPotion extends ItemConsumable {
 
 	@Override
 	public void use() {
-		if (unlocked)
+		if (unlocked || Library.ENABLE_ALL_ITEMS)
 			player.addStrengthMoves(Library.STRENGTH_POTION_AMOUNT);
 	}
 

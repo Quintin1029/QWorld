@@ -23,7 +23,7 @@ public class ItemWaterBottle extends ItemConsumable {
 
 	@Override
 	public void use() {
-		if (unlocked)
+		if (unlocked || Library.ENABLE_ALL_ITEMS)
 			player.updateWater(player.getWater() + Library.WATER_BOTTLE_PERCENT);
 	}
 

@@ -21,13 +21,16 @@ public class ItemChaosTeleporter extends ItemConsumable {
 
 	@Override
 	public void use() {
-		//send the player to a random location within a certain radius
-		double angle = QMath.getRandomAngle();
-		double length = QRandom.randDouble(Library.CHAOS_TELEPORTER_LOW_RANGE, Library.CHAOS_TELEPORTER_HIGH_RANGE);
-		Vector newPos = player.getPosition().add(new Vector((int) (length * Math.cos(angle)), (int) (length * Math.sin(angle))));
-		newPos.setX((int)Library.clamp(newPos.getX(), 0, Library.WORLD_SIZE));
-		newPos.setY((int)Library.clamp(newPos.getY(), 0, Library.WORLD_SIZE));
-		player.updatePosition(newPos);
+		if (unlocked || Library.ENABLE_ALL_ITEMS) {
+			// send the player to a random location within a certain radius
+			double angle = QMath.getRandomAngle();
+			double length = QRandom.randDouble(Library.CHAOS_TELEPORTER_LOW_RANGE, Library.CHAOS_TELEPORTER_HIGH_RANGE);
+			Vector newPos = player.getPosition()
+					.add(new Vector((int) (length * Math.cos(angle)), (int) (length * Math.sin(angle))));
+			newPos.setX((int) Library.clamp(newPos.getX(), 0, Library.WORLD_SIZE));
+			newPos.setY((int) Library.clamp(newPos.getY(), 0, Library.WORLD_SIZE));
+			player.updatePosition(newPos);
+		}
 	}
 
 	@Override

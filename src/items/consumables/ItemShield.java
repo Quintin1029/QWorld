@@ -18,7 +18,8 @@ public class ItemShield extends ItemConsumable {
 
 	@Override
 	public void use() {
-		player.addShieldUses(Library.SHIELD_AMOUNT);
+		if (unlocked || Library.ENABLE_ALL_ITEMS)
+			player.addShieldUses(Library.SHIELD_AMOUNT);
 	}
 
 	@Override

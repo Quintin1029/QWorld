@@ -297,6 +297,8 @@ public class WorldGenerator {
 	
 	public static boolean placeLandmark(Landmark[][] world, Landmark landmark, Vector pos) {
 		try {
+			if (world[pos.getX()][pos.getY()] != null)
+				world[pos.getX()][pos.getY()].onDestroy(world, pos);
 			world[pos.getX()][pos.getY()] = WGPL.getHigherPriority(world[pos.getX()][pos.getY()], landmark);
 			return true;
 		} catch (ArrayIndexOutOfBoundsException e) {

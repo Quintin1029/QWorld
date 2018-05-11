@@ -9,6 +9,8 @@ import landmarks.LandmarkNull;
 import landmarks.LandmarkPath;
 import landmarks.LandmarkRuins;
 import landmarks.LandmarkSea;
+import landmarks.LandmarkShrineBorder;
+import landmarks.LandmarkShrineCenter;
 import landmarks.LandmarkTree;
 import landmarks.LandmarkWell;
 
@@ -34,6 +36,8 @@ public class WGPL {
 			new LandmarkSea(),
 			new LandmarkWell(),
 			new LandmarkMountain(),
+			new LandmarkShrineCenter(),
+			new LandmarkShrineBorder(0),
 			new LandmarkPath(),
 			new LandmarkTree(),
 			new LandmarkRuins(),

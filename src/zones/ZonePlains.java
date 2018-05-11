@@ -8,6 +8,7 @@ import worldgen.Structure;
 import worldgen.StructureLake;
 import worldgen.StructureMountainRange;
 import worldgen.StructureRuins;
+import worldgen.StructureShrine;
 
 /**
  * The plains zone
@@ -80,6 +81,7 @@ public class ZonePlains extends Zone {
 		switch(index) {
 		case 0: return new StructureLake();
 		case 1: return new StructureRuins();
+		case 2: return new StructureShrine();
 		}
 		return null;
 	}
@@ -89,6 +91,7 @@ public class ZonePlains extends Zone {
 		switch(index) {
 		case 0: return 0.0005;
 		case 1: return 0.0001;
+		case 2: return 0.0001;
 		}
 		return -1.;
 	}

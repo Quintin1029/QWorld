@@ -17,6 +17,9 @@ public class Library {
 	public static boolean DEBUG_MODE = true;
 	public static boolean DEBUG_FILE = false;
 	
+	//testing variable: turn true when you want to be invincible
+	public static boolean NO_DEATH = true;
+	
 	//color scheme
 	public static final ColorScheme COLOR_SCHEME = new DarkColorScheme();
 
@@ -40,6 +43,11 @@ public class Library {
 	public static final char LANDMARK_HUT = '@';
 	public static final char LANDMARK_HUT_BROKEN = '#';
 	public static final char LANDMARK_RUINS = '#';
+	public static final char LANDMARK_SHRINE_CENTER = '?';
+	public static final char LANDMARK_SHRINE_SIDE = '-';
+	public static final char LANDMARK_SHRINE_TOP = '|';
+	public static final char LANDMARK_SHRINE_DIAG_LEFT = '\\';
+	public static final char LANDMARK_SHRINE_DIAG_RIGHT = '/';
 
 	// window stats: affect UI display
 	public static final int WINDOW_SCREEN_CHAR_WIDTH = 40;

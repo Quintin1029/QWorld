@@ -4,6 +4,7 @@ import java.awt.Color;
 
 import game.PlayerStatManager;
 import resources.ResourceStack;
+import util.Vector;
 
 /**
  * The superclass for all landmark objects
@@ -70,6 +71,10 @@ public abstract class Landmark {
 	 * @author Quintin Harter
 	 */
 	public void interact(PlayerStatManager player, Landmark [] [] world) {
+		//default-- do nothing
+	}
+	
+	public void onDestroy(Landmark[][] world, Vector pos) {
 		//default-- do nothing
 	}
 	

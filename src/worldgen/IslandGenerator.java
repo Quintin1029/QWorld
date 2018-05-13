@@ -20,7 +20,7 @@ public class IslandGenerator {
 	 * Constructor: generates a new random island
 	 * @param size the size of the island to generate
 	 * @param accuracy the accuracy (number of arms) to generate with. Think of the accuracy as the number of points on a star. The more points, the more jagged (but because we use squares it will just be weird). The less points, the more polygonal.
-	 * @param bendRange the range o
+	 * @param bendRange the range of the arms (0-1)
 	 */
 	public IslandGenerator(Vector size, int accuracy, double bendRange) {
 		//Generate the arms
@@ -46,6 +46,7 @@ public class IslandGenerator {
 				}
 			}
 		}
+		map[size.getX() / 2][size.getY() / 2] = true;
 	}
 	
 	/**

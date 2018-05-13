@@ -8,6 +8,7 @@ import landmarks.LandmarkCactus;
 import landmarks.LandmarkGround;
 import landmarks.LandmarkPath;
 import worldgen.Structure;
+import worldgen.StructureOasis;
 
 public class ZoneDesert extends Zone {
 
@@ -36,6 +37,9 @@ public class ZoneDesert extends Zone {
 
 	@Override
 	public Structure getStructure(int index) {
+		switch(index) {
+		case 0: return new StructureOasis();
+		}
 		return null;
 	}
 
@@ -59,6 +63,9 @@ public class ZoneDesert extends Zone {
 
 	@Override
 	public double getStructureFrequency(int index) {
+		switch(index) {
+		case 0: return 0.0003;
+		}
 		return -1;
 	}
 

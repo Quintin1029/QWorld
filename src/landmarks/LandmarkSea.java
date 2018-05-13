@@ -3,6 +3,7 @@ package landmarks;
 import java.awt.Color;
 
 import game.Library;
+import game.PlayerStatManager;
 import resources.ResourceStack;
 
 public class LandmarkSea extends Landmark {
@@ -15,6 +16,11 @@ public class LandmarkSea extends Landmark {
 	@Override
 	public boolean getIsSolid() {
 		return true;
+	}
+	
+	@Override
+	public void interact(PlayerStatManager player, Landmark[][] world) {
+		player.updateWater(player.getMaxWater());
 	}
 
 	@Override

@@ -1,5 +1,7 @@
 package landmarks;
 
+import java.awt.Color;
+
 import game.Library;
 import resources.ResourceStack;
 
@@ -26,6 +28,11 @@ public class LandmarkCactus extends Landmark {
 	@Override
 	public Landmark getReplacementLandmark(int condition) {
 		return new LandmarkGround();
+	}
+	
+	@Override
+	public Color getForegroundColor() {
+		return Color.GREEN;
 	}
 
 	@Override

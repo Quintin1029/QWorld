@@ -7,6 +7,11 @@ import landmarks.LandmarkTree;
 import util.QRandom;
 import util.Vector;
 
+/**
+ * Structure of an oasis. Randomly generated using IslandGenerator
+ * @author Quintin Harter
+ *
+ */
 public class StructureOasis extends Structure {
 
 	@Override

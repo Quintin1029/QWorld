@@ -5,6 +5,11 @@ import javax.swing.Icon;
 import game.Library;
 import game.PlayerStatManager;
 
+/**
+ * Represents the luck potion item
+ * @author Quintin Harter
+ *
+ */
 public class ItemLuckPotion extends ItemConsumable {
 
 	public ItemLuckPotion(PlayerStatManager player) {

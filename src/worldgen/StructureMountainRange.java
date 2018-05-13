@@ -6,6 +6,12 @@ import landmarks.LandmarkMountain;
 import landmarks.LandmarkSea;
 import util.Vector;
 
+/**
+ * Structure of a mountain range. Randomly generated using RangeGenerator.
+ * NOT WORKING FIXME
+ * @author Quintin Harter
+ *
+ */
 public class StructureMountainRange extends Structure {
 
 	public static final Vector SIZE = new Vector(50, 50);

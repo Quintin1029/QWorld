@@ -5,6 +5,11 @@ import javax.swing.Icon;
 import game.Library;
 import game.PlayerStatManager;
 
+/**
+ * Represents the shield item
+ * @author Quintin Harter
+ *
+ */
 public class ItemShield extends ItemConsumable {
 
 	public ItemShield(PlayerStatManager player) {

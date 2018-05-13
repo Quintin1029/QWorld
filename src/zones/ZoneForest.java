@@ -9,6 +9,11 @@ import landmarks.LandmarkPath;
 import landmarks.LandmarkTree;
 import worldgen.Structure;
 
+/**
+ * The forest zone
+ * @author Quintin Harter
+ *
+ */
 public class ZoneForest extends Zone {
 
 	@Override

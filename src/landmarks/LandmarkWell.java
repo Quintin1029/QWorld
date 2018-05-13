@@ -4,6 +4,11 @@ import game.Library;
 import game.PlayerStatManager;
 import resources.ResourceStack;
 
+/**
+ * The well landmark
+ * @author Quintin Harter
+ *
+ */
 public class LandmarkWell extends Landmark {
 
 	@Override

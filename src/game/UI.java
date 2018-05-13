@@ -149,6 +149,12 @@ public class UI {
 		JOptionPane.showMessageDialog(frame, dialogue, title, JOptionPane.OK_OPTION);
 	}
 	
+	/**
+	 * Displays a yes or no box to ask the user something
+	 * @param message the message to display
+	 * @param title the title of the box to display
+	 * @return the response of the user
+	 */
 	public boolean displayYesNo(String message, String title) {
 		return JOptionPane.showConfirmDialog(frame, message, title, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION;
 	}

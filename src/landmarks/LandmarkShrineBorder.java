@@ -3,6 +3,11 @@ package landmarks;
 import game.Library;
 import resources.ResourceStack;
 
+/**
+ * The shrine border landmark
+ * @author Quintin Harter
+ *
+ */
 public class LandmarkShrineBorder extends Landmark{
 
 	public static final int SIDE = 0;

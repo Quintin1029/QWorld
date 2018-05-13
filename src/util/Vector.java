@@ -50,10 +50,18 @@ public class Vector {
 		return y;
 	}
 	
+	/**
+	 * Sets the x value
+	 * @param x the new value
+	 */
 	public void setX(int x) {
 		this.x = x;
 	}
 	
+	/**
+	 * Sets the y value
+	 * @param y the new value
+	 */
 	public void setY(int y) {
 		this.y = y;
 	}
@@ -68,6 +76,11 @@ public class Vector {
 		return new Vector(getX() + b.getX(), getY() + b.getY());
 	}
 	
+	/**
+	 * Multiplies the vector by a scalar
+	 * @param value the scalar
+	 * @return the new vector
+	 */
 	public Vector multiply(double value) {
 		return new Vector((int)(getX() * value), (int)(getY() * value));
 	}
@@ -126,6 +139,11 @@ public class Vector {
 		return result; //we put a small range of error in case of rounding mistakes
 	}
 	
+	/**
+	 * Checks if a point is inside a polygon. NOT WORKING FIXME
+	 * @param points the corners of the polygon
+	 * @return if the point is inside the polygon
+	 */
 	public boolean isInsidePolygon(Vector... points) {
 		//Library.print("Testing inside polygon for " + toString());
 		if (points.length < 3)
@@ -146,6 +164,14 @@ public class Vector {
 		return QMath.isOdd(intersectCount);
 	}
 	
+	/**
+	 * Checks if line segments made by vectors intersect.
+	 * @param p11 one end of the first line segment
+	 * @param p12 the other end of the first line segment
+	 * @param p21 one end of the second line segment
+	 * @param p22 the other end of the second line segment
+	 * @return if the segments intersect
+	 */
 	public static boolean lineSegmentsIntersect(Vector p11, Vector p12, Vector p21, Vector p22) {
 		
 		int xMin1 = Math.min(p11.getX(), p12.getX());
@@ -194,6 +220,12 @@ public class Vector {
 				);
 	}
 	
+	/**
+	 * Checks if a vector is inside a box
+	 * @param bottomLeft the bottom left of the box
+	 * @param topRight the top right of the box
+	 * @return if the vector is in the box
+	 */
 	public boolean isWithinBox(Vector bottomLeft, Vector topRight) {
 		return getX() >= bottomLeft.getX() && getX() <= topRight.getX() &&
 				getY() >= bottomLeft.getY() && getY() <= topRight.getY();
@@ -203,6 +235,13 @@ public class Vector {
 	public static final int ORIENTATION_CLOCKWISE = 1;
 	public static final int ORIENTATION_COLINEAR = 2;
 	
+	/**
+	 * Returns the orientation of three vectors
+	 * @param p1 one point
+	 * @param p2 another point
+	 * @param p3 a third point
+	 * @return the orientation (see ORIENTATION_ constants)
+	 */
 	public static int getOrientation(Vector p1, Vector p2, Vector p3) {	
 		int val = (p2.getY() - p1.getY()) * (p3.getX() - p2.getX()) - (p2.getX() - p1.getX()) * (p3.getY() - p2.getY());
 		return (val == 0)? ORIENTATION_COLINEAR : ((val > 0)? ORIENTATION_CLOCKWISE : ORIENTATION_COUNTERCLOCKWISE);

@@ -10,6 +10,11 @@ import landmarks.LandmarkPath;
 import worldgen.Structure;
 import worldgen.StructureOasis;
 
+/**
+ * The desert zone
+ * @author Quintin Harter
+ *
+ */
 public class ZoneDesert extends Zone {
 
 	@Override

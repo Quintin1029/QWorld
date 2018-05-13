@@ -163,6 +163,11 @@ public class Game {
 		return player.getFood() - 100 * Library.FOOD_LOSS_COEFFICIENT;
 	}
 
+	/**
+	 * Gets the health lost from movement (if water and/or food are empty). Called by
+	 * {@code refreshPlayerStats();}
+	 * @return
+	 */
 	private double getNewHealth() {
 		double health = player.getHealth();
 		health -= (player.getWater() == 0) ? 100 * Library.HEALTH_LOSS_COEFFICIENT : 0;

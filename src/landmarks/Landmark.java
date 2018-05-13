@@ -74,6 +74,11 @@ public abstract class Landmark {
 		//default-- do nothing
 	}
 	
+	/**
+	 * The method called when the landmark is destroyed. Override this if you wish to do anything when the landmark is harvested or replaced.
+	 * @param world the world the landmark is in
+	 * @param pos the position the landmark is in
+	 */
 	public void onDestroy(Landmark[][] world, Vector pos) {
 		//default-- do nothing
 	}

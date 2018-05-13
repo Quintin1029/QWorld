@@ -131,7 +131,7 @@ public class StatPanel extends JPanel {
 		double angle = 180 / Math.PI * Math.atan2(dY, dX) - 90;
 		Library.print("Angle: " + angle);
 		if (dX == 0)
-			compass.setAngle((dY <= 0)? 0. : 180.);
+			compass.setAngle((dY <= 0)? 180 : 0);
 		else
 			compass.setAngle(angle);
 	}

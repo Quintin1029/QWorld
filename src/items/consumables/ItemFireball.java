@@ -5,6 +5,11 @@ import javax.swing.Icon;
 import game.Library;
 import game.PlayerStatManager;
 
+/**
+ * Represents the fireball item
+ * @author Quintin Harter
+ *
+ */
 public class ItemFireball extends ItemConsumable {
 
 	public ItemFireball(PlayerStatManager player) {

@@ -6,6 +6,11 @@ import landmarks.LandmarkShrineBorder;
 import landmarks.LandmarkShrineCenter;
 import util.Vector;
 
+/**
+ * Structure of a shrine.
+ * @author Quintin Harter
+ *
+ */
 public class StructureShrine extends Structure {
 
 	@Override

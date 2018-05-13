@@ -5,6 +5,11 @@ import java.awt.Color;
 import game.Library;
 import resources.ResourceStack;
 
+/**
+ * The cactus landmark
+ * @author Quintin Harter
+ *
+ */
 public class LandmarkCactus extends Landmark {
 
 	@Override

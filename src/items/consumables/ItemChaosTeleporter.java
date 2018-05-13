@@ -8,6 +8,11 @@ import game.QMath;
 import util.QRandom;
 import util.Vector;
 
+/**
+ * Represents the chaos teleporter item
+ * @author Quintin Harter
+ *
+ */
 public class ItemChaosTeleporter extends ItemConsumable {
 
 	public ItemChaosTeleporter(PlayerStatManager player) {

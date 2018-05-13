@@ -8,6 +8,11 @@ import util.Vector;
 import worldgen.Structure;
 import worldgen.StructureLake;
 
+/**
+ * The sea zone
+ * @author Quintin Harter
+ *
+ */
 public class ZoneSea extends Zone {
 
 	@Override

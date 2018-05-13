@@ -21,5 +21,9 @@ public abstract class Structure {
 	 */
 	public abstract Vector getSize();	
 	
+	/**
+	 * Gets the name of thus structure (usually for debugging)
+	 * @return the name of the structure
+	 */
 	public abstract String getName();
 }

@@ -6,6 +6,11 @@ import game.Library;
 import game.PlayerStatManager;
 import util.Vector;
 
+/**
+ * Represents the ruby slippers item
+ * @author Quintin Harter
+ *
+ */
 public class ItemRubySlippers extends ItemConsumable {
 
 	public ItemRubySlippers(PlayerStatManager player) {

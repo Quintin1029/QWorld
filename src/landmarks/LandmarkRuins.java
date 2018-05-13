@@ -6,6 +6,11 @@ import game.Library;
 import resources.ResourceStack;
 import util.QRandom;
 
+/**
+ * The ruins landmark.
+ * @author Quintin Harter
+ *
+ */
 public class LandmarkRuins extends Landmark {
 
 	@Override

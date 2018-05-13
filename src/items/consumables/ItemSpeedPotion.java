@@ -5,6 +5,11 @@ import javax.swing.Icon;
 import game.Library;
 import game.PlayerStatManager;
 
+/**
+ * Represents the speed potion item
+ * @author Quintin Harter
+ *
+ */
 public class ItemSpeedPotion extends ItemConsumable {
 
 	public ItemSpeedPotion(PlayerStatManager player) {

@@ -5,10 +5,24 @@ import game.QMath;
 import util.QRandom;
 import util.Vector;
 
+/**
+ * Generates a range (such as a mountain range) using an algorithm similar to the IslandGenerator.
+ * NOT WORKING FIXME
+ * @author Quintin Harter
+ *
+ */
 public class RangeGenerator {
 
 	private boolean [] [] map;
 	
+	/**
+	 * Constructor: generates the range
+	 * @param minLength the minimum range length
+	 * @param maxLength the maximum range length
+	 * @param minWidth the minumum range width
+	 * @param maxWidth the maximum range width
+	 * @param accuracy the number of arms
+	 */
 	public RangeGenerator(double minLength, double maxLength, double minWidth, double maxWidth, int accuracy) {
 		
 		Library.print("minLength: " + minLength + " maxLength: " + maxLength + " minWidth: " + minWidth + " maxWidth: " + maxWidth + " accuracy: " + accuracy);
@@ -59,6 +73,10 @@ public class RangeGenerator {
 		
 	}
 	
+	/**
+	 * Returns the range generated
+	 * @return the map generated
+	 */
 	public boolean [] [] getRange() {
 		return map;
 	}

@@ -276,6 +276,10 @@ public class PlayerStatManager {
 		strengthMovesRemaining += number;
 	}
 	
+	/**
+	 * Attempts to move with the speed potion. Decrements the int used to keep track of the potion.
+	 * @return if the potion was successfully used.
+	 */
 	public boolean attemptToMoveSpeed() {
 		if (speedMovesRemaining > 0) {
 			speedMovesRemaining--;
@@ -284,10 +288,18 @@ public class PlayerStatManager {
 		return false;
 	}
 	
+	/**
+	 * Adds a number to the number of remaining speed moves.
+	 * @param number the number to add
+	 */
 	public void addSpeedMoves(int number) {
 		speedMovesRemaining += number;
 	}
 	
+	/**
+	 * Attempts to use the shield to stop damage. Decrements the int used to keep track of the shield.
+	 * @return if the shield was successfully used.
+	 */
 	public boolean attemptToUseShield() {
 		if (shieldUsesRemaining > 0) {
 			shieldUsesRemaining--;
@@ -296,10 +308,18 @@ public class PlayerStatManager {
 		return false;
 	}
 	
+	/**
+	 * Adds a number to the number of remaining shield uses.
+	 * @param number the number to add
+	 */
 	public void addShieldUses(int number) {
 		shieldUsesRemaining += number;
 	}
 	
+	/**
+	 * Attempts to use the luck potion when harvesting. Decrements the int used to keep track of the potion.
+	 * @return if the potion was successfully used
+	 */
 	public boolean attemptToUseLuck() {
 		if (luckUsesRemaining > 0) {
 			luckUsesRemaining--;
@@ -308,6 +328,10 @@ public class PlayerStatManager {
 		return false;
 	}
 	
+	/**
+	 * Adds a number to the number of remaining luck uses.
+	 * @param number the number to add
+	 */
 	public void addLuckUses(int number) {
 		luckUsesRemaining += number;
 	}

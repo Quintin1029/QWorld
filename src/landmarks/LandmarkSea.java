@@ -6,6 +6,11 @@ import game.Library;
 import game.PlayerStatManager;
 import resources.ResourceStack;
 
+/**
+ * The sea landmark
+ * @author Quintin Harter
+ *
+ */
 public class LandmarkSea extends Landmark {
 
 	@Override

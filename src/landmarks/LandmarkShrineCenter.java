@@ -5,6 +5,11 @@ import game.WorldGenerator;
 import resources.ResourceStack;
 import util.Vector;
 
+/**
+ * The shrine center landmark
+ * @author Quintin Harter
+ *
+ */
 public class LandmarkShrineCenter extends Landmark {
 
 	@Override

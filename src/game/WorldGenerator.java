@@ -71,6 +71,10 @@ public class WorldGenerator {
 		return zones;
 	}
 
+	/**
+	 * Randomly generates the center positions for zone generation.
+	 * @param centerPositions the array to generate the positions in
+	 */
 	private static void generateCenterPositions(Vector[] centerPositions) {
 		for (int v = 0; v < centerPositions.length; v++) {
 			centerPositions[v] = new Vector(QRandom.randInt(0, Library.WORLD_SIZE - 1), QRandom.randInt(0, Library.WORLD_SIZE - 1));
@@ -194,6 +198,11 @@ public class WorldGenerator {
 		dropHuts(world, zones);
 	}
 
+	/**
+	 * Generates huts (with items) in the world based on radii from Library.
+	 * @param world the world to generate them in
+	 * @param zones the zones that correspond to that world
+	 */
 	private static void dropHuts(Landmark[][] world, Zone[][] zones) {
 		// drops item huts throughout the world radially away as per Library reference variables
 		Vector home = new Vector(Library.WORLD_SIZE / 2, Library.WORLD_SIZE / 2);
@@ -337,12 +346,20 @@ public class WorldGenerator {
 		return placeLandmark(world, zone.getPathLandmark(), pos);
 	}
 	
+	/**
+	 * Places a landmark in the world using WGPL.
+	 * DO NOT DIRECTLY ASSIGN LANDMARKS TO THE WORLD ARRAY WHILE GENERATING THE WORLD!!!
+	 * @param world the world to generate the landmark in
+	 * @param landmark the landmark to place
+	 * @param pos the position to place it in
+	 * @return if the landmark was successfully placed.
+	 */
 	public static boolean placeLandmark(Landmark[][] world, Landmark landmark, Vector pos) {
 		try {
 			if (world[pos.getX()][pos.getY()] != null)
 				world[pos.getX()][pos.getY()].onDestroy(world, pos);
 			world[pos.getX()][pos.getY()] = WGPL.getHigherPriority(world[pos.getX()][pos.getY()], landmark);
-			return true;
+			return world[pos.getX()][pos.getY()].equals(landmark);
 		} catch (ArrayIndexOutOfBoundsException e) {
 			return false;
 		}

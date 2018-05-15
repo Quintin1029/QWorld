@@ -31,6 +31,11 @@ public class LandmarkNull extends Landmark {
 	public Color getBackgroundColor() {
 		return Color.BLACK;
 	}
+	
+	@Override
+	public Color getForegroundColor() {
+		return Color.BLACK;
+	}
 
 	@Override
 	public ResourceStack getHarvest(int toolType) {

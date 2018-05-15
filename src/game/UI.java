@@ -125,6 +125,7 @@ public class UI {
 				} catch (ArrayIndexOutOfBoundsException e) {
 					labelHolder[x][y].setText("" + Library.LANDMARK_NULL);
 					labelHolder[x][y].setBackground(Color.BLACK);
+					labelHolder[x][y].setForeground(Color.BLACK);
 				}
 			}
 		//draw the player

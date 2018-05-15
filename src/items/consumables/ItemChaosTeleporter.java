@@ -34,7 +34,7 @@ public class ItemChaosTeleporter extends ItemConsumable {
 					.add(new Vector((int) (length * Math.cos(angle)), (int) (length * Math.sin(angle))));
 			newPos.setX((int) Library.clamp(newPos.getX(), 0, Library.WORLD_SIZE));
 			newPos.setY((int) Library.clamp(newPos.getY(), 0, Library.WORLD_SIZE));
-			player.updatePosition(newPos);
+			player.getGame().attemptMove(newPos.subtract(player.getPosition()));
 		}
 	}
 

@@ -7,6 +7,7 @@ import util.InventoryPanel;
 import util.MovementKeyListener;
 import util.ResourcePanel;
 import util.StatPanel;
+import util.TimePanel;
 import util.Vector;
 import zones.Zone;
 
@@ -23,6 +24,7 @@ public class UI {
 	private JPanel mainPanel;
 	private JPanel gridPanel;
 	private JPanel inventoryPanel;
+	private TimePanel timePanel;
 	private StatPanel statPanel;
 	private ResourcePanel resourcePanel;
 	private PlayerStatManager player;
@@ -87,6 +89,9 @@ public class UI {
 		//create and load inventory panel
 		inventoryPanel = new InventoryPanel(player);
 		
+		//create and load time panel
+		timePanel = new TimePanel(15 * 60);
+		
 		//create and load stat panel
 		statPanel = new StatPanel(player);
 		
@@ -95,7 +100,11 @@ public class UI {
 		
 		//create window & begin game
 		mainPanel.add(gridPanel);
-		mainPanel.add(inventoryPanel);
+		JPanel subPanel = new JPanel(new BorderLayout());
+		subPanel.add(timePanel, BorderLayout.NORTH);
+		subPanel.add(inventoryPanel, BorderLayout.CENTER);
+		subPanel.setBackground(new Color(0, 0, 0, 0));
+		mainPanel.add(subPanel);
 		mainPanel.add(statPanel);
 		mainPanel.add(resourcePanel);
 		frame.add(mainPanel);

@@ -36,16 +36,30 @@ public class Game {
 		player = new PlayerStatManager(this);
 		ui = new UI(player);
 		ui.run(this);
-		ui.displayDialogue("Legend says of 30 items scattered throughout the world. When you get all of them, the path will be revealed.", "???");
-		if (ui.displayYesNo("Show tutorial screen?", "???")) {
-			ui.displayDialogue("Move using the WASD keys. Use items you have gathered by clicking in the inventory panel to the right.", "???");
-			ui.displayDialogue("Your stat bars are displayed below the world. If you run out of food or water, your health will begin to deplete. If you run out of health, you die.", "???");
-			ui.displayDialogue("Your water will deplete faster in hot environments and slower in cold ones. Your food will do the opposite.", "???");
-			ui.displayDialogue("Use tool items to harvest materials from the world. Stand next to something you wish to harvest and use the tool.", "???");
-			ui.displayDialogue("The resources you harvest will be displayed below the stat bars.", "???");
-			ui.displayDialogue("You can use resources to construct buildings using building items you collect. This will be important later in the game.", "???");
+		if (!Library.DISABLE_STORY) {
+			ui.displayDialogue(
+					"Legend says of 30 items scattered throughout the world. When you get all of them, the path will be revealed.",
+					"???");
+			if (ui.displayYesNo("Show tutorial screen?", "???")) {
+				ui.displayDialogue(
+						"Move using the WASD keys. Use items you have gathered by clicking in the inventory panel to the right.",
+						"???");
+				ui.displayDialogue(
+						"Your stat bars are displayed below the world. If you run out of food or water, your health will begin to deplete. If you run out of health, you die.",
+						"???");
+				ui.displayDialogue(
+						"Your water will deplete faster in hot environments and slower in cold ones. Your food will do the opposite.",
+						"???");
+				ui.displayDialogue(
+						"Use tool items to harvest materials from the world. Stand next to something you wish to harvest and use the tool.",
+						"???");
+				ui.displayDialogue("The resources you harvest will be displayed below the stat bars.", "???");
+				ui.displayDialogue(
+						"You can use resources to construct buildings using building items you collect. This will be important later in the game.",
+						"???");
+			}
+			ui.displayDialogue("In exactly 15 days the apocalypse will come.", "???");
 		}
-		ui.displayDialogue("In exactly 15 days the apocalypse will come.", "???");
 	}
 
 	/**
@@ -174,8 +188,9 @@ public class Game {
 	}
 
 	/**
-	 * Gets the health lost from movement (if water and/or food are empty). Called by
-	 * {@code refreshPlayerStats();}
+	 * Gets the health lost from movement (if water and/or food are empty). Called
+	 * by {@code refreshPlayerStats();}
+	 * 
 	 * @return
 	 */
 	private double getNewHealth() {

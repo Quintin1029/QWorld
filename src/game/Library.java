@@ -20,6 +20,7 @@ public class Library {
 	//testing variable: turn true when you want to be invincible
 	public static boolean NO_DEATH = true;
 	public static boolean ENABLE_ALL_ITEMS = true;
+	public static boolean DISABLE_STORY = true;
 	
 	//color scheme
 	public static final ColorScheme COLOR_SCHEME = new DarkColorScheme();

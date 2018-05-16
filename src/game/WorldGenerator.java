@@ -6,6 +6,7 @@ import landmarks.Landmark;
 import landmarks.LandmarkHome;
 import landmarks.LandmarkHut;
 import landmarks.LandmarkSea;
+import util.LoadingFrame;
 import util.QRandom;
 import util.Vector;
 import zones.*;
@@ -18,6 +19,8 @@ import zones.*;
  *
  */
 public class WorldGenerator {
+	
+	public static double NUMBER_OF_STEPS = 5;
 
 	public static Random random = new Random();
 	
@@ -33,7 +36,8 @@ public class WorldGenerator {
 	 * @return the grid generated
 	 * @author Quintin Harter
 	 */
-	public static Zone[][] generateZones() {
+	public static Zone[][] generateZones(LoadingFrame lf) {
+		lf.updateLoaderMainBar(0, "Generating Zone Center Positions...");
 		// generate random zones
 		Zone[][] zones = new Zone[Library.WORLD_SIZE][Library.WORLD_SIZE];
 		Vector[] centerPositions = new Vector[Library.ZONE_DENSITY];
@@ -43,13 +47,16 @@ public class WorldGenerator {
 		for (int z = 0; z < centerPositions.length; z++)
 			try {
 				zones[centerPositions[z].getX()][centerPositions[z].getY()] = zoneList[z % zoneList.length].getClass().newInstance();
+				lf.updateLoaderSubBar((double)(z) / centerPositions.length * 100, "Creating position " + z + " / " + centerPositions.length);
 			} catch (InstantiationException e) {
 				e.printStackTrace();
 			} catch (IllegalAccessException e) {
 				e.printStackTrace();
 			}
+		lf.updateLoaderMainBar(1 / NUMBER_OF_STEPS * 100, "Dropping Zones in the World...");
 		for (int i = 0; i < zones.length; i++) {
 			for (int k = 0; k < zones[i].length; k++) {
+				lf.updateLoaderSubBar((k + (i * zones[i].length)) / (1. * zones.length * zones[i].length) * 100, "Dropping at position " + (k + (i * zones.length)) + " / " + (zones.length * zones[i].length) );
 				//loop through each position and set the landmark to the closest zone center position
 				int min = -1;
 				double minSize = QMath.LARGE_NUMBER;
@@ -97,17 +104,17 @@ public class WorldGenerator {
 	 * @return the world generated
 	 * @author Quintin Harter
 	 */
-	public static Landmark[][] generateWorld(Zone[][] zones) {
+	public static Landmark[][] generateWorld(Zone[][] zones, LoadingFrame lf) {
 		Library.print("Generating World...");
 		// generate each zone of the world separately
 		Landmark[][] world = new Landmark[Library.WORLD_SIZE][Library.WORLD_SIZE];
-		generateGround(world, zones);
-		generateTrees(world, zones);
-		generateStructures(world, zones);
-		generateUnique(world, zones);
+		generateGround(world, zones, lf);
+		generateTrees(world, zones, lf);
+		generateStructures(world, zones, lf);
+		generateUnique(world, zones, lf);
 		return world;
 	}
-
+	
 	/**
 	 * Generates ground landmarks at every position
 	 * 
@@ -117,9 +124,11 @@ public class WorldGenerator {
 	 *            the grid of zones for that world
 	 * @author Quintin Harter
 	 */
-	public static void generateGround(Landmark[][] world, Zone[][] zones) {
+	public static void generateGround(Landmark[][] world, Zone[][] zones, LoadingFrame lf) {
+		lf.updateLoaderMainBar(2. / NUMBER_OF_STEPS * 100, "Generating Ground...");
 		for (int x = 0; x < Library.WORLD_SIZE; x++) {
 			for (int y = 0; y < Library.WORLD_SIZE; y++) {
+				lf.updateLoaderSubBar((y + (x * Library.WORLD_SIZE)) / (1. * Library.WORLD_SIZE * Library.WORLD_SIZE) * 100, "Dropping ground " + (y + (x * Library.WORLD_SIZE)) + " / " + (Library.WORLD_SIZE * Library.WORLD_SIZE));
 				Zone zone = getZoneAtPosition(zones, new Vector(x, y));
 				dropGround(world, zone, new Vector(x, y));
 			}
@@ -136,9 +145,11 @@ public class WorldGenerator {
 	 *            the grid of zones for that world
 	 * @author Quintin Harter
 	 */
-	public static void generateTrees(Landmark[][] world, Zone[][] zones) {
+	public static void generateTrees(Landmark[][] world, Zone[][] zones, LoadingFrame lf) {
+		lf.updateLoaderMainBar(3. / NUMBER_OF_STEPS * 100, "Generating Trees...");
 		for (int x = 0; x < Library.WORLD_SIZE; x++) {
 			for (int y = 0; y < Library.WORLD_SIZE; y++) {
+				lf.updateLoaderSubBar((y + (x * Library.WORLD_SIZE)) / (1. * Library.WORLD_SIZE * Library.WORLD_SIZE) * 100, "Dropping tree " + (y + (x * Library.WORLD_SIZE)) + " / " + (Library.WORLD_SIZE * Library.WORLD_SIZE));
 				Zone zone = getZoneAtPosition(zones, new Vector(x, y));
 				int index = 0;
 				while (zone.getTreeLandmark(index) != null) {
@@ -159,10 +170,12 @@ public class WorldGenerator {
 	 * @param zones
 	 *            the grid of zones for that world
 	 */
-	public static void generateStructures(Landmark[][] world, Zone[][] zones) {
+	public static void generateStructures(Landmark[][] world, Zone[][] zones, LoadingFrame lf) {
+		lf.updateLoaderMainBar(4. / NUMBER_OF_STEPS * 100, "Generating Structures...");
 		for (int x = 0; x < Library.WORLD_SIZE; x++) {
 			for (int y = 0; y < Library.WORLD_SIZE; y++) {
 				try {
+					lf.updateLoaderSubBar((y + (x * Library.WORLD_SIZE)) / (1. * Library.WORLD_SIZE * Library.WORLD_SIZE) * 100, "Dropping structure " + (y + (x * Library.WORLD_SIZE)) + " / " + (Library.WORLD_SIZE * Library.WORLD_SIZE));
 					Zone zone = getZoneAtPosition(zones, new Vector(x, y));
 					int index = 0;
 					while (zone.getStructureFrequency(index) >= 0) {
@@ -193,10 +206,16 @@ public class WorldGenerator {
 	 *            the grid of zones for that world
 	 * @author Quintin Harter
 	 */
-	public static void generateUnique(Landmark[][] world, Zone[][] zones) {
+	public static void generateUnique(Landmark[][] world, Zone[][] zones, LoadingFrame lf) {
+		lf.updateLoaderMainBar(5. / NUMBER_OF_STEPS * 100, "Generating Unique Landmarks...");
+		lf.updateLoaderSubBar(0, "Dropping huts...");
 		placeLandmark(world, new LandmarkHome(), Vector.VECTOR_CENTER);
+		lf.updateLoaderSubBar(1. / UNIQUE_STEPS * 100, "Dropping huts...");
 		dropHuts(world, zones);
+		lf.updateLoaderSubBar(2. / UNIQUE_STEPS * 100, "Dropping huts...");
 	}
+	
+	public static final int UNIQUE_STEPS = 2;
 
 	/**
 	 * Generates huts (with items) in the world based on radii from Library.

@@ -6,6 +6,7 @@ import items.Item;
 import items.tools.ItemTool;
 import landmarks.Landmark;
 import resources.ResourceStack;
+import util.LoadingFrame;
 import util.Vector;
 import zones.Zone;
 
@@ -31,10 +32,12 @@ public class Game {
 	 */
 	public Game() {
 		Library.print("Running game...");
-		zones = WorldGenerator.generateZones();
-		world = WorldGenerator.generateWorld(zones);
+		LoadingFrame lf = new LoadingFrame();
+		zones = WorldGenerator.generateZones(lf);
+		world = WorldGenerator.generateWorld(zones, lf);
 		player = new PlayerStatManager(this);
 		ui = new UI(player);
+		lf.kill();
 		ui.run(this);
 		if (!Library.DISABLE_STORY) {
 			ui.displayDialogue(

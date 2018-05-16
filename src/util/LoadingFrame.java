@@ -11,6 +11,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 
+/**
+ * The class used for the JFrame created while generating the world
+ * @author Quintin Harter
+ *
+ */
 public class LoadingFrame extends JFrame {
 
 	private JProgressBar mainBar;
@@ -47,16 +52,29 @@ public class LoadingFrame extends JFrame {
 		setVisible(true);
 	}
 	
+	/**
+	 * Updates the main bar and text
+	 * @param percent the new percent to display on the bar
+	 * @param text the new text to display below the bar
+	 */
 	public void updateLoaderMainBar(double percent, String text) {
 		mainBar.setValue((int) percent);
 		mainLabel.setText(text);
 	}
 	
+	/**
+	 * Updates the secondary bar and text
+	 * @param percent the percent to display on the bar
+	 * @param text the new text to display below the bar
+	 */
 	public void updateLoaderSubBar(double percent, String text) {
 		subBar.setValue((int) percent);
 		subLabel.setText(text);
 	}
 	
+	/**
+	 * Destroys this JFrame (Releases all memory back to the CPU)
+	 */
 	public void kill() {
 		setVisible(false);
 	}

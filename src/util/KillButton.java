@@ -9,8 +9,19 @@ import javax.swing.JFrame;
 import colorschemes.ColorScheme;
 import game.UI;
 
+/**
+ * The button that ends the program on click
+ * @author Quintin Harter
+ *
+ */
 public class KillButton extends JButton {
 
+	/**
+	 * Constructor
+	 * @param frameToKill the JFrame to close when the button is clicked
+	 * @param cs the color scheme (for aesthetics)
+	 * @param ui the UI (for displaying the 'are you sure you want to quit' question)
+	 */
 	public KillButton(JFrame frameToKill, ColorScheme cs, UI ui) {
 		setSize(50, 50);
 		setBackground(cs.getButtonColor());
@@ -20,11 +31,21 @@ public class KillButton extends JButton {
 		addActionListener(new Listener(frameToKill, ui));
 	}
 	
+	/**
+	 * The private action listener class for KillButton
+	 * @author Quintin Harter
+	 *
+	 */
 	private class Listener implements ActionListener {
 		
 		private JFrame frameToKill;
 		private UI ui;
 		
+		/**
+		 * Constructor
+		 * @param frameToKill the JFrame to kill
+		 * @param ui the ui
+		 */
 		public Listener(JFrame frameToKill, UI ui) {
 			this.frameToKill = frameToKill;
 			this.ui = ui;

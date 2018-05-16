@@ -6,11 +6,20 @@ import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/**
+ * The panel used to display the remaining time in the world before the apocalypse
+ * @author Quintin Harter
+ *
+ */
 public class TimePanel extends JPanel {
 	
 	private int time;
 	public JLabel label;
 	
+	/**
+	 * Constructor
+	 * @param time the current time in seconds
+	 */
 	public TimePanel(int time) {
 		this.time = time;
 		label = new JLabel("0:00");
@@ -21,10 +30,17 @@ public class TimePanel extends JPanel {
 		update();
 	}
 	
+	/**
+	 * updates the label (usually use setTime instead)
+	 */
 	public void update() {
 		label.setText(time / 60 + ":" + time % 60);
 	}
 	
+	/**
+	 * Sets the time to the specified value and then updates the label
+	 * @param time the new time
+	 */
 	public void setTime(int time) {
 		this.time = time;
 		update();

@@ -142,7 +142,7 @@ public class Library {
 	};
 	
 	public static final ImageIcon [] ITEM_TOOL_ICONS = {
-			getImage("icons/branch.jpg"),
+			getImage("icons/branch.png"),
 			getImage("icons/scythe.png"),
 			getImage("icons/chisel.png"),
 			getImage("icons/pickaxe.png"),

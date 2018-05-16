@@ -4,6 +4,7 @@ import javax.swing.*;
 
 import landmarks.Landmark;
 import util.InventoryPanel;
+import util.KillButton;
 import util.MovementKeyListener;
 import util.ResourcePanel;
 import util.StatPanel;
@@ -65,6 +66,7 @@ public class UI {
 		frame.setLocationRelativeTo(null);
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setUndecorated(true);
 		
 		//instantiate the main JPanel
 		mainPanel = new JPanel();
@@ -101,12 +103,14 @@ public class UI {
 		//create window & begin game
 		mainPanel.add(gridPanel);
 		JPanel subPanel = new JPanel(new BorderLayout());
-		subPanel.add(timePanel, BorderLayout.NORTH);
-		subPanel.add(inventoryPanel, BorderLayout.CENTER);
+		subPanel.add(new KillButton(frame, Library.COLOR_SCHEME, this), BorderLayout.NORTH);
+		subPanel.add(timePanel, BorderLayout.CENTER);
+		subPanel.add(inventoryPanel, BorderLayout.SOUTH);
 		subPanel.setBackground(new Color(0, 0, 0, 0));
 		mainPanel.add(subPanel);
 		mainPanel.add(statPanel);
 		mainPanel.add(resourcePanel);
+		mainPanel.setBorder(BorderFactory.createLineBorder(Color.GRAY, 4));
 		frame.add(mainPanel);
 		frame.setVisible(true);
 		frame.addKeyListener(new MovementKeyListener(game));

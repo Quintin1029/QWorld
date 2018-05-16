@@ -92,7 +92,6 @@ public class InventoryPanel extends JPanel {
 				setIcon(item.getIcon());
 			setFocusable(false);
 			addMouseListener(new QButtonMouseListener());
-			setBorderPainted(false);
 			setBorder(BorderFactory.createLineBorder(Library.COLOR_SCHEME.getButtonBorderColor()));
 			setBackground(Library.COLOR_SCHEME.getButtonColor());
 		}

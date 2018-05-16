@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 
+import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -35,11 +36,14 @@ public class LoadingFrame extends JFrame {
 		p1.add(subBar);
 		p1.add(subLabel);
 		p1.setBackground(Color.DARK_GRAY);
+		p1.setBorder(BorderFactory.createLineBorder(Color.GRAY, 4));
 		
 		add(p1);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(275, 150);
+		setSize(250, 90);
 		setLocationRelativeTo(null);
+		setResizable(false);
+		setUndecorated(true);
 		setVisible(true);
 	}
 	

@@ -6,6 +6,8 @@ import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import game.Library;
+
 /**
  * The panel used to display the remaining time in the world before the apocalypse
  * @author Quintin Harter
@@ -26,7 +28,7 @@ public class TimePanel extends JPanel {
 		label.setFont(new Font("Helvetica", Font.BOLD, 30));
 		label.setForeground(Color.RED);
 		add(label);
-		setBackground(new Color(0, 0, 0, 0));
+		setBackground(Library.COLOR_SCHEME.getBackgroundColor());
 		update();
 	}
 	
@@ -34,7 +36,7 @@ public class TimePanel extends JPanel {
 	 * updates the label (usually use setTime instead)
 	 */
 	public void update() {
-		label.setText(time / 60 + ":" + time % 60);
+		label.setText(time / 60 + ":" + ((time % 60 <= 9)? ("0" + time % 60) : (time % 60)));
 	}
 	
 	/**

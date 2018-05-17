@@ -150,6 +150,10 @@ public class UI {
 		resourcePanel.redraw();
 	}
 	
+	public void sendTime(int time) {
+		timePanel.setTime(time);
+	}
+	
 	public void exit() {
 		frame.dispose();
 	}

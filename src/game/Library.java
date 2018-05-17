@@ -19,11 +19,15 @@ public class Library {
 	
 	//testing variable: turn true when you want to be invincible
 	public static boolean NO_DEATH = true;
+	public static boolean NO_APOCALYPSE = true;
 	public static boolean ENABLE_ALL_ITEMS = true;
 	public static boolean DISABLE_STORY = true;
 	
 	//color scheme
 	public static final ColorScheme COLOR_SCHEME = new DarkColorScheme();
+	
+	//timing constants
+	public static final int APOCALYPSE_TIME = 15 * 60;
 
 	// landmark char constants: used by landmarks to display to the screen
 	public static final char LANDMARK_NULL = 'X';// '\u2593';

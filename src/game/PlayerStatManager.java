@@ -2,6 +2,8 @@ package game;
 
 import java.util.HashMap;
 
+import javax.swing.Icon;
+
 import items.*;
 import items.buildings.ItemBuilding;
 import items.consumables.ItemChaosTeleporter;

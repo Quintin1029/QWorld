@@ -24,6 +24,8 @@ public class Game {
 	public Random random; // a random used to generate the world
 	public UI ui; // the user interface
 	public PlayerStatManager player; // the player
+	
+	private int timeLeft = QMath.LARGE_NUMBER; //the time until the apocalypse
 
 	/**
 	 * Constructor
@@ -63,6 +65,9 @@ public class Game {
 			}
 			ui.displayDialogue("In exactly 15 days the apocalypse will come.", "???");
 		}
+		//begin the timer
+		QTimer timer = new QTimer(ui, Library.APOCALYPSE_TIME);
+		timer.start();
 	}
 
 	/**
@@ -150,6 +155,16 @@ public class Game {
 			die();
 		Library.print(player.toString());
 	}
+	
+	public void sendTime(int time) {
+		timeLeft = time;
+		if (timeLeft <= 0)
+			startApocalypse();
+	}
+	
+	public int getTime() {
+		return timeLeft;
+	}
 
 	/**
 	 * Retrieves the landmark at the position specified.
@@ -216,6 +231,14 @@ public class Game {
 				g = new Game();
 			else
 				System.exit(0);
+		}
+	}
+	
+	public void startApocalypse() {
+		//TODO implement a cool apocalypse???
+		if (!Library.NO_APOCALYPSE) {
+			Library.print("Beginning the apocalypse...");
+			die();
 		}
 	}
 

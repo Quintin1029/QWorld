@@ -1,5 +1,6 @@
 package landmarks;
 
+import game.HarvestCondition;
 import game.Library;
 import resources.ResourceStack;
 
@@ -31,7 +32,7 @@ public class LandmarkPath extends Landmark {
 	}
 
 	@Override
-	public Landmark getReplacementLandmark(int condition) {
+	public Landmark getReplacementLandmark(HarvestCondition condition) {
 		return this;
 	}
 

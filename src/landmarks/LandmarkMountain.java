@@ -2,6 +2,7 @@ package landmarks;
 
 import java.awt.Color;
 
+import game.HarvestCondition;
 import game.Library;
 import resources.ResourceStack;
 import util.QRandom;
@@ -27,7 +28,7 @@ public class LandmarkMountain extends Landmark {
 	}
 
 	@Override
-	public Landmark getReplacementLandmark(int condition) {
+	public Landmark getReplacementLandmark(HarvestCondition condition) {
 		return new LandmarkGround();
 	}
 

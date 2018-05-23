@@ -1,5 +1,6 @@
 package items.tools;
 
+import game.HarvestCondition;
 import game.Library;
 import game.PlayerStatManager;
 import items.Item;
@@ -23,7 +24,7 @@ public abstract class ItemTool extends Item {
 
 	@Override
 	public void use() {
-		player.getGame().attemptHarvest(this, Library.HARVEST_CONDITION_NORMAL);
+		player.getGame().attemptHarvest(this, HarvestCondition.HARVEST_NORMAL);
 		Library.print("Used Tool");
 	}
 	

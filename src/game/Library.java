@@ -1,5 +1,8 @@
 package game;
 
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+
 import javax.swing.ImageIcon;
 
 import colorschemes.*;;
@@ -57,8 +60,8 @@ public class Library {
 	public static final char LANDMARK_CACTUS = 'i';
 
 	// window stats: affect UI display
-	public static final int WINDOW_SCREEN_CHAR_WIDTH = 40;
-	public static final int WINDOW_SCREEN_CHAR_HEIGHT = 40;
+	public static final int WINDOW_SCREEN_CHAR_WIDTH = 20;
+	public static final int WINDOW_SCREEN_CHAR_HEIGHT = 20;
 	public static final int WINDOW_SCREEN_PIXEL_WIDTH = 500;
 	public static final int WINDOW_SCREEN_PIXEL_HEIGHT = 500;
 	public static final int ZONE_WIDTH = 1;
@@ -131,31 +134,47 @@ public class Library {
 	public static final double FOOD_LOSS_COEFFICIENT = 0.01; // lose 1% of food per move
 	public static final double HEALTH_LOSS_COEFFICIENT = 0.01; //lose 1% of health per damage while moving
 		
+	//landmark icons
+	public static final ImageIcon [] LANDMARK_ICONS = {
+			scaleImageToSize(getImage("icons/landmarks/grass.png")),
+			scaleImageToSize(getImage("icons/landmarks/tree.png")),
+			scaleImageToSize(getImage("icons/landmarks/player.png")),
+			scaleImageToSize(getImage("icons/landmarks/house.png")),
+			scaleImageToSize(getImage("icons/landmarks/cactus.png")),
+			scaleImageToSize(getImage("icons/landmarks/hut.png")),
+			scaleImageToSize(getImage("icons/landmarks/ruins.png")),
+			scaleImageToSize(getImage("icons/landmarks/sea.png")),
+			scaleImageToSize(getImage("icons/landmarks/shrine.png")),
+			scaleImageToSize(getImage("icons/landmarks/shrineBorder.png")),
+			scaleImageToSize(getImage("icons/landmarks/well.png")),
+			scaleImageToSize(getImage("icons/landmarks/sand.png"))
+	};
+	
 	//icons used for items
 	public static final ImageIcon [] ITEM_CONSUMABLE_ICONS = {
-			getImage("icons/waterbottle.png"),
-			getImage("icons/lunchbox.png"),
-			getImage("icons/medkit.png"),
-			getImage("icons/strengthpotion.png"),
-			getImage("icons/rubyslippers.png"),
-			getImage("icons/speedpotion.png"),
-			getImage("icons/shield.png"),
-			getImage("icons/luckpotion.png"),
-			getImage("icons/teleporter.png"),
-			getImage("icons/fireball.png")
+			getImage("icons/items/waterbottle.png"),
+			getImage("icons/items/lunchbox.png"),
+			getImage("icons/items/medkit.png"),
+			getImage("icons/items/strengthpotion.png"),
+			getImage("icons/items/rubyslippers.png"),
+			getImage("icons/items/speedpotion.png"),
+			getImage("icons/items/shield.png"),
+			getImage("icons/items/luckpotion.png"),
+			getImage("icons/items/teleporter.png"),
+			getImage("icons/items/fireball.png")
 	};
 	
 	public static final ImageIcon [] ITEM_TOOL_ICONS = {
-			getImage("icons/branch.png"),
-			getImage("icons/scythe.png"),
-			getImage("icons/chisel.png"),
-			getImage("icons/pickaxe.png"),
-			getImage("icons/soulcollector.png"),
-			getImage("icons/bottle.png"),
-			getImage("icons/axe.png"),
-			getImage("icons/drill.png"),
-			getImage("icons/soulbottle.png"),
-			getImage("icons/hammer.png")
+			getImage("icons/items/branch.png"),
+			getImage("icons/items/scythe.png"),
+			getImage("icons/items/chisel.png"),
+			getImage("icons/items/pickaxe.png"),
+			getImage("icons/items/soulcollector.png"),
+			getImage("icons/items/bottle.png"),
+			getImage("icons/items/axe.png"),
+			getImage("icons/items/drill.png"),
+			getImage("icons/items/soulbottle.png"),
+			getImage("icons/items/hammer.png")
 	};
 	
 	public static final ImageIcon [] ITEM_ARMOR_ICONS = {
@@ -175,9 +194,15 @@ public class Library {
 		try {
 		return new ImageIcon(Library.class.getClassLoader().getResource(file));
 		} catch (NullPointerException e) {
-			System.out.println("Improper file. Check image location and name.");
+			Library.print("Improper file " + file + ". Check image location and name.");
 			return null;
 		}
+	}
+	
+	public static ImageIcon scaleImageToSize(ImageIcon image) {
+		if (image != null)
+			return new ImageIcon(image.getImage().getScaledInstance(WINDOW_SCREEN_PIXEL_WIDTH / WINDOW_SCREEN_CHAR_WIDTH, WINDOW_SCREEN_PIXEL_HEIGHT / WINDOW_SCREEN_CHAR_WIDTH, Image.SCALE_FAST));
+		return null;
 	}
 	
 	/**

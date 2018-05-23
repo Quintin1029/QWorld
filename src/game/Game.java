@@ -94,7 +94,7 @@ public class Game {
 		} else {
 			Library.print("Move failed. Solid Object. Current position " + player.getPosition());
 		}
-		getLandmarkAtPosition(newPos).interact(player, world);
+		getLandmarkAtPosition(newPos).interact(player, world, player.getPosition().add(direction));
 		ui.redrawScreen(world, zones, (moved) ? newPos : player.getPosition());
 		return moved;
 	}
@@ -108,7 +108,7 @@ public class Game {
 	 *            a parameter used to pass along messages.
 	 * @return if we successfully harvested any landmark
 	 */
-	public boolean attemptHarvest(Item tool, int condition) {
+	public boolean attemptHarvest(Item tool, HarvestCondition condition) {
 		Library.print("Attempting harvest");
 		Vector[] positionsToHarvest = { player.getPosition().add(Vector.VECTOR_UP),
 				player.getPosition().add(Vector.VECTOR_RIGHT), player.getPosition().add(Vector.VECTOR_DOWN),

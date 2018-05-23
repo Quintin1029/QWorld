@@ -9,6 +9,7 @@ import landmarks.LandmarkMountain;
 import landmarks.LandmarkNull;
 import landmarks.LandmarkPath;
 import landmarks.LandmarkRuins;
+import landmarks.LandmarkSand;
 import landmarks.LandmarkSea;
 import landmarks.LandmarkShrineBorder;
 import landmarks.LandmarkShrineCenter;
@@ -45,6 +46,7 @@ public class WGPL {
 			new LandmarkRuins(),
 			
 			//The ground is least important.
+			new LandmarkSand(),
 			new LandmarkGround(),
 			
 	};

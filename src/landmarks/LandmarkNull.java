@@ -2,6 +2,7 @@ package landmarks;
 
 import java.awt.Color;
 
+import game.HarvestCondition;
 import game.Library;
 import resources.ResourceStack;
 
@@ -43,7 +44,7 @@ public class LandmarkNull extends Landmark {
 	}
 
 	@Override
-	public Landmark getReplacementLandmark(int condition) {
+	public Landmark getReplacementLandmark(HarvestCondition condition) {
 		return this;
 	}
 

@@ -7,6 +7,7 @@ import landmarks.Landmark;
 import landmarks.LandmarkCactus;
 import landmarks.LandmarkGround;
 import landmarks.LandmarkPath;
+import landmarks.LandmarkSand;
 import worldgen.Structure;
 import worldgen.StructureOasis;
 
@@ -19,7 +20,7 @@ public class ZoneDesert extends Zone {
 
 	@Override
 	public Landmark getGroundLandmark() {
-		return new LandmarkGround();
+		return new LandmarkSand();
 	}
 
 	@Override

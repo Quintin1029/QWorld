@@ -1,8 +1,12 @@
 package landmarks;
 
+import javax.swing.ImageIcon;
+
+import game.HarvestCondition;
 import game.Library;
 import game.PlayerStatManager;
 import resources.ResourceStack;
+import util.Vector;
 
 /**
  * The well landmark
@@ -11,6 +15,11 @@ import resources.ResourceStack;
  */
 public class LandmarkWell extends Landmark {
 
+	@Override
+	public ImageIcon getIcon() {
+		return Library.LANDMARK_ICONS[10];
+	}
+	
 	@Override
 	public char getChar() {
 		return Library.LANDMARK_WELL;
@@ -27,7 +36,7 @@ public class LandmarkWell extends Landmark {
 	}
 
 	@Override
-	public void interact(PlayerStatManager player, Landmark [] [] world) {
+	public void interact(PlayerStatManager player, Landmark [] [] world, Vector position) {
 		player.updateWater(player.getMaxWater());
 	}
 
@@ -37,7 +46,7 @@ public class LandmarkWell extends Landmark {
 	}
 
 	@Override
-	public Landmark getReplacementLandmark(int condition) {
+	public Landmark getReplacementLandmark(HarvestCondition condition) {
 		return this;
 	}
 	

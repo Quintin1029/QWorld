@@ -1,5 +1,8 @@
 package landmarks;
 
+import javax.swing.ImageIcon;
+
+import game.HarvestCondition;
 import game.Library;
 import resources.ResourceStack;
 
@@ -19,6 +22,12 @@ public class LandmarkShrineBorder extends Landmark{
 	
 	public LandmarkShrineBorder(int type) {
 		this.type = type;
+	}
+	
+	@Override
+	public ImageIcon getIcon() {
+		//TODO add other types
+		return Library.LANDMARK_ICONS[9];
 	}
 	
 	@Override
@@ -43,7 +52,7 @@ public class LandmarkShrineBorder extends Landmark{
 	}
 
 	@Override
-	public Landmark getReplacementLandmark(int condition) {
+	public Landmark getReplacementLandmark(HarvestCondition condition) {
 		return null;
 	}
 

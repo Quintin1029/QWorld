@@ -2,9 +2,13 @@ package landmarks;
 
 import java.awt.Color;
 
+import javax.swing.ImageIcon;
+
+import game.HarvestCondition;
 import game.Library;
 import game.PlayerStatManager;
 import resources.ResourceStack;
+import util.Vector;
 
 /**
  * The sea landmark
@@ -13,6 +17,11 @@ import resources.ResourceStack;
  */
 public class LandmarkSea extends Landmark {
 
+	@Override
+	public ImageIcon getIcon() {
+		return Library.LANDMARK_ICONS[7];
+	}
+	
 	@Override
 	public char getChar() {
 		return Library.LANDMARK_SEA;
@@ -24,7 +33,7 @@ public class LandmarkSea extends Landmark {
 	}
 	
 	@Override
-	public void interact(PlayerStatManager player, Landmark[][] world) {
+	public void interact(PlayerStatManager player, Landmark[][] world, Vector position) {
 		player.updateWater(player.getMaxWater());
 	}
 
@@ -44,7 +53,7 @@ public class LandmarkSea extends Landmark {
 	}
 
 	@Override
-	public Landmark getReplacementLandmark(int condition) {
+	public Landmark getReplacementLandmark(HarvestCondition condition) {
 		return null;
 	}
 

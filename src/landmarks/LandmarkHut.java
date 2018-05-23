@@ -1,11 +1,14 @@
 package landmarks;
 
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
+import game.HarvestCondition;
 import game.Library;
 import game.PlayerStatManager;
 import items.Item;
 import resources.ResourceStack;
+import util.Vector;
 
 /**
  * The Hut landmark (#). Gives a specific item to the player when used.
@@ -37,6 +40,11 @@ public class LandmarkHut extends Landmark {
 	}
 
 	@Override
+	public ImageIcon getIcon() {
+		return Library.LANDMARK_ICONS[5];
+	}
+	
+	@Override
 	public char getChar() {
 		return (used)? Library.LANDMARK_HUT_BROKEN : Library.LANDMARK_HUT;
 	}
@@ -47,13 +55,15 @@ public class LandmarkHut extends Landmark {
 	}
 
 	@Override
-	public void interact(PlayerStatManager player, Landmark[][] world) {
+	public void interact(PlayerStatManager player, Landmark[][] world, Vector position) {
 		Item pItem = getPlayerItem(tiedItem, player);
 		if (!pItem.getIsUnlocked()) {
 			pItem.unlock();
 			player.getGame().ui.displayDialogue("You've unlocked " + pItem.getName() + "!!!", "Congradulations!");
 		}
 		used = true;
+		world[position.getX()][position.getY()] = getReplacementLandmark(HarvestCondition.HARVEST_NORMAL);
+		player.getGame().ui.redrawScreen(world, player.getGame().zones, player.getPosition());
 	}
 
 	@Override
@@ -62,8 +72,8 @@ public class LandmarkHut extends Landmark {
 	}
 
 	@Override
-	public Landmark getReplacementLandmark(int condition) {
-		return null;
+	public Landmark getReplacementLandmark(HarvestCondition condition) {
+		return new LandmarkRuins();
 	}
 
 	@Override

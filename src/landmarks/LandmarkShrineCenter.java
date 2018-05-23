@@ -1,5 +1,8 @@
 package landmarks;
 
+import javax.swing.ImageIcon;
+
+import game.HarvestCondition;
 import game.Library;
 import game.WorldGenerator;
 import resources.ResourceStack;
@@ -12,6 +15,11 @@ import util.Vector;
  */
 public class LandmarkShrineCenter extends Landmark {
 
+	@Override
+	public ImageIcon getIcon() {
+		return Library.LANDMARK_ICONS[8];
+	}
+	
 	@Override
 	public char getChar() {
 		return Library.LANDMARK_SHRINE_CENTER;
@@ -28,7 +36,7 @@ public class LandmarkShrineCenter extends Landmark {
 	}
 
 	@Override
-	public Landmark getReplacementLandmark(int condition) {
+	public Landmark getReplacementLandmark(HarvestCondition condition) {
 		return new LandmarkGround();
 	}
 	

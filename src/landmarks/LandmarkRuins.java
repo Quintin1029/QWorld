@@ -2,6 +2,9 @@ package landmarks;
 
 import java.awt.Color;
 
+import javax.swing.ImageIcon;
+
+import game.HarvestCondition;
 import game.Library;
 import resources.ResourceStack;
 import util.QRandom;
@@ -13,6 +16,11 @@ import util.QRandom;
  */
 public class LandmarkRuins extends Landmark {
 
+	@Override
+	public ImageIcon getIcon() {
+		return Library.LANDMARK_ICONS[6];
+	}
+	
 	@Override
 	public char getChar() {
 		return Library.LANDMARK_RUINS;
@@ -34,7 +42,7 @@ public class LandmarkRuins extends Landmark {
 	}
 
 	@Override
-	public Landmark getReplacementLandmark(int condition) {
+	public Landmark getReplacementLandmark(HarvestCondition condition) {
 		return new LandmarkGround();
 	}
 

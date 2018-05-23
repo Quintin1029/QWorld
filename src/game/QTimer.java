@@ -39,7 +39,6 @@ public class QTimer {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			Library.print("Test");
 			if (--time <= 0) {
 				timer.stop();
 				onTimeUp();

@@ -2,6 +2,9 @@ package landmarks;
 
 import java.awt.Color;
 
+import javax.swing.ImageIcon;
+
+import game.HarvestCondition;
 import game.PlayerStatManager;
 import resources.ResourceStack;
 import util.Vector;
@@ -12,6 +15,14 @@ import util.Vector;
  *
  */
 public abstract class Landmark {
+	
+	/**
+	 * Gets the icon associated with this landmark if there is one. This will take priority over the character if it is not null.
+	 * @return the icon associated with this landmark, null if there is none
+	 */
+	public ImageIcon getIcon() {
+		return null;
+	}
 	
 	/**
 	 * Gets the character used by the landmark
@@ -38,7 +49,7 @@ public abstract class Landmark {
 	 * @param condition any conditions to use when harvesting UNUSED CURRENTLY
 	 * @return the landmark to replace the current one with
 	 */
-	public abstract Landmark getReplacementLandmark(int condition);
+	public abstract Landmark getReplacementLandmark(HarvestCondition condition);
 	
 	/**
 	 * Gets the name of the landmark (mostly for debugging)
@@ -68,9 +79,10 @@ public abstract class Landmark {
 	 * The method called when the player tries to move onto this landmark
 	 * @param player the player moving onto this landmark
 	 * @param world the world the player is in
+	 * @param position the position of this landmark in the world
 	 * @author Quintin Harter
 	 */
-	public void interact(PlayerStatManager player, Landmark [] [] world) {
+	public void interact(PlayerStatManager player, Landmark [] [] world, Vector position) {
 		//default-- do nothing
 	}
 	

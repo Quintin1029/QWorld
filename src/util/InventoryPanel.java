@@ -1,23 +1,23 @@
 package util;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
-import java.awt.Insets;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import game.Library;
 import game.PlayerStatManager;
-import game.UI;
 import items.Item;
 
+/**
+ * The inventory display panel on the screen.
+ * @author Quintin Harter
+ *
+ */
 public class InventoryPanel extends JPanel {
 
 	public static final int WIDTH = 1;

@@ -1,7 +1,7 @@
 package worldgen;
 
-import landmarks.*;
-import util.*;
+import landmarks.Landmark;
+import util.Vector;
 
 public abstract class Structure {
 	

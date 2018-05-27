@@ -1,11 +1,11 @@
 package game;
 
 import java.awt.Image;
-import java.awt.image.BufferedImage;
 
 import javax.swing.ImageIcon;
 
-import colorschemes.*;;
+import colorschemes.ColorScheme;
+import colorschemes.DarkColorScheme;;
 
 /**
  * A static class used to store most constants and general methods used
@@ -177,7 +177,7 @@ public class Library {
 			getImage("icons/items/hammer.png")
 	};
 	
-	public static final ImageIcon [] ITEM_ARMOR_ICONS = {
+	public static final ImageIcon [] ITEM_BUILDING_ICONS = {
 			getImage("icons/shirt.png")
 	};
 	
@@ -199,6 +199,11 @@ public class Library {
 		}
 	}
 	
+	/**
+	 * Scales the image to the size of each grid box in the screen. Call this on image instantiation, not every screen update (for time complexity).
+	 * @param image the image to scale
+	 * @return the scaled image.
+	 */
 	public static ImageIcon scaleImageToSize(ImageIcon image) {
 		if (image != null)
 			return new ImageIcon(image.getImage().getScaledInstance(WINDOW_SCREEN_PIXEL_WIDTH / WINDOW_SCREEN_CHAR_WIDTH, WINDOW_SCREEN_PIXEL_HEIGHT / WINDOW_SCREEN_CHAR_WIDTH, Image.SCALE_FAST));

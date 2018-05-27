@@ -3,10 +3,13 @@ package zones;
 import java.awt.Color;
 
 import game.Library;
-import landmarks.*;
+import landmarks.Landmark;
+import landmarks.LandmarkGround;
+import landmarks.LandmarkPath;
+import landmarks.LandmarkTree;
+import landmarks.LandmarkWell;
 import worldgen.Structure;
 import worldgen.StructureLake;
-import worldgen.StructureMountainRange;
 import worldgen.StructureRuins;
 import worldgen.StructureShrine;
 

@@ -4,6 +4,11 @@ import javax.swing.ImageIcon;
 
 import game.Library;
 
+/**
+ * The sand landmark.
+ * @author Quintin Harter
+ *
+ */
 public class LandmarkSand extends LandmarkGround {
 
 	@Override

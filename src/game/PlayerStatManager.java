@@ -1,10 +1,5 @@
 package game;
 
-import java.util.HashMap;
-
-import javax.swing.Icon;
-
-import items.*;
 import items.buildings.ItemBuilding;
 import items.consumables.ItemChaosTeleporter;
 import items.consumables.ItemConsumable;
@@ -19,6 +14,7 @@ import items.consumables.ItemStrengthPotion;
 import items.consumables.ItemWaterBottle;
 import items.tools.ItemStick;
 import items.tools.ItemTool;
+import resources.Resource;
 import resources.ResourceStack;
 import util.Vector;
 
@@ -51,11 +47,11 @@ public class PlayerStatManager {
 	private int luckUsesRemaining = 0;
 	
 	//resources
-	private ResourceStack woodStack = new ResourceStack(ResourceStack.WOOD);
-	private ResourceStack rockStack = new ResourceStack(ResourceStack.ROCK);
-	private ResourceStack  grassStack = new ResourceStack(ResourceStack.GRASS);
-	private ResourceStack ironStack = new ResourceStack(ResourceStack.IRON);
-	private ResourceStack darkStack = new ResourceStack(ResourceStack.DARK);
+	private ResourceStack woodStack = new ResourceStack(Resource.WOOD);
+	private ResourceStack rockStack = new ResourceStack(Resource.ROCK);
+	private ResourceStack  grassStack = new ResourceStack(Resource.GRASS);
+	private ResourceStack ironStack = new ResourceStack(Resource.IRON);
+	private ResourceStack darkStack = new ResourceStack(Resource.DARK);
 	
 	/**
 	 * The default constructor
@@ -92,8 +88,20 @@ public class PlayerStatManager {
 		
 	}
 	
+	/**
+	 * Gets the consumable item array for this inventory.
+	 * @return the consumable item array
+	 */
 	public ItemConsumable[] getConsumables() {return consumables;}
+	/**
+	 * Gets the tool item array for this inventory.
+	 * @return the tool item array
+	 */
 	public ItemTool[] getTools() {return tools;}
+	/**
+	 * Gets the building item array for this inventory.
+	 * @return the building item array
+	 */
 	public ItemBuilding[] getBuildings() {return buildings;}
 	
 	/**
@@ -350,20 +358,37 @@ public class PlayerStatManager {
 		darkStack.add(resources);
 	}
 	
+	public void subtractResource(ResourceStack resources) {
+		woodStack.subtract(resources);
+		rockStack.subtract(resources);
+		grassStack.subtract(resources);
+		ironStack.subtract(resources);
+		darkStack.subtract(resources);
+	}
+	
 	/**
 	 * Gets the resource stack owned by the player of the given type
 	 * @param type the type of resource to get
 	 * @return the resource stack of that type
 	 */
-	public ResourceStack getResource(int type) {
+	public ResourceStack getResource(Resource type) {
 		switch(type) {
-		case 0: return woodStack;
-		case 1: return rockStack;
-		case 2: return grassStack;
-		case 3: return ironStack;
-		case 4: return darkStack;
+		case WOOD: return woodStack;
+		case ROCK: return rockStack;
+		case GRASS: return grassStack;
+		case IRON: return ironStack;
+		case DARK: return darkStack;
 		default: return null;
 		}
+	}
+	
+	/**
+	 * Checks the player for a certain resource.
+	 * @param rs the resource and quantity to check for
+	 * @return if the player contains that resource
+	 */
+	public boolean containsResource(ResourceStack rs) {
+		return rs.getNumber() < getResource(rs.getType()).getNumber();
 	}
 
 	@Override

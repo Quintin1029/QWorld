@@ -2,7 +2,6 @@ package worldgen;
 
 import game.WorldGenerator;
 import landmarks.Landmark;
-import landmarks.LandmarkMountain;
 import landmarks.LandmarkRuins;
 import util.QRandom;
 import util.Vector;

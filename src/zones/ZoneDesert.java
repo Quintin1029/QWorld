@@ -5,7 +5,6 @@ import java.awt.Color;
 import game.Library;
 import landmarks.Landmark;
 import landmarks.LandmarkCactus;
-import landmarks.LandmarkGround;
 import landmarks.LandmarkPath;
 import landmarks.LandmarkSand;
 import worldgen.Structure;

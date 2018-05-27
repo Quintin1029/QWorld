@@ -3,10 +3,10 @@ package zones;
 import java.awt.Color;
 
 import game.Library;
-import landmarks.*;
-import util.Vector;
+import landmarks.Landmark;
+import landmarks.LandmarkGround;
+import landmarks.LandmarkPath;
 import worldgen.Structure;
-import worldgen.StructureLake;
 
 /**
  * The sea zone

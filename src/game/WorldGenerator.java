@@ -5,11 +5,13 @@ import java.util.Random;
 import landmarks.Landmark;
 import landmarks.LandmarkHome;
 import landmarks.LandmarkHut;
-import landmarks.LandmarkSea;
 import util.LoadingFrame;
 import util.QRandom;
 import util.Vector;
-import zones.*;
+import zones.Zone;
+import zones.ZoneDesert;
+import zones.ZoneForest;
+import zones.ZonePlains;
 
 /**
  * The class used to generate the world based on the zones. Also contains some

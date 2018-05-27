@@ -1,8 +1,5 @@
 package worldgen;
 
-import game.Library;
-import game.WorldGenerator;
-import landmarks.LandmarkSea;
 import util.QRandom;
 import util.Vector;
 

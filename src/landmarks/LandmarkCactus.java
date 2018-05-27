@@ -6,6 +6,7 @@ import javax.swing.ImageIcon;
 
 import game.HarvestCondition;
 import game.Library;
+import resources.Resource;
 import resources.ResourceStack;
 
 /**
@@ -33,7 +34,7 @@ public class LandmarkCactus extends Landmark {
 	@Override
 	public ResourceStack getHarvest(int toolType) {
 		switch(toolType) {
-		case 0: return new ResourceStack(ResourceStack.GRASS, 1);
+		case 0: return new ResourceStack(Resource.GRASS, 1);
 		}
 		return null;
 	}

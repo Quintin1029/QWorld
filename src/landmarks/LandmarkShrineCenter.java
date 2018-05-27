@@ -4,7 +4,7 @@ import javax.swing.ImageIcon;
 
 import game.HarvestCondition;
 import game.Library;
-import game.WorldGenerator;
+import resources.Resource;
 import resources.ResourceStack;
 import util.Vector;
 
@@ -32,7 +32,7 @@ public class LandmarkShrineCenter extends Landmark {
 
 	@Override
 	public ResourceStack getHarvest(int toolType) {
-		return new ResourceStack(ResourceStack.DARK, 1);
+		return new ResourceStack(Resource.DARK, 1);
 	}
 
 	@Override

@@ -4,6 +4,7 @@ import java.awt.Color;
 
 import game.HarvestCondition;
 import game.Library;
+import resources.Resource;
 import resources.ResourceStack;
 import util.QRandom;
 
@@ -22,7 +23,7 @@ public class LandmarkMountain extends Landmark {
 	@Override
 	public ResourceStack getHarvest(int toolType) {
 		switch(toolType) {
-		case Library.TOOL_ROCK: return new ResourceStack(ResourceStack.ROCK, QRandom.randInt(0, 5));
+		case Library.TOOL_ROCK: return new ResourceStack(Resource.ROCK, QRandom.randInt(0, 5));
 		}
 		return null;
 	}

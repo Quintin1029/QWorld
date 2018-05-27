@@ -3,7 +3,6 @@ package worldgen;
 import game.WorldGenerator;
 import landmarks.Landmark;
 import landmarks.LandmarkMountain;
-import landmarks.LandmarkSea;
 import util.Vector;
 
 /**

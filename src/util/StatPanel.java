@@ -3,7 +3,6 @@ package util;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -12,6 +11,11 @@ import javax.swing.JProgressBar;
 import game.Library;
 import game.PlayerStatManager;
 
+/**
+ * The panel display for player statistics.
+ * @author Quintin Harter
+ *
+ */
 public class StatPanel extends JPanel {
 
 	private JPanel topPanel;
@@ -32,7 +36,6 @@ public class StatPanel extends JPanel {
 	private double percentWater;
 	private double percentFood;
 	private double percentHealth;
-	private double angleHome;
 	
 	/**
 	 * Constructor
@@ -53,7 +56,6 @@ public class StatPanel extends JPanel {
 		percentWater = 1.;
 		percentFood = 1.;
 		percentHealth = 1.;
-		angleHome = 0.;
 		
 		barWater = new JProgressBar();
 		barWater.setMaximum(100);

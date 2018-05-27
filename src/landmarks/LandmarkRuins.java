@@ -6,6 +6,7 @@ import javax.swing.ImageIcon;
 
 import game.HarvestCondition;
 import game.Library;
+import resources.Resource;
 import resources.ResourceStack;
 import util.QRandom;
 
@@ -34,9 +35,9 @@ public class LandmarkRuins extends Landmark {
 	@Override
 	public ResourceStack getHarvest(int toolType) {
 		switch(toolType) {
-		case Library.TOOL_WOOD: return new ResourceStack(ResourceStack.WOOD, QRandom.randInt(5, 20));
-		case Library.TOOL_ROCK: return new ResourceStack(ResourceStack.ROCK, QRandom.randInt(10, 30));
-		case Library.TOOL_IRON: return new ResourceStack(ResourceStack.IRON, QRandom.randInt(1, 5));
+		case Library.TOOL_WOOD: return new ResourceStack(Resource.WOOD, QRandom.randInt(5, 20));
+		case Library.TOOL_ROCK: return new ResourceStack(Resource.ROCK, QRandom.randInt(10, 30));
+		case Library.TOOL_IRON: return new ResourceStack(Resource.IRON, QRandom.randInt(1, 5));
 		}
 		return null;
 	}

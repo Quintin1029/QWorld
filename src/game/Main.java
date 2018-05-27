@@ -4,10 +4,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
 
-import util.Line;
-import util.Vector;
-import worldgen.RangeGenerator;
-
 /**
  * The main method of QWorld. Uses {@code game.run();}
  * 

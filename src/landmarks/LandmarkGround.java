@@ -4,7 +4,6 @@ import javax.swing.ImageIcon;
 
 import game.HarvestCondition;
 import game.Library;
-import game.PlayerStatManager;
 import resources.ResourceStack;
 
 /**

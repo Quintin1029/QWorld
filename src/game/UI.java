@@ -1,6 +1,21 @@
 package game;
 
-import javax.swing.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.FontFormatException;
+import java.awt.GraphicsEnvironment;
+import java.awt.GridLayout;
+import java.io.IOException;
+
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 import landmarks.Landmark;
 import util.InventoryPanel;
@@ -12,9 +27,6 @@ import util.StatPanel;
 import util.TimePanel;
 import util.Vector;
 import zones.Zone;
-
-import java.awt.*;
-import java.io.IOException;
 
 /**
  * The class that handles all of the user interface for QWorld
@@ -167,10 +179,17 @@ public class UI {
 		resourcePanel.redraw();
 	}
 	
+	/**
+	 * Sends the time to the time panel.
+	 * @param time the time left in seconds
+	 */
 	public void sendTime(int time) {
 		timePanel.setTime(time);
 	}
 	
+	/**
+	 * Exits the ui.
+	 */
 	public void exit() {
 		frame.dispose();
 	}

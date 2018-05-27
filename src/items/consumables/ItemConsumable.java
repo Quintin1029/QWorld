@@ -1,8 +1,5 @@
 package items.consumables;
 
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-
 import game.PlayerStatManager;
 import items.Item;
 

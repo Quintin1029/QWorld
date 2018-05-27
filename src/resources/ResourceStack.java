@@ -1,31 +1,21 @@
 package resources;
 
-import javax.swing.Icon;
-
-import game.Library;
-
 /**
  * Represents a stack of a single resource. Also contains the static variables that represent resource types.
  * @author Quintin Harter
  *
  */
 public class ResourceStack {
-
-	public static final int WOOD = 0;
-	public static final int ROCK = 1;
-	public static final int GRASS = 2;
-	public static final int IRON = 3;
-	public static final int DARK = 4;
 	
 	private int number;
-	private int type;
+	private Resource type;
 	
 	/**
 	 * Constructor.
 	 * @param type the type of this resource (Use the static variables from ResourceStack.java)
 	 * @param number the number of this resource
 	 */
-	public ResourceStack(int type, int number) {
+	public ResourceStack(Resource type, int number) {
 		this.type = type;
 		this.number = number;
 	}
@@ -34,7 +24,7 @@ public class ResourceStack {
 	 * Constructor. (Sets the number of resources to 0)
 	 * @param type the type of this resource (Use the static variables from ResourceStack.java)
 	 */
-	public ResourceStack(int type) {
+	public ResourceStack(Resource type) {
 		this.type = type;
 		this.number = 0;
 	}
@@ -45,7 +35,7 @@ public class ResourceStack {
 	 * @return if they are the same type and the resource stack was successfully added
 	 */
 	public boolean add(ResourceStack other) {
-		if (other.getType() == type) {
+		if (other.getType().equals(type)) {
 			number += other.number;
 			return true;
 		}
@@ -66,7 +56,7 @@ public class ResourceStack {
 	 * @return if they are the same type and the resource stack was successfully subtracted
 	 */
 	public boolean subtract(ResourceStack other) {
-		if (other.getType() == type) {
+		if (other.getType().equals(type)) {
 			number -= other.number;
 			return true;
 		}
@@ -85,7 +75,7 @@ public class ResourceStack {
 	 * Gets the type of this resource stack.
 	 * @return the type of this resource stack
 	 */
-	public int getType() {
+	public Resource getType() {
 		return type;
 	}
 	

@@ -156,12 +156,20 @@ public class Game {
 		Library.print(player.toString());
 	}
 	
+	/**
+	 * Sends the time left to the game. Starts the apocalypse if necessary.
+	 * @param time the time left in the game in seconds
+	 */
 	public void sendTime(int time) {
 		timeLeft = time;
 		if (timeLeft <= 0)
 			startApocalypse();
 	}
 	
+	/**
+	 * Gets the time left in the game.
+	 * @return the time left in the game in seconds
+	 */
 	public int getTime() {
 		return timeLeft;
 	}
@@ -234,6 +242,9 @@ public class Game {
 		}
 	}
 	
+	/**
+	 * Begins the apocalypse. Currently this kills the player.
+	 */
 	public void startApocalypse() {
 		//TODO implement a cool apocalypse???
 		if (!Library.NO_APOCALYPSE) {

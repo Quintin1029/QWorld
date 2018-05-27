@@ -3,7 +3,6 @@ package zones;
 import java.awt.Color;
 
 import landmarks.Landmark;
-import util.Vector;
 import worldgen.Structure;
 
 /**

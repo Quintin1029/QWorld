@@ -1,7 +1,6 @@
 package landmarks;
 
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
 
 import game.HarvestCondition;
 import game.Library;

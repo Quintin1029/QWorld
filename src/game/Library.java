@@ -17,14 +17,14 @@ public class Library {
 	
 	// debug constant: turn this off when you no longer want to print to the
 	// console.
-	public static boolean DEBUG_MODE = true;
-	public static boolean DEBUG_FILE = false;
+	public static final boolean DEBUG_MODE = false;
+	public static final boolean DEBUG_FILE = false;
 	
 	//testing variable: turn true when you want to be invincible
-	public static boolean NO_DEATH = true;
-	public static boolean NO_APOCALYPSE = true;
-	public static boolean ENABLE_ALL_ITEMS = true;
-	public static boolean DISABLE_STORY = true;
+	public static final boolean NO_DEATH = true;
+	public static final boolean NO_APOCALYPSE = true;
+	public static final boolean ENABLE_ALL_ITEMS = true;
+	public static final boolean DISABLE_STORY = true;
 	
 	//color scheme
 	public static final ColorScheme COLOR_SCHEME = new DarkColorScheme();

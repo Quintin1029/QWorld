@@ -151,7 +151,8 @@ public class WorldGenerator {
 		lf.updateLoaderMainBar(3. / NUMBER_OF_STEPS * 100, "Generating Trees...");
 		for (int x = 0; x < Library.WORLD_SIZE; x++) {
 			for (int y = 0; y < Library.WORLD_SIZE; y++) {
-				lf.updateLoaderSubBar((y + (x * Library.WORLD_SIZE)) / (1. * Library.WORLD_SIZE * Library.WORLD_SIZE) * 100, "Dropping tree " + (y + (x * Library.WORLD_SIZE)) + " / " + (Library.WORLD_SIZE * Library.WORLD_SIZE));
+				lf.updateLoaderSubBar((y + (x * Library.WORLD_SIZE)) / (1. * Library.WORLD_SIZE * Library.WORLD_SIZE) * 100, "Dropping tree " + 
+						(y + (x * Library.WORLD_SIZE)) + " / " + (Library.WORLD_SIZE * Library.WORLD_SIZE));
 				Zone zone = getZoneAtPosition(zones, new Vector(x, y));
 				int index = 0;
 				while (zone.getTreeLandmark(index) != null) {

@@ -21,9 +21,21 @@ public class LandmarkMountain extends Landmark {
 	}
 
 	@Override
-	public ResourceStack getHarvest(int toolType) {
+	public ResourceStack getHarvest(Resource toolType) {
 		switch(toolType) {
-		case Library.TOOL_ROCK: return new ResourceStack(Resource.ROCK, QRandom.randInt(0, 5));
+		case ROCK: return new ResourceStack(Resource.ROCK, QRandom.randInt(0, 5));
+		case CLOUD:
+			break;
+		case DARK:
+			break;
+		case GRASS:
+			break;
+		case IRON:
+			break;
+		case WOOD:
+			break;
+		default:
+			break;
 		}
 		return null;
 	}

@@ -33,11 +33,11 @@ public class LandmarkRuins extends Landmark {
 	}
 
 	@Override
-	public ResourceStack getHarvest(int toolType) {
+	public ResourceStack getHarvest(Resource toolType) {
 		switch(toolType) {
-		case Library.TOOL_WOOD: return new ResourceStack(Resource.WOOD, QRandom.randInt(5, 20));
-		case Library.TOOL_ROCK: return new ResourceStack(Resource.ROCK, QRandom.randInt(10, 30));
-		case Library.TOOL_IRON: return new ResourceStack(Resource.IRON, QRandom.randInt(1, 5));
+		case WOOD: return new ResourceStack(Resource.WOOD, QRandom.randInt(5, 20));
+		case ROCK: return new ResourceStack(Resource.ROCK, QRandom.randInt(10, 30));
+		case IRON: return new ResourceStack(Resource.IRON, QRandom.randInt(1, 5));
 		}
 		return null;
 	}

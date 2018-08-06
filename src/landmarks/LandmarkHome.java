@@ -4,6 +4,7 @@ import javax.swing.ImageIcon;
 
 import game.HarvestCondition;
 import game.Library;
+import resources.Resource;
 import resources.ResourceStack;
 
 /**
@@ -34,7 +35,7 @@ public class LandmarkHome extends Landmark {
 	}
 
 	@Override
-	public ResourceStack getHarvest(int toolType) {
+	public ResourceStack getHarvest(Resource toolType) {
 		return null;
 	}
 

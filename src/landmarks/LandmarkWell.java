@@ -5,6 +5,7 @@ import javax.swing.ImageIcon;
 import game.HarvestCondition;
 import game.Library;
 import game.PlayerStatManager;
+import resources.Resource;
 import resources.ResourceStack;
 import util.Vector;
 
@@ -41,7 +42,7 @@ public class LandmarkWell extends Landmark {
 	}
 
 	@Override
-	public ResourceStack getHarvest(int toolType) {
+	public ResourceStack getHarvest(Resource toolType) {
 		return null;
 	}
 

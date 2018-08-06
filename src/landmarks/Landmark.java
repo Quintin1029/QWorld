@@ -6,6 +6,7 @@ import javax.swing.ImageIcon;
 
 import game.HarvestCondition;
 import game.PlayerStatManager;
+import resources.Resource;
 import resources.ResourceStack;
 import util.Vector;
 
@@ -42,7 +43,7 @@ public abstract class Landmark {
 	 * @param toolType the tool type to harvest with
 	 * @return the resource stack from harvesting. Typically this will use QRandom to generate a range of possible values
 	 */
-	public abstract ResourceStack getHarvest(int toolType);
+	public abstract ResourceStack getHarvest(Resource toolType);
 	
 	/**
 	 * Gets the landmark to replace this one with when harvesting. Typically this will be LandmarkGround.

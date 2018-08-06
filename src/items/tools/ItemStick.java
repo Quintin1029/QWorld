@@ -4,6 +4,7 @@ import javax.swing.Icon;
 
 import game.Library;
 import game.PlayerStatManager;
+import resources.Resource;
 
 /**
  * Represents the stick item. Can destroy wood.
@@ -16,12 +17,12 @@ public class ItemStick extends ItemTool {
 		super(player);
 	}
 
-	private int [] toolTypes = {
-			Library.TOOL_WOOD
+	private Resource [] toolTypes = {
+			Resource.WOOD
 	};
 	
 	@Override
-	public int[] getToolTypes() {
+	public Resource[] getToolTypes() {
 		return toolTypes;
 	}
 

@@ -32,9 +32,9 @@ public class LandmarkCactus extends Landmark {
 	}
 
 	@Override
-	public ResourceStack getHarvest(int toolType) {
+	public ResourceStack getHarvest(Resource toolType) {
 		switch(toolType) {
-		case 0: return new ResourceStack(Resource.GRASS, 1);
+		case GRASS: return new ResourceStack(Resource.GRASS, 1);
 		}
 		return null;
 	}

@@ -16,24 +16,22 @@ import colorschemes.DarkColorScheme;;
  */
 public class Library {
 	
-	// debug constant: turn this off when you no longer want to print to the
-	// console.
-	public static final boolean DEBUG_MODE = false;
-	public static final boolean DEBUG_FILE = false;
+	public static final boolean DEBUG_MODE = true; //prints debug text to the default System.out throughout the program
+	public static final boolean DEBUG_FILE = false; //prints debug text to a file TODO
 	
 	//testing variable: turn true when you want to be invincible
-	public static final boolean NO_DEATH = true;
-	public static final boolean NO_APOCALYPSE = true;
-	public static final boolean ENABLE_ALL_ITEMS = true;
-	public static final boolean DISABLE_STORY = true;
+	public static final boolean NO_DEATH = true; //death does not happen
+	public static final boolean NO_APOCALYPSE = true; //the apocalypse does not happen
+	public static final boolean ENABLE_ALL_ITEMS = true; //all items are enabled to begin with
+	public static final boolean DISABLE_STORY = true; //the story (popups, etc) is disabled
 	
 	//color scheme
-	public static final ColorScheme COLOR_SCHEME = new DarkColorScheme();
+	public static final ColorScheme COLOR_SCHEME = new DarkColorScheme(); //the color scheme that controls the look of the program
 	
 	//timing constants
-	public static final int APOCALYPSE_TIME = 15 * 60;
+	public static final int APOCALYPSE_TIME = 15 * 60; //the time it takes for the apocalypse to start
 
-	// landmark char constants: used by landmarks to display to the screen
+	// landmark char constants: used by landmarks to display to the screen TODO get rid of char system
 	public static final char LANDMARK_NULL = 'X';// '\u2593';
 	public static final char LANDMARK_GROUND = ' ';
 	public static final char LANDMARK_SEA = ' ';
@@ -61,32 +59,30 @@ public class Library {
 	public static final char LANDMARK_CACTUS = 'i';
 
 	// game options: affect world generation or settings
-	public static final int WORLD_SIZE = 1000;
-	public static final int ZONE_DENSITY = 200;
-	public static final int ZONE_MINIMUM_DISTANCE = 30; //make sure ZONE_DENSITY * ZONE_MINIMUM_DISTANCE < 1,000,000
+	public static final int WORLD_SIZE = 1000; //the width and height of the world (1000x1000)
+	public static final int ZONE_DENSITY = 200; //the number of total zones in the world
+	public static final int ZONE_MINIMUM_DISTANCE = 30; //the minimum distance between two centers-- make sure ZONE_DENSITY * ZONE_MINIMUM_DISTANCE < WORLD_SIZE ^ 2
 	public static final int SPAWN_RADIUS = 30; //no structures will be generated in the circle at the center of the world with this radius
-	public static final int CARRYING_CAPACITY = 10;
+	public static final int CARRYING_CAPACITY = 10; //the number of each type of item you can hold (DO NOT CHANGE FIXME)
 	
 	// window stats: affect UI display
-	public static final int WINDOW_SCREEN_CHAR_WIDTH = 20;
-	public static final int WINDOW_SCREEN_CHAR_HEIGHT = 20;
-	public static final int FRAME_PIXEL_HEIGHT = Toolkit.getDefaultToolkit().getScreenSize().height * 3 / 4;
-	public static final int FRAME_PIXEL_WIDTH = Toolkit.getDefaultToolkit().getScreenSize().width / 2;
-	public static final int WINDOW_SCREEN_PIXEL_HEIGHT = FRAME_PIXEL_HEIGHT * 4 / 5;
-	public static final int WINDOW_SCREEN_PIXEL_WIDTH = WINDOW_SCREEN_PIXEL_HEIGHT;
-	public static final int WINDOW_LOADING_HEIGHT = FRAME_PIXEL_HEIGHT / 5;
-	public static final int WINDOW_LOADING_WIDTH = FRAME_PIXEL_WIDTH / 3;
-	public static final int LOADING_FONT_SIZE = FRAME_PIXEL_HEIGHT / 40;
-	public static final int QBUTTON_HEIGHT_AND_WIDTH = WINDOW_SCREEN_PIXEL_HEIGHT / (CARRYING_CAPACITY + 4);
-	public static final int ZONE_WIDTH = 1;
-	public static final int ZONE_HEIGHT = 1;
-	public static final float FONT_SIZE = 15f;
-	public static final int RESOURCE_FONT_SIZE = LOADING_FONT_SIZE * 2 / 3;
-	public static final int TIME_FONT_SIZE = LOADING_FONT_SIZE * 2;
-	public static final int BORDER_SIZE = FRAME_PIXEL_HEIGHT / 150;
+	public static final int WINDOW_SCREEN_CHAR_WIDTH = 20; //the width of the world display in tiles
+	public static final int WINDOW_SCREEN_CHAR_HEIGHT = 20; //the height of the world display in tiles
+	public static final int FRAME_PIXEL_HEIGHT = Toolkit.getDefaultToolkit().getScreenSize().height * 3 / 4; //the height of the frame in pixels
+	public static final int FRAME_PIXEL_WIDTH = Toolkit.getDefaultToolkit().getScreenSize().width / 2; //the width of the frame in pixels
+	public static final int WINDOW_SCREEN_PIXEL_HEIGHT = FRAME_PIXEL_HEIGHT * 4 / 5; //the height of the world display in pixels
+	public static final int WINDOW_SCREEN_PIXEL_WIDTH = WINDOW_SCREEN_PIXEL_HEIGHT; //the width of the world display in pixels (should be the same as the height
+	public static final int WINDOW_LOADING_HEIGHT = FRAME_PIXEL_HEIGHT / 5; //the loading window height
+	public static final int WINDOW_LOADING_WIDTH = FRAME_PIXEL_WIDTH / 3; //the loading window width
+	public static final int LOADING_FONT_SIZE = FRAME_PIXEL_HEIGHT / 40; //the loading window font size
+	public static final int QBUTTON_HEIGHT_AND_WIDTH = WINDOW_SCREEN_PIXEL_HEIGHT / (CARRYING_CAPACITY + 4); //the height and width of the item buttons (QButtons)
+	public static final float FONT_SIZE = 15f; //the size of the characters in the world (TODO get rid of the character system)
+	public static final int RESOURCE_FONT_SIZE = LOADING_FONT_SIZE * 2 / 3; //the font size for resource display
+	public static final int TIME_FONT_SIZE = LOADING_FONT_SIZE * 2; //the font size for the timer
+	public static final int BORDER_SIZE = FRAME_PIXEL_HEIGHT / 150; //the border size in pixels
 	
-	//hut gen
-	public static final int ITEM_WATER_BOTTLE_HUT_INNER_RADIUS = 20;
+	//Hut generation: the minimum and maximum distances the huts of each item can spawn TODO
+	public static final int ITEM_WATER_BOTTLE_HUT_INNER_RADIUS = 20; 
 	public static final int ITEM_WATER_BOTTLE_HUT_OUTER_RADIUS = 50;
 	public static final int ITEM_LUNCH_BOX_HUT_INNER_RADIUS = 20;
 	public static final int ITEM_LUNCH_BOX_HUT_OUTER_RADIUS = 50;
@@ -110,28 +106,16 @@ public class Library {
 	public static final int ITEM_STICK_HUT_OUTER_RADIUS = 50;
 	
 	
-	// item options:
-	public static final int WATER_BOTTLE_PERCENT = 20;
-	public static final int LUNCH_BOX_PERCENT = 20;
-	public static final int MED_KIT_PERCENT = 20;
-	public static final int STRENGTH_POTION_AMOUNT = 25;
-	public static final int SHIELD_AMOUNT = 5;
-	public static final int SPEED_POTION_AMOUNT = 10;
-	public static final int LUCK_POTION_AMOUNT = 5;
-	public static final int CHAOS_TELEPORTER_LOW_RANGE = 20;
-	public static final int CHAOS_TELEPORTER_HIGH_RANGE = 100;
-	
-	//tool types:
-	public static final int TOOL_NONE = 0;
-	public static final int TOOL_WOOD = 1;
-	public static final int TOOL_GRASS = 2;
-	public static final int TOOL_ROCK = 3;
-	public static final int TOOL_IRON = 4;
-	public static final int TOOL_DARK = 5;
-	public static final int TOOL_CLOUD = 6;
-	
-	//harvesting conditions
-	public static final int HARVEST_CONDITION_NORMAL = 0;
+	//Item options:
+	public static final int WATER_BOTTLE_PERCENT = 20; //the amount of water the water bottle restores
+	public static final int LUNCH_BOX_PERCENT = 20; //the amount of food the lunch box restores
+	public static final int MED_KIT_PERCENT = 20; //the amount of health the med kit restores
+	public static final int STRENGTH_POTION_AMOUNT = 25; //the amount of moves the strength potion gives you
+	public static final int SHIELD_AMOUNT = 5; //TODO implement shield
+	public static final int SPEED_POTION_AMOUNT = 10; //the amount of moves the speed potion gives you
+	public static final int LUCK_POTION_AMOUNT = 5; //the amount of harvest attempts the luck potion gives you
+	public static final int CHAOS_TELEPORTER_LOW_RANGE = 20; //the minimum range of the chaos teleporter
+	public static final int CHAOS_TELEPORTER_HIGH_RANGE = 100; //the maximum range of the chaos teleporter
 
 	// temperatures: affect water loss in zones
 	public static final double TEMP_NORMAL = 0.01; // lose 1% of water per move

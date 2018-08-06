@@ -38,9 +38,9 @@ public class LandmarkTree extends Landmark {
 	}
 
 	@Override
-	public ResourceStack getHarvest(int toolType) {
+	public ResourceStack getHarvest(Resource toolType) {
 		switch(toolType) {
-		case Library.TOOL_WOOD: return new ResourceStack(Resource.WOOD, QRandom.randInt(20, 30));
+		case WOOD: return new ResourceStack(Resource.WOOD, QRandom.randInt(20, 30));
 		}
 		return null;
 	}

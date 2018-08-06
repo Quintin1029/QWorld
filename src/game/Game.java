@@ -5,6 +5,7 @@ import java.util.Random;
 import items.Item;
 import items.tools.ItemTool;
 import landmarks.Landmark;
+import resources.Resource;
 import resources.ResourceStack;
 import util.LoadingFrame;
 import util.Vector;
@@ -35,12 +36,14 @@ public class Game {
 	public Game() {
 		Library.print("Running game...");
 		LoadingFrame lf = new LoadingFrame();
+		//generate the world
 		zones = WorldGenerator.generateZones(lf);
 		world = WorldGenerator.generateWorld(zones, lf);
 		player = new PlayerStatManager(this);
 		ui = new UI(player);
 		lf.kill();
 		ui.run(this);
+		//display the story
 		if (!Library.DISABLE_STORY) {
 			ui.displayDialogue(
 					"Legend says of 30 items scattered throughout the world. When you get all of them, the path will be revealed.",
@@ -116,8 +119,8 @@ public class Game {
 
 		boolean harvested = false;
 		for (Vector position : positionsToHarvest) {
-			int[] toolTypes = ((ItemTool) tool).getToolTypes();
-			for (int toolType : toolTypes) {
+			Resource[] toolTypes = ((ItemTool) tool).getToolTypes();
+			for (Resource toolType : toolTypes) {
 				Landmark landmarkAtPos = world[position.getX()][position.getY()];
 				ResourceStack result = landmarkAtPos.getHarvest(toolType);
 				if (player.attemptToUseLuck())

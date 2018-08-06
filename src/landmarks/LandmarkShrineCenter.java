@@ -31,7 +31,7 @@ public class LandmarkShrineCenter extends Landmark {
 	}
 
 	@Override
-	public ResourceStack getHarvest(int toolType) {
+	public ResourceStack getHarvest(Resource toolType) {
 		return new ResourceStack(Resource.DARK, 1);
 	}
 

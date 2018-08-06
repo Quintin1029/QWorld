@@ -4,6 +4,7 @@ import game.HarvestCondition;
 import game.Library;
 import game.PlayerStatManager;
 import items.Item;
+import resources.Resource;
 
 /**
  * The superclass for all tool items.
@@ -20,7 +21,7 @@ public abstract class ItemTool extends Item {
 	 * Gets the tool types of this object. Use Libary.java to compare.
 	 * @return
 	 */
-	public abstract int [] getToolTypes();
+	public abstract Resource [] getToolTypes();
 
 	@Override
 	public void use() {

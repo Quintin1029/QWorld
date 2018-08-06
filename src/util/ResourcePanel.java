@@ -1,6 +1,7 @@
 package util;
 
 import java.awt.FlowLayout;
+import java.awt.Font;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -78,6 +79,7 @@ public class ResourcePanel extends JPanel {
 		public ResourceDisplayPanel(Resource type) {
 			numberLabel = new JLabel();
 			numberLabel.setForeground(Library.COLOR_SCHEME.getTextColor());
+			numberLabel.setFont(new Font("Arial", Font.BOLD, Library.RESOURCE_FONT_SIZE));
 			this.type = type;
 			
 			setLayout(new FlowLayout());

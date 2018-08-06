@@ -1,5 +1,6 @@
 package util;
 
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.MouseEvent;
@@ -45,6 +46,7 @@ public class InventoryPanel extends JPanel {
 		consumableButtons = new JButton[Library.CARRYING_CAPACITY];
 		consumablesGridPanel = new JPanel();
 		consumablesGridPanel.setLayout(new GridLayout((int) Math.ceil(Library.CARRYING_CAPACITY * 1. / WIDTH), WIDTH));
+		consumablesGridPanel.setPreferredSize(new Dimension(Library.QBUTTON_HEIGHT_AND_WIDTH, Library.WINDOW_SCREEN_PIXEL_HEIGHT * 3 / 4));
 		for (int b = 0; b < Library.CARRYING_CAPACITY; b++) {
 			consumableButtons[b] = new QButton(player.getConsumables()[b]);
 			consumablesGridPanel.add(consumableButtons[b]);
@@ -53,6 +55,7 @@ public class InventoryPanel extends JPanel {
 		toolButtons = new JButton[Library.CARRYING_CAPACITY];
 		toolGridPanel = new JPanel();
 		toolGridPanel.setLayout(new GridLayout((int) Math.ceil(Library.CARRYING_CAPACITY * 1. / WIDTH), WIDTH));
+		toolGridPanel.setPreferredSize(new Dimension(Library.QBUTTON_HEIGHT_AND_WIDTH, Library.WINDOW_SCREEN_PIXEL_HEIGHT * 3 / 4));
 		for (int b = 0; b < Library.CARRYING_CAPACITY; b++) {
 			toolButtons[b] = new QButton(player.getTools()[b]);
 			toolGridPanel.add(toolButtons[b]);
@@ -61,6 +64,7 @@ public class InventoryPanel extends JPanel {
 		buildingButtons = new JButton[Library.CARRYING_CAPACITY];
 		buildingGridPanel = new JPanel();
 		buildingGridPanel.setLayout(new GridLayout((int) Math.ceil(Library.CARRYING_CAPACITY * 1. / WIDTH), WIDTH));
+		buildingGridPanel.setPreferredSize(new Dimension(Library.QBUTTON_HEIGHT_AND_WIDTH, Library.WINDOW_SCREEN_PIXEL_HEIGHT * 3 / 4));
 		for (int b = 0; b < Library.CARRYING_CAPACITY; b++) {
 			buildingButtons[b] = new QButton(player.getBuildings()[b]);
 			buildingGridPanel.add(buildingButtons[b]);
@@ -90,6 +94,7 @@ public class InventoryPanel extends JPanel {
 			this.item = item;
 			if (item != null)
 				setIcon(item.getIcon());
+			setPreferredSize(new Dimension(Library.QBUTTON_HEIGHT_AND_WIDTH, Library.QBUTTON_HEIGHT_AND_WIDTH));
 			setFocusable(false);
 			addMouseListener(new QButtonMouseListener());
 			setBorder(BorderFactory.createLineBorder(Library.COLOR_SCHEME.getButtonBorderColor()));

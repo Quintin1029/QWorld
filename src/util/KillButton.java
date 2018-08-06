@@ -1,5 +1,6 @@
 package util;
 
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -7,6 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 
 import colorschemes.ColorScheme;
+import game.Library;
 import game.UI;
 
 /**
@@ -23,7 +25,7 @@ public class KillButton extends JButton {
 	 * @param ui the UI (for displaying the 'are you sure you want to quit' question)
 	 */
 	public KillButton(JFrame frameToKill, ColorScheme cs, UI ui) {
-		setSize(50, 50);
+		setPreferredSize(new Dimension(Library.QBUTTON_HEIGHT_AND_WIDTH * 3, Library.WINDOW_SCREEN_PIXEL_HEIGHT / 7));
 		setBackground(cs.getButtonColor());
 		setForeground(cs.getTextColor());
 		setFocusable(false);

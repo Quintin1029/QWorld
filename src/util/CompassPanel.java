@@ -17,7 +17,7 @@ import game.Library;
  */
 public class CompassPanel extends JPanel {
 
-	public static int DIAMETER = 60;
+	public static int DIAMETER = Library.QBUTTON_HEIGHT_AND_WIDTH * 9 / 5;
 	public static int DISPLACEMENT = 10;
 	private static int [] XPOINTS = {-2, -2, -6, 0, 6, 2, 2};
 	private static int [] YPOINTS = {0, DIAMETER / 4 - 4, DIAMETER / 4 - 4, DIAMETER / 2, DIAMETER / 4 - 4, DIAMETER / 4 - 4, 0};
@@ -48,7 +48,7 @@ public class CompassPanel extends JPanel {
 	public void paintComponent(Graphics g) {
 		Graphics2D g2 = (Graphics2D) g;
 		g2.setColor(Library.COLOR_SCHEME.getBackgroundColor());
-		g2.fillRect(0, 0, DIAMETER + 2 * DISPLACEMENT + 200, DIAMETER + 2 * DISPLACEMENT);
+		g2.fillRect(0, 0, DIAMETER + 2 * DISPLACEMENT + 500, DIAMETER + 2 * DISPLACEMENT + 200);
 		g2.setColor(Color.YELLOW);
 		g2.fillOval(DISPLACEMENT, DISPLACEMENT, DIAMETER, DIAMETER);
 		g2.translate(DISPLACEMENT + DIAMETER / 2, DISPLACEMENT + DIAMETER / 2);

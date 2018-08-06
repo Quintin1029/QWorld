@@ -1,6 +1,7 @@
 package game;
 
 import java.awt.Image;
+import java.awt.Toolkit;
 
 import javax.swing.ImageIcon;
 
@@ -59,21 +60,30 @@ public class Library {
 	public static final char LANDMARK_SHRINE_DIAG_RIGHT = '/';
 	public static final char LANDMARK_CACTUS = 'i';
 
-	// window stats: affect UI display
-	public static final int WINDOW_SCREEN_CHAR_WIDTH = 20;
-	public static final int WINDOW_SCREEN_CHAR_HEIGHT = 20;
-	public static final int WINDOW_SCREEN_PIXEL_WIDTH = 500;
-	public static final int WINDOW_SCREEN_PIXEL_HEIGHT = 500;
-	public static final int ZONE_WIDTH = 1;
-	public static final int ZONE_HEIGHT = 1;
-	public static final float FONT_SIZE = 15f;
-
 	// game options: affect world generation or settings
 	public static final int WORLD_SIZE = 1000;
 	public static final int ZONE_DENSITY = 200;
 	public static final int ZONE_MINIMUM_DISTANCE = 30; //make sure ZONE_DENSITY * ZONE_MINIMUM_DISTANCE < 1,000,000
 	public static final int SPAWN_RADIUS = 30; //no structures will be generated in the circle at the center of the world with this radius
 	public static final int CARRYING_CAPACITY = 10;
+	
+	// window stats: affect UI display
+	public static final int WINDOW_SCREEN_CHAR_WIDTH = 20;
+	public static final int WINDOW_SCREEN_CHAR_HEIGHT = 20;
+	public static final int FRAME_PIXEL_HEIGHT = Toolkit.getDefaultToolkit().getScreenSize().height * 3 / 4;
+	public static final int FRAME_PIXEL_WIDTH = Toolkit.getDefaultToolkit().getScreenSize().width / 2;
+	public static final int WINDOW_SCREEN_PIXEL_HEIGHT = FRAME_PIXEL_HEIGHT * 4 / 5;
+	public static final int WINDOW_SCREEN_PIXEL_WIDTH = WINDOW_SCREEN_PIXEL_HEIGHT;
+	public static final int WINDOW_LOADING_HEIGHT = FRAME_PIXEL_HEIGHT / 5;
+	public static final int WINDOW_LOADING_WIDTH = FRAME_PIXEL_WIDTH / 3;
+	public static final int LOADING_FONT_SIZE = FRAME_PIXEL_HEIGHT / 40;
+	public static final int QBUTTON_HEIGHT_AND_WIDTH = WINDOW_SCREEN_PIXEL_HEIGHT / (CARRYING_CAPACITY + 4);
+	public static final int ZONE_WIDTH = 1;
+	public static final int ZONE_HEIGHT = 1;
+	public static final float FONT_SIZE = 15f;
+	public static final int RESOURCE_FONT_SIZE = LOADING_FONT_SIZE * 2 / 3;
+	public static final int TIME_FONT_SIZE = LOADING_FONT_SIZE * 2;
+	public static final int BORDER_SIZE = FRAME_PIXEL_HEIGHT / 150;
 	
 	//hut gen
 	public static final int ITEM_WATER_BOTTLE_HUT_INNER_RADIUS = 20;
@@ -136,49 +146,49 @@ public class Library {
 		
 	//landmark icons
 	public static final ImageIcon [] LANDMARK_ICONS = {
-			scaleImageToSize(getImage("icons/landmarks/grass.png")),
-			scaleImageToSize(getImage("icons/landmarks/tree.png")),
-			scaleImageToSize(getImage("icons/landmarks/player.png")),
-			scaleImageToSize(getImage("icons/landmarks/house.png")),
-			scaleImageToSize(getImage("icons/landmarks/cactus.png")),
-			scaleImageToSize(getImage("icons/landmarks/hut.png")),
-			scaleImageToSize(getImage("icons/landmarks/ruins.png")),
-			scaleImageToSize(getImage("icons/landmarks/sea.png")),
-			scaleImageToSize(getImage("icons/landmarks/shrine.png")),
-			scaleImageToSize(getImage("icons/landmarks/shrineBorder.png")),
-			scaleImageToSize(getImage("icons/landmarks/well.png")),
-			scaleImageToSize(getImage("icons/landmarks/sand.png"))
+			scaleImageToGridSize(getImage("icons/landmarks/grass.png")),
+			scaleImageToGridSize(getImage("icons/landmarks/tree.png")),
+			scaleImageToGridSize(getImage("icons/landmarks/player.png")),
+			scaleImageToGridSize(getImage("icons/landmarks/house.png")),
+			scaleImageToGridSize(getImage("icons/landmarks/cactus.png")),
+			scaleImageToGridSize(getImage("icons/landmarks/hut.png")),
+			scaleImageToGridSize(getImage("icons/landmarks/ruins.png")),
+			scaleImageToGridSize(getImage("icons/landmarks/sea.png")),
+			scaleImageToGridSize(getImage("icons/landmarks/shrine.png")),
+			scaleImageToGridSize(getImage("icons/landmarks/shrineBorder.png")),
+			scaleImageToGridSize(getImage("icons/landmarks/well.png")),
+			scaleImageToGridSize(getImage("icons/landmarks/sand.png"))
 	};
 	
 	//icons used for items
 	public static final ImageIcon [] ITEM_CONSUMABLE_ICONS = {
-			getImage("icons/items/waterbottle.png"),
-			getImage("icons/items/lunchbox.png"),
-			getImage("icons/items/medkit.png"),
-			getImage("icons/items/strengthpotion.png"),
-			getImage("icons/items/rubyslippers.png"),
-			getImage("icons/items/speedpotion.png"),
-			getImage("icons/items/shield.png"),
-			getImage("icons/items/luckpotion.png"),
-			getImage("icons/items/teleporter.png"),
-			getImage("icons/items/fireball.png")
+			scaleImageToItemSize(getImage("icons/items/waterbottle.png")),
+			scaleImageToItemSize(getImage("icons/items/lunchbox.png")),
+			scaleImageToItemSize(getImage("icons/items/medkit.png")),
+			scaleImageToItemSize(getImage("icons/items/strengthpotion.png")),
+			scaleImageToItemSize(getImage("icons/items/rubyslippers.png")),
+			scaleImageToItemSize(getImage("icons/items/speedpotion.png")),
+			scaleImageToItemSize(getImage("icons/items/shield.png")),
+			scaleImageToItemSize(getImage("icons/items/luckpotion.png")),
+			scaleImageToItemSize(getImage("icons/items/teleporter.png")),
+			scaleImageToItemSize(getImage("icons/items/fireball.png"))
 	};
 	
 	public static final ImageIcon [] ITEM_TOOL_ICONS = {
-			getImage("icons/items/branch.png"),
-			getImage("icons/items/scythe.png"),
-			getImage("icons/items/chisel.png"),
-			getImage("icons/items/pickaxe.png"),
-			getImage("icons/items/soulcollector.png"),
-			getImage("icons/items/bottle.png"),
-			getImage("icons/items/axe.png"),
-			getImage("icons/items/drill.png"),
-			getImage("icons/items/soulbottle.png"),
-			getImage("icons/items/hammer.png")
+			scaleImageToItemSize(getImage("icons/items/branch.png")),
+			scaleImageToItemSize(getImage("icons/items/scythe.png")),
+			scaleImageToItemSize(getImage("icons/items/chisel.png")),
+			scaleImageToItemSize(getImage("icons/items/pickaxe.png")),
+			scaleImageToItemSize(getImage("icons/items/soulcollector.png")),
+			scaleImageToItemSize(getImage("icons/items/bottle.png")),
+			scaleImageToItemSize(getImage("icons/items/axe.png")),
+			scaleImageToItemSize(getImage("icons/items/drill.png")),
+			scaleImageToItemSize(getImage("icons/items/soulbottle.png")),
+			scaleImageToItemSize(getImage("icons/items/hammer.png"))
 	};
 	
 	public static final ImageIcon [] ITEM_BUILDING_ICONS = {
-			getImage("icons/shirt.png")
+			scaleImageToItemSize(getImage("icons/shirt.png"))
 	};
 	
 	public static final ImageIcon [] RESOURCE_ICONS = {
@@ -200,11 +210,22 @@ public class Library {
 	}
 	
 	/**
+	 * Scales the image to the size of an item button. Call this on image instantiation, not every screen update (for time complexity).
+	 * @param image the image to scale
+	 * @return the scaled image
+	 */
+	public static ImageIcon scaleImageToItemSize(ImageIcon image) {
+		if (image != null)
+			return new ImageIcon(image.getImage().getScaledInstance(QBUTTON_HEIGHT_AND_WIDTH, QBUTTON_HEIGHT_AND_WIDTH, Image.SCALE_SMOOTH));
+		return null;
+	}
+	
+	/**
 	 * Scales the image to the size of each grid box in the screen. Call this on image instantiation, not every screen update (for time complexity).
 	 * @param image the image to scale
 	 * @return the scaled image.
 	 */
-	public static ImageIcon scaleImageToSize(ImageIcon image) {
+	public static ImageIcon scaleImageToGridSize(ImageIcon image) {
 		if (image != null)
 			return new ImageIcon(image.getImage().getScaledInstance(WINDOW_SCREEN_PIXEL_WIDTH / WINDOW_SCREEN_CHAR_WIDTH, WINDOW_SCREEN_PIXEL_HEIGHT / WINDOW_SCREEN_CHAR_WIDTH, Image.SCALE_FAST));
 		return null;

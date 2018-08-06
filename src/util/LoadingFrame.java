@@ -1,13 +1,17 @@
 package util;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
 
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
+
+import game.Library;
 
 /**
  * The class used for the JFrame created while generating the world
@@ -24,12 +28,16 @@ public class LoadingFrame extends JFrame {
 	public LoadingFrame() {
 		mainBar = new JProgressBar(0, 100);
 		mainBar.setForeground(Color.RED);
+		mainBar.setPreferredSize(new Dimension(Library.WINDOW_LOADING_WIDTH * 2 / 3, Library.WINDOW_LOADING_HEIGHT / 5));
 		subBar = new JProgressBar(0, 100);
 		subBar.setForeground(Color.RED);
+		subBar.setPreferredSize(new Dimension(Library.WINDOW_LOADING_WIDTH * 2 / 3, Library.WINDOW_LOADING_HEIGHT / 5));
 		mainLabel = new JLabel("Building game...");
 		mainLabel.setForeground(Color.GREEN);
+		mainLabel.setFont(new Font("Arial", Font.PLAIN, Library.LOADING_FONT_SIZE));
 		subLabel = new JLabel("Building game...");
 		subLabel.setForeground(Color.GREEN);
+		subLabel.setFont(new Font("Arial", Font.PLAIN, Library.LOADING_FONT_SIZE));
 		
 		JPanel p1 = new JPanel();
 		p1.setLayout(new FlowLayout());
@@ -39,11 +47,11 @@ public class LoadingFrame extends JFrame {
 		p1.add(subBar);
 		p1.add(subLabel);
 		p1.setBackground(Color.DARK_GRAY);
-		p1.setBorder(BorderFactory.createLineBorder(Color.GRAY, 4));
+		p1.setBorder(BorderFactory.createLineBorder(Color.GRAY, Library.BORDER_SIZE));
 		
 		add(p1);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(250, 90);
+		setSize(Library.WINDOW_LOADING_WIDTH, Library.WINDOW_LOADING_HEIGHT);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setUndecorated(true);

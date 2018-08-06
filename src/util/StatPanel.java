@@ -59,12 +59,15 @@ public class StatPanel extends JPanel {
 		
 		barWater = new JProgressBar();
 		barWater.setMaximum(100);
+		barWater.setPreferredSize(new Dimension(Library.WINDOW_SCREEN_PIXEL_WIDTH / 2, Library.WINDOW_SCREEN_PIXEL_WIDTH * 2 / 3 / 15));
 		barWater.setForeground(Color.BLUE);
 		barFood = new JProgressBar();
 		barFood.setMaximum(100);
+		barFood.setPreferredSize(new Dimension(Library.WINDOW_SCREEN_PIXEL_WIDTH / 2, Library.WINDOW_SCREEN_PIXEL_WIDTH * 2 / 3 / 15));
 		barFood.setForeground(Color.GREEN);
 		barHealth = new JProgressBar();
 		barHealth.setMaximum(100);
+		barHealth.setPreferredSize(new Dimension(Library.WINDOW_SCREEN_PIXEL_WIDTH / 2, Library.WINDOW_SCREEN_PIXEL_WIDTH * 2 / 3 / 15));
 		barHealth.setForeground(Color.RED);
 		compass = new CompassPanel();
 		
@@ -99,13 +102,13 @@ public class StatPanel extends JPanel {
 		borderPanel.setLayout(new BorderLayout());
 		
 		setLayout(new BorderLayout());
-		setPreferredSize(new Dimension(500, 75));
 		
 		borderPanel.add(topPanel, BorderLayout.NORTH);
 		borderPanel.add(middlePanel, BorderLayout.CENTER);
 		borderPanel.add(bottomPanel, BorderLayout.SOUTH);
 		add(borderPanel, BorderLayout.WEST);
 		add(compass, BorderLayout.CENTER);
+		setPreferredSize(new Dimension(Library.WINDOW_SCREEN_PIXEL_WIDTH, Library.WINDOW_SCREEN_PIXEL_WIDTH * 7 / 6 / 8));
 		
 		updatePanel();
 	}

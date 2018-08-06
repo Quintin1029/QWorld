@@ -25,7 +25,7 @@ public class TimePanel extends JPanel {
 	public TimePanel(int time) {
 		this.time = time;
 		label = new JLabel("0:00");
-		label.setFont(new Font("Helvetica", Font.BOLD, 30));
+		label.setFont(new Font("Helvetica", Font.BOLD, Library.TIME_FONT_SIZE));
 		label.setForeground(Color.RED);
 		add(label);
 		setBackground(Library.COLOR_SCHEME.getBackgroundColor());

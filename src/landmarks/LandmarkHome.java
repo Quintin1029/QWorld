@@ -18,11 +18,6 @@ public class LandmarkHome extends Landmark {
 	public ImageIcon getIcon() {
 		return Library.LANDMARK_ICONS[3];
 	}
-	
-	@Override
-	public char getChar() {
-		return Library.LANDMARK_HOME;
-	}
 
 	@Override
 	public boolean getIsSolid() {

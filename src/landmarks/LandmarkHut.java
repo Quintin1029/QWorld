@@ -45,11 +45,6 @@ public class LandmarkHut extends Landmark {
 	}
 	
 	@Override
-	public char getChar() {
-		return (used)? Library.LANDMARK_HUT_BROKEN : Library.LANDMARK_HUT;
-	}
-
-	@Override
 	public boolean getIsSolid() {
 		return true;
 	}

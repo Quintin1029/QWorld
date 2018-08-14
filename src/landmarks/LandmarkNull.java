@@ -15,11 +15,6 @@ import resources.ResourceStack;
 public class LandmarkNull extends Landmark {
 
 	@Override
-	public char getChar() {
-		return Library.LANDMARK_NULL;
-	}
-
-	@Override
 	public boolean getIsSolid() {
 		return true;
 	}

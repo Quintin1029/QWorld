@@ -19,11 +19,6 @@ public class LandmarkShrineCenter extends Landmark {
 	public ImageIcon getIcon() {
 		return Library.LANDMARK_ICONS[8];
 	}
-	
-	@Override
-	public char getChar() {
-		return Library.LANDMARK_SHRINE_CENTER;
-	}
 
 	@Override
 	public boolean getIsSolid() {

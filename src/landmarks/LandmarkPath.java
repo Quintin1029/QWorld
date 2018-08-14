@@ -13,11 +13,6 @@ import resources.ResourceStack;
 public class LandmarkPath extends Landmark {
 
 	@Override
-	public char getChar() {
-		return Library.LANDMARK_PATH;
-	}
-
-	@Override
 	public boolean getIsSolid() {
 		return false;
 	}

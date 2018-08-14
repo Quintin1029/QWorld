@@ -11,11 +11,6 @@ import util.QRandom;
 public class LandmarkMountain extends Landmark {
 
 	@Override
-	public char getChar() {
-		return Library.LANDMARK_MOUNTAIN_TOP;
-	}
-
-	@Override
 	public boolean getIsSolid() {
 		return true;
 	}

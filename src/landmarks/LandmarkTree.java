@@ -21,11 +21,6 @@ public class LandmarkTree extends Landmark {
 	public ImageIcon getIcon() {
 		return Library.LANDMARK_ICONS[1];
 	}
-	
-	@Override
-	public char getChar() {
-		return Library.LANDMARK_TREE;
-	}
 
 	@Override
 	public boolean getIsSolid() {

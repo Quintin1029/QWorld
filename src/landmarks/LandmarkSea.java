@@ -24,11 +24,6 @@ public class LandmarkSea extends Landmark {
 	}
 	
 	@Override
-	public char getChar() {
-		return Library.LANDMARK_SEA;
-	}
-
-	@Override
 	public boolean getIsSolid() {
 		return true;
 	}

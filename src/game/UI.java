@@ -145,35 +145,20 @@ public class UI {
 		for (int x = 0; x < Library.WINDOW_SCREEN_CHAR_WIDTH; x++)
 			for (int y = 0; y < Library.WINDOW_SCREEN_CHAR_HEIGHT; y++) {
 				try {
-					Color bcolor = world[x + pPos.getX() - Library.WINDOW_SCREEN_CHAR_WIDTH / 2][y + pPos.getY() - Library.WINDOW_SCREEN_CHAR_HEIGHT / 2].getBackgroundColor();
-					Color fcolor = world[x + pPos.getX() - Library.WINDOW_SCREEN_CHAR_WIDTH / 2][y + pPos.getY() - Library.WINDOW_SCREEN_CHAR_HEIGHT / 2].getForegroundColor();
-					if (world[x + pPos.getX() - Library.WINDOW_SCREEN_CHAR_WIDTH / 2][y + pPos.getY() - Library.WINDOW_SCREEN_CHAR_HEIGHT / 2].getIcon() == null) {
-						labelHolder[x][y].setIcon(null);
-						labelHolder[x][y].setBackground((bcolor == null)? zones[x + pPos.getX() - Library.WINDOW_SCREEN_CHAR_WIDTH / 2][y + pPos.getY() - Library.WINDOW_SCREEN_CHAR_HEIGHT / 2].getGroundColor() : bcolor);
-						labelHolder[x][y].setForeground((fcolor == null)? Color.BLACK : fcolor);
-						labelHolder[x][y].setText("" + world[x + pPos.getX() - Library.WINDOW_SCREEN_CHAR_WIDTH / 2][y + pPos.getY() - Library.WINDOW_SCREEN_CHAR_HEIGHT / 2].getChar());
-					} else {
-						ImageIcon base = world[x + pPos.getX() - Library.WINDOW_SCREEN_CHAR_WIDTH / 2][y + pPos.getY() - Library.WINDOW_SCREEN_CHAR_HEIGHT / 2].getIcon();
-						ImageIcon ground = zones[x + pPos.getX() - Library.WINDOW_SCREEN_CHAR_WIDTH / 2][y + pPos.getY() - Library.WINDOW_SCREEN_CHAR_HEIGHT / 2].getGroundLandmark().getIcon();
-						if (ground != null)
-							labelHolder[x][y].setIcon(QGraphics.overlay(base, ground));
-						else
-							labelHolder[x][y].setIcon(base);
-						labelHolder[x][y].setText("");
-					}
+					ImageIcon base = world[x + pPos.getX() - Library.WINDOW_SCREEN_CHAR_WIDTH / 2][y + pPos.getY() - Library.WINDOW_SCREEN_CHAR_HEIGHT / 2].getIcon();
+					ImageIcon ground = zones[x + pPos.getX() - Library.WINDOW_SCREEN_CHAR_WIDTH / 2][y + pPos.getY() - Library.WINDOW_SCREEN_CHAR_HEIGHT / 2].getGroundLandmark().getIcon();
+					//set the icon (note that if one parameter is null then the other will still be rendered)
+					labelHolder[x][y].setIcon(QGraphics.overlay(base, ground));
+					labelHolder[x][y].setText("");
+					
 				} catch (ArrayIndexOutOfBoundsException e) {
-					labelHolder[x][y].setText("" + Library.LANDMARK_NULL);
-					labelHolder[x][y].setBackground(Color.BLACK);
-					labelHolder[x][y].setForeground(Color.BLACK);
+					//for any landmarks outside the world
+					labelHolder[x][y].setIcon(null);
 				}
 			}
 		//draw the player
-		//labelHolder[Library.WINDOW_SCREEN_CHAR_WIDTH / 2][Library.WINDOW_SCREEN_CHAR_HEIGHT / 2].setText("" + Library.LANDMARK_PLAYER);
 		ImageIcon ground = zones[pPos.getX()][pPos.getY()].getGroundLandmark().getIcon();
-		if (ground != null) {
-			labelHolder[Library.WINDOW_SCREEN_CHAR_WIDTH / 2][Library.WINDOW_SCREEN_CHAR_HEIGHT / 2].setIcon(QGraphics.overlay(Library.LANDMARK_ICONS[2], ground));
-		} else
-			labelHolder[Library.WINDOW_SCREEN_CHAR_WIDTH / 2][Library.WINDOW_SCREEN_CHAR_HEIGHT / 2].setIcon(Library.LANDMARK_ICONS[2]);
+		labelHolder[Library.WINDOW_SCREEN_CHAR_WIDTH / 2][Library.WINDOW_SCREEN_CHAR_HEIGHT / 2].setIcon(QGraphics.overlay(Library.LANDMARK_ICONS[2], ground));
 		labelHolder[Library.WINDOW_SCREEN_CHAR_WIDTH / 2][Library.WINDOW_SCREEN_CHAR_HEIGHT / 2].setText("");
 		//update stats
 		statPanel.updatePanel();

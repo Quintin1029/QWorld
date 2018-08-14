@@ -18,11 +18,6 @@ public class LandmarkGround extends Landmark {
 	public ImageIcon getIcon() {
 		return Library.LANDMARK_ICONS[0];
 	}
-	
-	@Override
-	public char getChar() {
-		return Library.LANDMARK_GROUND;
-	}
 
 	@Override
 	public boolean getIsSolid() {

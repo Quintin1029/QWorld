@@ -23,11 +23,6 @@ public class LandmarkRuins extends Landmark {
 	}
 	
 	@Override
-	public char getChar() {
-		return Library.LANDMARK_RUINS;
-	}
-
-	@Override
 	public boolean getIsSolid() {
 		return true;
 	}

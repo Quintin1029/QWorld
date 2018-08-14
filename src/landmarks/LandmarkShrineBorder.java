@@ -30,17 +30,6 @@ public class LandmarkShrineBorder extends Landmark{
 		//TODO add other types
 		return Library.LANDMARK_ICONS[9];
 	}
-	
-	@Override
-	public char getChar() {
-		switch(type) {
-		case SIDE: return Library.LANDMARK_SHRINE_SIDE;
-		case TOP: return Library.LANDMARK_SHRINE_TOP;
-		case DIAG_LEFT: return Library.LANDMARK_SHRINE_DIAG_LEFT;
-		case DIAG_RIGHT: return Library.LANDMARK_SHRINE_DIAG_RIGHT;
-		default: return Library.LANDMARK_NULL;
-		}
-	}
 
 	@Override
 	public boolean getIsSolid() {

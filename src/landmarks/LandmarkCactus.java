@@ -20,11 +20,6 @@ public class LandmarkCactus extends Landmark {
 	public ImageIcon getIcon() {
 		return Library.LANDMARK_ICONS[4];
 	}
-	
-	@Override
-	public char getChar() {
-		return Library.LANDMARK_CACTUS;
-	}
 
 	@Override
 	public boolean getIsSolid() {

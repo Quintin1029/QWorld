@@ -22,11 +22,6 @@ public class LandmarkWell extends Landmark {
 	}
 	
 	@Override
-	public char getChar() {
-		return Library.LANDMARK_WELL;
-	}
-
-	@Override
 	public boolean getIsSolid() {
 		return false;
 	}

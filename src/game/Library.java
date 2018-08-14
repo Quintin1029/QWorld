@@ -31,32 +31,6 @@ public class Library {
 	//timing constants
 	public static final int APOCALYPSE_TIME = 15 * 60; //the time it takes for the apocalypse to start
 
-	// landmark char constants: used by landmarks to display to the screen TODO get rid of char system
-	public static final char LANDMARK_NULL = 'X';// '\u2593';
-	public static final char LANDMARK_GROUND = ' ';
-	public static final char LANDMARK_SEA = ' ';
-	public static final char LANDMARK_PATH = '#';
-	public static final char LANDMARK_TREE = 'T';
-	public static final char LANDMARK_MOUNTAIN_TOP = '^';
-	public static final char LANDMARK_MOUNTAIN_SIDE_LEFT = '/';
-	public static final char LANDMARK_MOUNTAIN_SIDE_RIGHT = '\\';
-	public static final char LANDMARK_HOUSE_SIDE = '|';
-	public static final char LANDMARK_HOUSE_TOP_LEFT = '/';
-	public static final char LANDMARK_HOUSE_TOP_RIGHT = '\\';
-	public static final char LANDMARK_HOUSE_TOP_TOP = '_';
-	public static final char LANDMARK_PLAYER = 'O'; // person
-	public static final char LANDMARK_ENEMY = '\u2738'; // star
-	public static final char LANDMARK_HOME = 'H';
-	public static final char LANDMARK_WELL = 'W';
-	public static final char LANDMARK_HUT = '@';
-	public static final char LANDMARK_HUT_BROKEN = '#';
-	public static final char LANDMARK_RUINS = '#';
-	public static final char LANDMARK_SHRINE_CENTER = '?';
-	public static final char LANDMARK_SHRINE_SIDE = '-';
-	public static final char LANDMARK_SHRINE_TOP = '|';
-	public static final char LANDMARK_SHRINE_DIAG_LEFT = '\\';
-	public static final char LANDMARK_SHRINE_DIAG_RIGHT = '/';
-	public static final char LANDMARK_CACTUS = 'i';
 
 	// game options: affect world generation or settings
 	public static final int WORLD_SIZE = 1000; //the width and height of the world (1000x1000)

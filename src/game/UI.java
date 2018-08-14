@@ -98,6 +98,7 @@ public class UI {
 				labelHolder[y][x] = new JLabel("" + Library.LANDMARK_NULL, 0);
 				labelHolder[y][x].setFont(font);
 				labelHolder[y][x].setOpaque(true);
+				labelHolder[y][x].setBackground(Color.BLACK);
 				labelHolder[y][x].setSize(Library.WINDOW_SCREEN_PIXEL_WIDTH / Library.WINDOW_SCREEN_CHAR_WIDTH, Library.WINDOW_SCREEN_PIXEL_HEIGHT / Library.WINDOW_SCREEN_CHAR_HEIGHT);
 				gridPanel.add(labelHolder[y][x]);
 			}

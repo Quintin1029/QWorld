@@ -1,6 +1,7 @@
 package util;
 
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -29,6 +30,7 @@ public class KillButton extends JButton {
 		setBackground(cs.getButtonColor());
 		setForeground(cs.getTextColor());
 		setFocusable(false);
+		setFont(new Font("Arial", Font.PLAIN, Library.LOADING_FONT_SIZE));
 		setText("Quit");
 		addActionListener(new Listener(frameToKill, ui));
 	}

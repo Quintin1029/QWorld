@@ -73,7 +73,7 @@ public class Library {
 	public static final int WINDOW_SCREEN_PIXEL_HEIGHT = FRAME_PIXEL_HEIGHT * 4 / 5; //the height of the world display in pixels
 	public static final int WINDOW_SCREEN_PIXEL_WIDTH = WINDOW_SCREEN_PIXEL_HEIGHT; //the width of the world display in pixels (should be the same as the height
 	public static final int WINDOW_LOADING_HEIGHT = FRAME_PIXEL_HEIGHT / 5; //the loading window height
-	public static final int WINDOW_LOADING_WIDTH = FRAME_PIXEL_WIDTH / 3; //the loading window width
+	public static final int WINDOW_LOADING_WIDTH = FRAME_PIXEL_WIDTH / 2; //the loading window width
 	public static final int LOADING_FONT_SIZE = FRAME_PIXEL_HEIGHT / 40; //the loading window font size
 	public static final int QBUTTON_HEIGHT_AND_WIDTH = WINDOW_SCREEN_PIXEL_HEIGHT / (CARRYING_CAPACITY + 4); //the height and width of the item buttons (QButtons)
 	public static final float FONT_SIZE = 15f; //the size of the characters in the world (TODO get rid of the character system)
